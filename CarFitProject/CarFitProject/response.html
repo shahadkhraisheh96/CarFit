@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in - CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.b9sayid5wm.css" />
+    <link rel="stylesheet" href="/CarFitProject.qf7x5vsvpg.styles.css" />
+    <link href="/css/style.03bz52bius.css" rel="stylesheet" />
+</head>
+<body>
+    <header b-cf16ua9izm>
+        <nav b-cf16ua9izm class="navbar navbar-expand-lg navbar-light sticky-top py-2 px-4">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <h2 b-cf16ua9izm class="m-0"><i b-cf16ua9izm class="fa-solid fa-car-burst me-2"></i>CarFit</h2>
+            </a>
+            <button b-cf16ua9izm type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span b-cf16ua9izm class="navbar-toggler-icon"></span>
+            </button>
+            <div b-cf16ua9izm class="collapse navbar-collapse" id="navbarCollapse">
+                <div b-cf16ua9izm class="navbar-nav ms-auto py-3 py-lg-0">
+                    <a class="nav-item nav-link " href="/">Home</a>
+
+                    <a class="nav-item nav-link  fw-semibold" href="/Inventory/Search">Explore Inventory</a>
+
+                    <a class="nav-item nav-link " href="/Home/About">About Advisor</a>
+                    <a class="nav-item nav-link " href="/Inspection">Inspection Modules</a>
+                    <a class="nav-item nav-link " href="/Home/Contact">Contact</a>
+
+                        <a class="nav-item nav-link fw-bold" href="/Identity/Account/Login">Login</a>
+                        <a class="nav-item nav-link fw-bold text-primary" href="/Identity/Account/Register">Register</a>
+
+                    <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-globe me-1"></i>English
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+            <a class="dropdown-item active" href="/Identity/Language/Set?culture=en&amp;returnUrl=%2FIdentity%2FAccount%2FLogin%3FReturnUrl%3D%252FBuyer%252FQuestionnaire%252FStep1">
+                English
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="/Identity/Language/Set?culture=ar&amp;returnUrl=%2FIdentity%2FAccount%2FLogin%3FReturnUrl%3D%252FBuyer%252FQuestionnaire%252FStep1">
+                &#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629;
+            </a>
+        </li>
+    </ul>
+</div>
+
+                </div>
+
+                    <a class="btn btn-primary py-2 px-4 d-none d-lg-block" href="/Inspection/Book">Get Inspection Report <i b-cf16ua9izm class="fa fa-arrow-right ms-2"></i></a>
+            </div>
+        </nav>
+    </header>
+    <div b-cf16ua9izm class="container my-4">
+        <main b-cf16ua9izm role="main" class="pb-5">
+            
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="glass-card shadow-lg bg-white rounded-4 p-5">
+                <div class="text-center mb-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary px-3 py-2 rounded-pill fw-bold mb-3">SECURITY CONTROL ENTRY</span>
+                    <h2 class="fw-bold text-dark mb-1">Welcome Back</h2>
+                    <p class="text-muted">Sign in to your CarFit driver or dealership profile account.</p>
+                </div>
+
+                <form id="account" method="post">
+                    
+                    
+                    <div class="form-floating mb-3">
+                        <input class="form-control border-2" autocomplete="username" aria-required="true" placeholder="name@example.com" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+                        <label class="fw-bold text-secondary" for="Input_Email">Email Address</label>
+                        <span class="text-danger small mt-1 d-block field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input class="form-control border-2" autocomplete="current-password" aria-required="true" placeholder="password" type="password" data-val="true" data-val-required="The Password field is required." id="Input_Password" name="Input.Password" />
+                        <label class="fw-bold text-secondary" for="Input_Password">Password</label>
+                        <span class="text-danger small mt-1 d-block field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+                    </div>
+                    
+                    <div class="form-check mb-4 text-start">
+                        <input class="form-check-input" type="checkbox" data-val="true" data-val-required="The Remember me? field is required." id="Input_RememberMe" name="Input.RememberMe" value="true" />
+                        <label class="form-check-label text-secondary small fw-bold" for="Input_RememberMe">
+                            Remember me?
+                        </label>
+                    </div>
+
+                    <div class="mb-4">
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary py-3 fw-bold"><i class="fa-solid fa-right-to-bracket me-2"></i>Sign In</button>
+                    </div>
+
+                    <div class="text-center border-top pt-3">
+                        <p class="mb-1">
+                            <a id="forgot-password" class="text-decoration-none text-secondary small fw-bold" href="/Identity/Account/ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p class="mb-0">
+                            <span class="text-muted small">Don't have an account?</span> 
+                            <a class="text-decoration-none text-primary small fw-bold" href="/Identity/Account/Register?returnUrl=%2FBuyer%2FQuestionnaire%2FStep1">Register here</a>
+                        </p>
+                    </div>
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FrmfLYgXl9Jgc0mX5lT2K1jvkuc6TnP9XdNwiKjh-IdxTiVVUHbacjJJDjnjRzDpkl0HgEfxR6GrbqEs41NUrIpo0HW6GxlHgG4_gYfSbLYg0UVloAeI3Go3eFVyLefwhnU7T0296ZKpoR8lvAQCNw" /><input name="Input.RememberMe" type="hidden" value="false" /></form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </main>
+    </div>
+
+    <footer b-cf16ua9izm class="border-top footer text-muted bg-white py-3 mt-auto">
+        <div b-cf16ua9izm class="container text-center">
+            &copy; 2026 - CarFit - <a class="text-decoration-none text-primary" href="/Home/Privacy">Privacy Policy</a>
+        </div>
+    </footer>
+    <script src="/lib/jquery/dist/jquery.min.m9qm4tazc0.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.hd3gran6i8.js"></script>
+    <script src="/js/site.xtxxf3hu2r.js"></script>
+    
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.gk0pw8i4co.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.48y08845bh.js"></script>
+
+
+</body>
+</html>

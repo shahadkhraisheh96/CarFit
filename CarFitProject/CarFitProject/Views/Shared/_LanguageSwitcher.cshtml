@@ -1,0 +1,26 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarFitProject.Resources.SharedResource> L
+@{
+    var current = System.Globalization.CultureInfo.CurrentUICulture.Name.StartsWith("ar")
+        ? "ar"
+        : "en";
+    var here = ViewContext.HttpContext.Request.Path + ViewContext.HttpContext.Request.QueryString;
+}
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-globe me-1"></i>@(current == "ar" ? L["Lang.Arabic"] : L["Lang.English"])
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+            <a class="dropdown-item @(current == "en" ? "active" : "")"
+               asp-controller="Language" asp-action="Set" asp-route-culture="en" asp-route-returnUrl="@here">
+                @L["Lang.English"]
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item @(current == "ar" ? "active" : "")"
+               asp-controller="Language" asp-action="Set" asp-route-culture="ar" asp-route-returnUrl="@here">
+                @L["Lang.Arabic"]
+            </a>
+        </li>
+    </ul>
+</div>

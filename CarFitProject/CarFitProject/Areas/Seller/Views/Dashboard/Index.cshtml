@@ -1,0 +1,113 @@
+@model CarFitProject.Models.Seller
+@{
+    ViewData["Title"] = SharedLocalizer["Seller.Dashboard.Title"].Value;
+}
+
+<div class="container py-5">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+    }
+
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-8">
+                <span class="eyebrow"><i class="fa fa-building me-1"></i> Dealer Lot</span>
+                <h1 class="mb-1">@string.Format(SharedLocalizer["Seller.Dashboard.Welcome"].Value, Model.Name)</h1>
+                <p class="lead mb-0">@Model.City@(string.IsNullOrEmpty(Model.Neighborhood) ? "" : " · " + Model.Neighborhood)</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                @if (Model.IsApproved)
+                {
+                    <span class="chip chip-success" style="font-size:0.9rem; padding:0.55rem 1.1rem;">
+                        <i class="fa fa-check-circle"></i>@SharedLocalizer["Seller.Approved"]
+                        @if (!string.IsNullOrEmpty(Model.Tier))
+                        {
+                            <span class="ms-2 text-uppercase">@Model.Tier</span>
+                        }
+                    </span>
+                }
+                else
+                {
+                    <span class="chip chip-warning" style="font-size:0.9rem; padding:0.55rem 1.1rem;">
+                        <i class="fa fa-clock"></i>@SharedLocalizer["Seller.Dashboard.PendingApproval"]
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+
+    @if (!Model.IsApproved)
+    {
+        <div class="alert alert-info">
+            <i class="fa fa-info-circle me-2"></i>
+            @SharedLocalizer["Seller.Dashboard.PendingAlert"]
+        </div>
+    }
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="stat-card stat-info">
+                <div class="stat-icon"><i class="fa fa-phone"></i></div>
+                <div>
+                    <div class="stat-label">@SharedLocalizer["Seller.Dashboard.Phone"]</div>
+                    <div class="stat-value" style="font-size:1.05rem;">@Model.Phone</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa fa-envelope"></i></div>
+                <div>
+                    <div class="stat-label">@SharedLocalizer["Seller.Dashboard.Email"]</div>
+                    <div class="stat-value" style="font-size:1.05rem;">@Model.Email</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card stat-success">
+                <div class="stat-icon"><i class="fa fa-car"></i></div>
+                <div>
+                    <div class="stat-label">@SharedLocalizer["Seller.Dashboard.Inventory"]</div>
+                    <a asp-area="Seller" asp-controller="Inventory" asp-action="Index" class="btn btn-sm btn-primary fw-bold mt-1">
+                        @SharedLocalizer["Seller.Dashboard.ManageListings"]<i class="fa fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section-card" style="max-width:none;">
+        <div class="section-heading">
+            <h3><i class="fa-solid fa-rocket me-2 text-primary"></i>Quick Actions</h3>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <a asp-area="Seller" asp-controller="Inventory" asp-action="Form" class="text-decoration-none">
+                    <div class="persona-card h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="persona-avatar"><i class="fa fa-plus"></i></div>
+                            <div>
+                                <div class="fw-bold text-dark">Add New Listing</div>
+                                <div class="text-muted small">Publish a vehicle to your lot</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a asp-area="Seller" asp-controller="Inventory" asp-action="Index" class="text-decoration-none">
+                    <div class="persona-card h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="persona-avatar" style="background:linear-gradient(135deg,#1a1a2e 0%,#0d0d16 100%);"><i class="fa fa-warehouse"></i></div>
+                            <div>
+                                <div class="fw-bold text-dark">Manage Inventory</div>
+                                <div class="text-muted small">Edit, deactivate or feature listings</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

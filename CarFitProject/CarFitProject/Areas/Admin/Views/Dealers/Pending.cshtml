@@ -1,0 +1,121 @@
+@model List<CarFitProject.Models.Seller>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Dealers.Pending.Title"].Value;
+    var tiers = ViewBag.Tiers as string[] ?? new[] { "Basic", "Standard", "Premium" };
+}
+
+<style>
+    .widescreen-wrapper { width: 100% !important; padding: 0 !important; margin: 0 !important; }
+    .custom-user-table th {
+        font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05rem;
+        background-color: var(--bg-sidebar) !important; border-bottom: 1px solid var(--border-dim) !important; padding: 14px 12px !important;
+    }
+    .custom-user-table td { border-bottom: 1px solid var(--border-dim) !important; padding: 1rem 0.75rem !important; }
+</style>
+
+<div class="widescreen-wrapper">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="admin-card d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+                <div>
+                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-primary small d-inline-block mb-2 fw-bold">
+                        <i class="fa fa-arrow-left me-1"></i> Back to Control Base
+                    </a>
+                    <h2 class="text-white fw-bold mb-1">
+                        <i class="fa-solid fa-user-tie me-2 text-primary"></i>Dealer Approvals (FR-7.6)
+                    </h2>
+                    <p class="text-muted mb-0 small">
+                        Pending dealership applications waiting for review.
+                        Total: <strong class="text-white font-monospace">@Model.Count</strong>
+                    </p>
+                </div>
+                <div>
+                    <span class="badge badge-critical px-3 py-2 text-uppercase tracking-wider" style="font-size: 0.75rem;">Approval Queue</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+    }
+
+    <div class="row">
+        <div class="col-12">
+            <div class="admin-card p-0 overflow-hidden shadow-sm">
+                <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                    <h5 class="mb-0 fw-bold text-white fs-6"><i class="fa-solid fa-list-check me-2 text-primary"></i>Pending Applications</h5>
+                    <span class="badge badge-low font-monospace">@Model.Count Pending</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-start align-middle mb-0 table-hover w-100 custom-user-table">
+                        <thead>
+                            <tr>
+                                <th class="ps-4">Dealership</th>
+                                <th>Contact</th>
+                                <th>Location</th>
+                                <th>Tier</th>
+                                <th class="text-center pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.Any())
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center py-5 text-muted">
+                                        <i class="fa fa-check-circle fs-2 mb-3 d-block text-primary opacity-25"></i>
+                                        No pending dealer applications. Queue is clear.
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var seller in Model)
+                                {
+                                    <tr>
+                                        <td class="ps-4">
+                                            <div class="text-white fw-semibold">@seller.Name</div>
+                                            <div class="text-muted small">@seller.Phone</div>
+                                        </td>
+                                        <td class="text-white-50 font-monospace">@(string.IsNullOrEmpty(seller.Email) ? "—" : seller.Email)</td>
+                                        <td class="text-muted">@seller.City@(string.IsNullOrEmpty(seller.Neighborhood) ? "" : " · " + seller.Neighborhood)</td>
+                                        <td>
+                                            <form asp-action="Approve" method="post" class="d-flex align-items-center gap-2 m-0">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@seller.Id" />
+                                                <select name="tier" class="form-select form-select-sm" style="max-width: 130px;">
+                                                    @foreach (var tier in tiers)
+                                                    {
+                                                        <option value="@tier">@tier</option>
+                                                    }
+                                                </select>
+                                                <button type="submit" class="btn btn-sm btn-success fw-bold">
+                                                    <i class="fa fa-check me-1"></i>Approve
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td class="text-center pe-4">
+                                            <form asp-action="Reject" method="post" class="d-inline m-0" onsubmit="return confirm('Reject and remove this dealer application?');">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@seller.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold">
+                                                    <i class="fa fa-xmark me-1"></i>Reject
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

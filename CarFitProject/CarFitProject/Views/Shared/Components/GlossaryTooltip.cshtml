@@ -1,0 +1,47 @@
+﻿@model List<CarFitProject.Models.InspectionTermsGlossary>
+@{
+    string rawText = ViewBag.RawText ?? "";
+    // Change to false if you want to pull English explanations by default
+    bool isArabic = true;
+}
+
+<div class="inspection-badge-container d-inline-block" dir="rtl">
+    @if (string.IsNullOrEmpty(rawText))
+    {
+        <span class="text-muted small">فحص كامل / لم يتم تسجيل ملاحظات</span>
+    }
+    else
+    {
+        // Scan the car's inspection text to check if it contains any known glossary keywords
+        var matchedTerm = Model.FirstOrDefault(m => rawText.Contains(m.Term, StringComparison.OrdinalIgnoreCase));
+
+        if (matchedTerm != null)
+        {
+            // Map structural risk severity levels to specific Bootstrap utility colors
+            string badgeClass = matchedTerm.SeverityLevel switch
+            {
+                "Critical" => "bg-danger text-white",
+                "High" => "bg-warning text-dark",
+                "Medium" => "bg-info text-white",
+                _ => "bg-light text-dark border border-secondary"
+            };
+
+            string description = isArabic ? matchedTerm.ExplanationAr : matchedTerm.ExplanationEn;
+
+            <span class="badge @badgeClass p-2 shadow-sm rounded-3"
+                  data-bs-toggle="tooltip"
+                  data-bs-html="true"
+                  data-bs-placement="top"
+                  title="<div class='text-start small'>@description</div>"
+                  style="cursor: help; font-size: 0.85rem; transition: transform 0.2s;">
+                ⚠️ @rawText
+            </span>
+        }
+        else
+        {
+            <span class="badge bg-light text-dark border p-2 rounded-3" style="font-size: 0.85rem;">
+                📋 @rawText
+            </span>
+        }
+    }
+</div>

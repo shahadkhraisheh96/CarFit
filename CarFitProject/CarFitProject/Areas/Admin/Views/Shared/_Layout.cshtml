@@ -1,0 +1,220 @@
+@{
+    var culture = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var dir = culture == "ar" ? "rtl" : "ltr";
+}
+<!DOCTYPE html>
+<html lang="@culture" dir="@dir">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"] - @SharedLocalizer["Admin.BrandSuffix"]</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="CarFit Admin Panel" name="description">
+
+    <link href="~/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    @if (culture == "ar")
+    {
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    }
+    else
+    {
+        <link href="~/css/admin/bootstrap.min.css" rel="stylesheet">
+    }
+    <link href="~/css/admin/style.css" rel="stylesheet" asp-append-version="true">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="/" class="navbar-brand mx-4 mb-3" title="Back to CarFit Website">
+                    <h3 class="text-primary mb-0">
+                        <i class="fa-solid fa-car-burst me-2"></i>CarFit
+                    </h3>
+                </a>
+
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"
+                             style="width:42px;height:42px;background:linear-gradient(135deg,#D81324,#7f1d1d);font-size:1.1rem;">
+                            A
+                        </div>
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0 text-white">@SharedLocalizer["Admin.Panel"]</h6>
+                        <small class="text-muted">@SharedLocalizer["Admin.PanelSubtitle"]</small>
+                    </div>
+                </div>
+
+                <div class="navbar-nav w-100">
+                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                           class="nav-item nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")">
+                        <i class="fa fa-tachometer-alt me-2"></i> @SharedLocalizer["Admin.Nav.Dashboard"]
+                    </a>
+
+                    <a asp-area="Admin" asp-controller="Admin" asp-action="UsersList"
+                           class="nav-item nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "UsersList" ? "active" : "")">
+                        <i class="fa fa-users-cog me-2"></i> @SharedLocalizer["Admin.Nav.Users"]
+                    </a>
+
+                    <a asp-area="Admin" asp-controller="Dealers" asp-action="Pending"
+                           class="nav-item nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dealers" ? "active" : "")">
+                        <i class="fa fa-user-tie me-2"></i> @SharedLocalizer["Admin.Nav.DealerApprovals"]
+                    </a>
+
+                    <a asp-area="Admin" asp-controller="Listings" asp-action="Index"
+                           class="nav-item nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Listings" ? "active" : "")">
+                        <i class="fa fa-clipboard-list me-2"></i> @SharedLocalizer["Admin.Nav.Listings"]
+                    </a>
+
+                    <a asp-area="Admin" asp-controller="Admin" asp-action="GlossaryManager"
+                           class="nav-item nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "GlossaryManager" ? "active" : "")">
+                        <i class="fa fa-book me-2"></i> @SharedLocalizer["Admin.Nav.Glossary"]
+                    </a>
+
+                    <a asp-area="Seller" asp-controller="Inventory" asp-action="Index" class="nav-item nav-link">
+                        <i class="fa fa-car me-2"></i> @SharedLocalizer["Admin.Nav.InventoryLot"]
+                    </a>
+
+                    <hr style="border-color:rgba(255,255,255,0.08);margin:12px 20px;">
+
+                    <a href="/" class="nav-item nav-link">
+                        <i class="fa fa-globe me-2"></i> @SharedLocalizer["Admin.Nav.ViewSite"]
+                    </a>
+
+                    <div class="px-3 mt-3">
+                        <button type="button" onclick="executeSystemBreakoutLogout();" class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold shadow-sm">
+                            <i class="fa fa-sign-out-alt"></i> @SharedLocalizer["Admin.Nav.Logout"]
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0" style="height: 64px;">
+                <a href="/" class="navbar-brand d-flex d-lg-none me-4" title="CarFit Home">
+                    <h2 class="text-primary mb-0"><i class="fa-solid fa-car-burst"></i></h2>
+                </a>
+
+                <a href="#" class="sidebar-toggler flex-shrink-0 text-decoration-none">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="@SharedLocalizer["Admin.SearchPlaceholder"]" style="background:rgba(255,255,255,0.06); color:#ffffff;">
+                </form>
+
+                <div class="navbar-nav align-items-center ms-auto gap-2">
+                    <partial name="_LanguageSwitcher" />
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle px-3 text-decoration-none" data-bs-toggle="dropdown" id="notificationDropdown">
+                            <i class="fa fa-bell"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0 shadow" aria-labelledby="notificationDropdown">
+                            <li>
+                                <a href="#" class="dropdown-item py-2 text-center">
+                                    <small class="text-white-50">@SharedLocalizer["Admin.NoNotifications"]</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle px-3 d-flex align-items-center text-decoration-none" data-bs-toggle="dropdown" id="profileDropdown">
+                            <div class="d-inline-flex align-items-center justify-content-center rounded-circle text-white fw-bold me-lg-2"
+                                 style="width:32px;height:32px;background:linear-gradient(135deg,#D81324,#7f1d1d);font-size:0.85rem;">
+                                A
+                            </div>
+                            <span class="d-none d-lg-inline-flex text-white-50">@SharedLocalizer["Admin.RoleLabel"]</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0 p-2 shadow" aria-labelledby="profileDropdown">
+                            <li>
+                                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown-item py-2 rounded text-white">
+                                    <i class="fa fa-tachometer-alt me-2 text-primary"></i>@SharedLocalizer["Admin.Nav.DashboardControl"]
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="dropdown-item py-2 rounded text-white">
+                                    <i class="fa fa-globe me-2 text-primary"></i>@SharedLocalizer["Admin.Nav.ViewSite"]
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider border-dark opacity-25"></li>
+                            <li>
+                                <button type="button" onclick="executeSystemBreakoutLogout();" class="dropdown-item py-2 text-danger rounded bg-transparent border-0 text-start w-100 fw-bold">
+                                    <i class="fa fa-sign-out-alt me-2"></i>@SharedLocalizer["Admin.Nav.SignOut"]
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div style="width: 100% !important; padding: 2rem 2rem 1rem 2rem !important; min-height: calc(100vh - 145px); overflow-x: hidden;">
+                @RenderBody()
+            </div>
+
+            <div style="width: 100% !important; padding: 0 2rem 2rem 2rem !important;">
+                <div class="bg-secondary rounded-top p-4" style="background: var(--bg-sidebar) !important; border-top: 1px solid var(--border-dim);">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-6 text-center text-sm-start text-white-50">
+                            &copy; @DateTime.Now.Year &mdash; <b class="text-white">@SharedLocalizer["Admin.Footer.Brand"]</b>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end text-muted small font-monospace">
+                            @SharedLocalizer["Admin.Footer.Context"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top text-decoration-none"><i class="bi bi-arrow-up"></i></a>
+
+    <form action="/Identity/Account/Logout?returnUrl=%2F" method="post" id="explicitExitForm" style="display: none !important; visibility: hidden !important;">
+        @Html.AntiForgeryToken()
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/lib/chart/chart.min.js" asp-append-version="true"></script>
+    <script src="~/lib/easing/easing.min.js" asp-append-version="true"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js" asp-append-version="true"></script>
+
+    <script src="~/js/admin/main.js" asp-append-version="true"></script>
+
+    <script>
+        function executeSystemBreakoutLogout() {
+        console.log("Cleaning cache handles and executing sign-out command...");
+        window.localStorage.clear();
+        window.sessionStorage.clear();
+        var identityForm = document.getElementById('explicitExitForm');
+        if (identityForm) {
+        identityForm.submit();
+        } else {
+        window.location.href = "/Identity/Account/Login";
+        }
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

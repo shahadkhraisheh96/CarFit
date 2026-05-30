@@ -1,0 +1,154 @@
+@model List<CarFitProject.Models.UserProfile>
+@{
+    ViewData["Title"] = L["Profiles.Page.Title"].Value;
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-12">
+                <span class="eyebrow"><i class="fa fa-user-gear me-1"></i> Personas</span>
+                <h1 class="mb-2">@L["Profiles.Page.Title"]</h1>
+                <p class="lead mb-0">@L["Profiles.Page.Subtitle"]</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <a asp-controller="Saved" asp-action="Index" class="text-decoration-none">
+                <div class="persona-card h-100 d-flex align-items-center gap-3">
+                    <div class="persona-avatar" style="width:48px;height:48px;border-radius:14px;font-size:1.1rem;"><i class="fa fa-bookmark"></i></div>
+                    <div class="flex-grow-1">
+                        <div class="fw-bold text-dark">Saved Cars</div>
+                        <div class="text-muted small">View cars you've bookmarked</div>
+                    </div>
+                    <i class="fa fa-arrow-right text-muted"></i>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Compare" asp-action="Index" class="text-decoration-none">
+                <div class="persona-card h-100 d-flex align-items-center gap-3">
+                    <div class="persona-avatar" style="width:48px;height:48px;border-radius:14px;font-size:1.1rem;background:linear-gradient(135deg,#06b6d4 0%,#0e7490 100%);"><i class="fa fa-scale-balanced"></i></div>
+                    <div class="flex-grow-1">
+                        <div class="fw-bold text-dark">Compare Cars</div>
+                        <div class="text-muted small">Side-by-side specs &amp; scores</div>
+                    </div>
+                    <i class="fa fa-arrow-right text-muted"></i>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-action="Start" asp-controller="Questionnaire" class="text-decoration-none">
+                <div class="persona-card h-100 d-flex align-items-center gap-3">
+                    <div class="persona-avatar" style="width:48px;height:48px;border-radius:14px;font-size:1.1rem;background:linear-gradient(135deg,#10b981 0%,#047857 100%);"><i class="fa fa-plus"></i></div>
+                    <div class="flex-grow-1">
+                        <div class="fw-bold text-dark">@L["Profiles.New"]</div>
+                        <div class="text-muted small">Run the 6-step questionnaire</div>
+                    </div>
+                    <i class="fa fa-arrow-right text-muted"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <h3><i class="fa fa-user-gear me-2 text-primary"></i>My Personas</h3>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon"><i class="fa fa-clipboard-list"></i></div>
+            <h3>@L["Profiles.Empty"]</h3>
+            <p>Create your first persona to start receiving tailored car recommendations.</p>
+            <a asp-action="Start" asp-controller="Questionnaire" class="btn btn-primary fw-bold">
+                @L["Profiles.StartQuestionnaire"]
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-3">
+            @foreach (var profile in Model)
+            {
+                var initial = string.IsNullOrEmpty(profile.ProfileName) ? "?" : profile.ProfileName.Substring(0, 1).ToUpper();
+                <div class="col-md-6">
+                    <div class="persona-card @(profile.IsActive == true ? "is-active" : "") d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="persona-avatar">@initial</div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1">@profile.ProfileName</h5>
+                                @if (profile.IsActive == true)
+                                {
+                                    <span class="chip chip-success"><i class="fa fa-circle-check"></i>@L["Profiles.Active"]</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="chip chip-primary"><i class="fa fa-wallet"></i>@(profile.BudgetMin ?? 0) – @profile.BudgetMax JD</span>
+                            @if (!string.IsNullOrEmpty(profile.Purpose))
+                            { <span class="chip"><i class="fa fa-bullseye"></i>@profile.Purpose</span> }
+                            @if (!string.IsNullOrEmpty(profile.TransmissionPref))
+                            { <span class="chip"><i class="fa fa-gears"></i>@profile.TransmissionPref</span> }
+                            @if (!string.IsNullOrEmpty(profile.SizePref))
+                            { <span class="chip"><i class="fa fa-car-side"></i>@profile.SizePref</span> }
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-auto">
+                            <a asp-action="Start" asp-controller="Questionnaire" asp-route-profileId="@profile.ProfileId"
+                               class="btn btn-sm btn-outline-primary fw-bold">
+                                <i class="fa fa-pen me-1"></i>@L["Action.Edit"]
+                            </a>
+
+                            @if (profile.IsActive != true)
+                            {
+                                <form asp-action="Activate" method="post" class="m-0">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@profile.ProfileId" />
+                                    <button type="submit" class="btn btn-sm btn-outline-success fw-bold">
+                                        <i class="fa fa-circle-check me-1"></i>@L["Action.Activate"]
+                                    </button>
+                                </form>
+                            }
+
+                            <button type="button" class="btn btn-sm btn-outline-secondary fw-bold"
+                                    data-bs-toggle="collapse" data-bs-target="#rename-@profile.ProfileId">
+                                <i class="fa fa-tag me-1"></i>@L["Action.Rename"]
+                            </button>
+
+                            <form asp-action="Delete" method="post" class="m-0"
+                                  onsubmit="return confirm('@L["Action.Delete"]?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@profile.ProfileId" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold">
+                                    <i class="fa fa-trash me-1"></i>@L["Action.Delete"]
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="collapse mt-3" id="rename-@profile.ProfileId">
+                            <form asp-action="Rename" method="post" class="d-flex gap-2">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@profile.ProfileId" />
+                                <input type="text" name="profileName" class="form-control form-control-sm" value="@profile.ProfileName" required maxlength="100" />
+                                <button type="submit" class="btn btn-sm btn-primary fw-bold">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

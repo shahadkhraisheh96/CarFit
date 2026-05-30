@@ -1,0 +1,155 @@
+@model CarFitProject.ViewModel.InspectionReportFormViewModel
+@{
+    ViewData["Title"] = SharedLocalizer["Admin.Inspections.Form.Title"].Value;
+    var chassisTerms = ViewBag.ChassisTerms as IReadOnlyList<string> ?? new List<string>();
+    var returnAction = (string?)ViewBag.ReturnAction ?? "Index";
+    var returnController = (string?)ViewBag.ReturnController ?? "Listings";
+    var listingId = (int?)ViewBag.ListingId;
+    var isAdminArea = (string?)ViewContext.RouteData.Values["area"] == "Admin";
+    if (isAdminArea)
+    {
+        Layout = "/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+}
+
+@functions {
+    string Sel(string current, string value) => current == value ? "selected" : "";
+}
+
+<div class="container py-4">
+    <a asp-area="@(isAdminArea ? "Admin" : "Seller")" asp-controller="@returnController" asp-action="@returnAction" class="text-decoration-none small fw-bold @(isAdminArea ? "text-primary" : "text-primary")">
+        <i class="fa fa-arrow-left me-1"></i>Back
+    </a>
+
+    <div class="@(isAdminArea ? "admin-card" : "bg-white shadow-sm rounded-4") p-4 mt-3">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+                <h2 class="fw-bold mb-1 @(isAdminArea ? "text-white" : "text-dark")">Inspection report</h2>
+                <p class="mb-0 @(isAdminArea ? "text-muted" : "text-muted")">@Model.CarLabel</p>
+            </div>
+            @if (Model.OverallScore.HasValue)
+            {
+                <div class="text-end">
+                    <span class="badge bg-primary px-3 py-2 fs-6">جيد @Model.OverallScore.Value.ToString("0.0")</span>
+                    <div class="text-muted small mt-1">Trust @Model.CalculatedTrustScore?.ToString("0.00") / 5</div>
+                </div>
+            }
+        </div>
+
+        <form method="post" asp-action="Edit" asp-route-carId="@Model.CarId" novalidate>
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+            <input type="hidden" asp-for="CarId" />
+
+            <h5 class="fw-bold mt-2 mb-3 @(isAdminArea ? "text-white" : "")">Inspection</h5>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="CenterName" class="form-control" placeholder="Center" />
+                        <label asp-for="CenterName"></label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="InspectionDate" type="date" class="form-control" placeholder="Date" />
+                        <label asp-for="InspectionDate"></label>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Chassis (FR-4.2)</h5>
+            <div class="row g-3">
+                @for (int i = 1; i <= 4; i++)
+                {
+                    var prop = $"Chassis{i}Status";
+                    var current = (string)(Model.GetType().GetProperty(prop)?.GetValue(Model) ?? "جيد");
+                    <div class="col-md-6 col-xl-3">
+                        <label class="form-label fw-bold @(isAdminArea ? "text-muted" : "text-secondary") small">Chassis @i</label>
+                        <select name="@prop" class="form-select">
+                            @foreach (var term in chassisTerms)
+                            {
+                                <option value="@term" selected="@(term == current)">@term</option>
+                            }
+                        </select>
+                    </div>
+                }
+            </div>
+
+            <h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Body, paint, roof</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input asp-for="BodyCondition" class="form-control" placeholder="Body condition" />
+                        <label asp-for="BodyCondition"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input asp-for="PaintStatus" class="form-control" placeholder="Paint status" />
+                        <label asp-for="PaintStatus"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input asp-for="RoofCondition" class="form-control" placeholder="Roof" />
+                        <label asp-for="RoofCondition"></label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <textarea asp-for="PaintFillerStatus" class="form-control" style="height: 80px;" placeholder="Paint filler notes"></textarea>
+                        <label asp-for="PaintFillerStatus"></label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <textarea asp-for="DescriptionScore" class="form-control" style="height: 80px;" placeholder="Notes"></textarea>
+                        <label asp-for="DescriptionScore"></label>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Engine &amp; gearbox (FR-4.5)</h5>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input asp-for="EngineHealthPercent" type="number" min="0" max="100" class="form-control" placeholder="Engine %" />
+                        <label asp-for="EngineHealthPercent"></label>
+                        <span asp-validation-for="EngineHealthPercent" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-center">
+                    <div class="form-check">
+                        <input asp-for="EngineSmoke" class="form-check-input" type="checkbox" />
+                        <label asp-for="EngineSmoke" class="form-check-label fw-bold @(isAdminArea ? "text-white" : "")"></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold small @(isAdminArea ? "text-muted" : "text-secondary")">Gearbox</label>
+                    <select asp-for="GearboxStatus" class="form-select">
+                        <option value="">—</option>
+                        <option value="Good">Good</option>
+                        <option value="Knocking">Knocking</option>
+                    </select>
+                    <span asp-validation-for="GearboxStatus" class="text-danger small"></span>
+                </div>
+                <div class="col-md-3 d-flex align-items-center">
+                    <div class="form-check">
+                        <input asp-for="CarseerAttached" class="form-check-input" type="checkbox" />
+                        <label asp-for="CarseerAttached" class="form-check-label fw-bold @(isAdminArea ? "text-white" : "")"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+                <a asp-area="@(isAdminArea ? "Admin" : "Seller")" asp-controller="@returnController" asp-action="@returnAction"
+                   class="btn @(isAdminArea ? "btn-outline-light" : "btn-outline-secondary") fw-bold">Cancel</a>
+                <button type="submit" class="btn btn-primary fw-bold"><i class="fa fa-floppy-disk me-1"></i>Save inspection</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

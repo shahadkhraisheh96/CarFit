@@ -1,0 +1,109 @@
+@model CarFitProject.Helpers.PaginatedList<CarFitProject.Models.CarListing>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Listings.Title"].Value;
+    var statusFilter = ViewBag.StatusFilter as string;
+}
+
+<div class="row mb-4 align-items-center g-3">
+    <div class="col">
+        <h2 class="text-white fw-bold mb-1"><i class="fa fa-car me-2 text-primary"></i>All Listings (FR-7.2)</h2>
+        <p class="text-muted mb-0 small">Total: <strong class="text-white font-monospace">@Model.TotalCount</strong> listings.</p>
+    </div>
+    <div class="col-auto">
+        <a asp-action="Create" class="btn btn-primary fw-bold"><i class="fa fa-plus me-1"></i>Add listing</a>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+}
+
+<div class="admin-card mb-3">
+    <form method="get" class="d-flex flex-wrap gap-2 align-items-center">
+        <label class="text-muted small fw-bold mb-0">Filter:</label>
+        <a asp-action="Index" class="btn btn-sm @(string.IsNullOrEmpty(statusFilter) ? "btn-primary" : "btn-outline-light")">All</a>
+        <a asp-action="Index" asp-route-status="Pending" class="btn btn-sm @(statusFilter == "Pending" ? "btn-primary" : "btn-outline-light")">Pending</a>
+        <a asp-action="Index" asp-route-status="Active" class="btn btn-sm @(statusFilter == "Active" ? "btn-primary" : "btn-outline-light")">Active</a>
+        <a asp-action="Index" asp-route-status="Sold" class="btn btn-sm @(statusFilter == "Sold" ? "btn-primary" : "btn-outline-light")">Sold</a>
+    </form>
+</div>
+
+<div class="admin-card p-0 overflow-hidden">
+    <div class="table-responsive">
+        <table class="table align-middle mb-0">
+            <thead>
+                <tr>
+                    <th class="ps-4">Vehicle</th>
+                    <th>Dealer</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th class="text-end pe-4">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr><td colspan="5" class="text-center py-5 text-muted">No listings match this filter.</td></tr>
+                }
+                else
+                {
+                    foreach (var l in Model)
+                    {
+                        <tr>
+                            <td class="ps-4 text-white fw-semibold">@l.Car?.Make @l.Car?.Model <span class="text-muted small">@l.Car?.Year</span></td>
+                            <td class="text-muted">@(l.Seller?.Name ?? "—")</td>
+                            <td class="text-white font-monospace">@(l.ListingPrice?.ToString("N0")) JD</td>
+                            <td>
+                                @if (l.Status == "Active")
+                                {
+                                    <span class="badge badge-low text-uppercase">Active</span>
+                                }
+                                else if (l.Status == "Pending")
+                                {
+                                    <span class="badge badge-medium text-uppercase">Pending</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-critical text-uppercase">@l.Status</span>
+                                }
+                            </td>
+                            <td class="text-end pe-4">
+                                <div class="d-inline-flex gap-2 flex-wrap justify-content-end">
+                                    @if (l.Status == "Pending")
+                                    {
+                                        <form asp-action="Approve" method="post" class="m-0">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@l.Id" />
+                                            <button type="submit" class="btn btn-sm btn-success fw-bold"><i class="fa fa-check me-1"></i>Approve</button>
+                                        </form>
+                                    }
+                                    <a asp-action="Edit" asp-route-id="@l.Id" class="btn btn-sm btn-outline-primary fw-bold"><i class="fa fa-pen me-1"></i>Edit</a>
+                                    @if (l.CarId.HasValue)
+                                    {
+                                        <a asp-controller="Inspections" asp-action="Edit" asp-route-carId="@l.CarId" class="btn btn-sm btn-outline-info fw-bold">
+                                            <i class="fa fa-clipboard-check me-1"></i>Inspection
+                                        </a>
+                                    }
+                                    <form asp-action="Delete" method="post" class="m-0"
+                                          onsubmit="return confirm('Remove this listing permanently?');">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@l.Id" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger fw-bold"><i class="fa fa-trash me-1"></i>Remove</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<partial name="_Pager" model="@(new CarFitProject.ViewModel.PagerViewModel { Page = Model.PageIndex, TotalPages = Model.TotalPages, Action = "Index", Controller = "Listings", RouteValues = new { status = statusFilter } })" />

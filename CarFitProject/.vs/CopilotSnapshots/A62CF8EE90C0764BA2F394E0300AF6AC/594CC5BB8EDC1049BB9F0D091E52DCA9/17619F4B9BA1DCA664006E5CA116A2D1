@@ -1,0 +1,69 @@
+﻿using CarFitProject.Models;
+using CarFitProject.ViewModel;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+
+namespace CarFitProject.Areas.Buyer
+{
+    [Area("Buyer")]
+    [Authorize(Roles = "Buyer")]
+    public class DashboardController : Controller
+    {
+        private readonly CarFitDbContext _context;
+
+        public DashboardController(CarFitDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<IActionResult> Index(int? activeProfileId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            // Fetch all independent profiles saved under this specific buyer account
+            var userProfiles = await _context.UserProfiles
+                .Where(p => p.UserId == userId)
+                .ToListAsync();
+
+            // If they are a new buyer and haven't built a persona yet, route to the configuration screen
+            if (!userProfiles.Any())
+            {
+                return RedirectToAction("CreateProfile");
+            }
+
+            // Fallback load: use explicitly requested target or default to their first profile configuration
+            var selectedProfile = activeProfileId.HasValue
+                ? userProfiles.FirstOrDefault(p => p.ProfileId == activeProfileId.Value)
+                : userProfiles.First();
+
+            ViewBag.AllUserProfiles = userProfiles;
+            ViewBag.CurrentProfileId = selectedProfile?.ProfileId;
+            ViewBag.CurrentProfileName = selectedProfile?.ProfileName;
+
+            // Fetch the smart recommendation calculations using your pre-optimized view logic
+            var matchedCars = await _context.Database
+                .SqlQueryRaw<RecommendedCarViewModel>("EXEC GetCarMatchesForUser {0}", selectedProfile.ProfileId)
+                .ToListAsync();
+
+            return View(matchedCars);
+        }
+
+        [HttpGet]
+        public IActionResult CreateProfile() => View();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateProfile(UserProfile model)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Challenge();
+
+            model.UserId = userId;
+            _context.UserProfiles.Add(model);
+            await _context.SaveChangesWithIdentityAsync(); // Saves the custom attributes block
+
+            return RedirectToAction("Index", new { activeProfileId = model.ProfileId });
+        }
+    }
+}
