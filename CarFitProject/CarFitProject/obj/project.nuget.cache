@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "girM8wMwwwY=",
+  "dgSpecHash": "qWcMy1TB4ik=",
   "success": true,
-  "projectFilePath": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
+  "projectFilePath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shaha\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\shaha\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -71,9 +71,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'SixLabors.ImageSharp' 3.1.7 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rxmq-m78w-7wmc",
-      "projectPath": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
+      "projectPath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
+      "filePath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         "net10.0"

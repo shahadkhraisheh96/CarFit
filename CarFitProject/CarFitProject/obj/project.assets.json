@@ -3810,11 +3810,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
+      "projectUniqueName": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
       "projectName": "CarFitProject",
-      "projectPath": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
+      "projectPath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\CarFitProject.csproj",
       "packagesPath": "C:\\Users\\shaha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shaha\\CarFitProject\\CarFitProject\\CarFitProject\\obj\\",
+      "outputPath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
