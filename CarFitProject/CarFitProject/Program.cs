@@ -194,8 +194,8 @@ static async Task SeedIdentityAsync(WebApplication app)
         }
     }
 
-    var adminEmail = config["AdminSeed:Email"];
-    var adminPassword = config["AdminSeed:Password"];
+    var adminEmail ="admin@carfit.local";
+    var adminPassword = "ChangeMe!Admin#2026";
 
     if (string.IsNullOrWhiteSpace(adminEmail) || string.IsNullOrWhiteSpace(adminPassword))
     {

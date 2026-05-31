@@ -2,8 +2,7 @@
 @{
     var isEdit = Model.ListingId.HasValue;
     ViewData["Title"] = (isEdit ? SharedLocalizer["Admin.Listings.Form.Edit"] : SharedLocalizer["Seller.Inventory.Form.Title"]).Value;
-    var actionName = isEdit ? "Edit" : "AddCar";
-    var routeValues = isEdit ? new { id = Model.ListingId } : null;
+    var actionName = "Form";
 }
 
 <div class="container py-4">

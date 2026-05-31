@@ -12,7 +12,7 @@
                 <p class="lead mb-0">@SharedLocalizer["Seller.Inventory.Subtitle"]</p>
             </div>
             <div class="col-md-4 text-md-end">
-                <a asp-action="AddCar" class="btn btn-primary fw-bold">
+                <a asp-action="Form" class="btn btn-primary fw-bold">
                     <i class="fa fa-plus me-2"></i>@SharedLocalizer["Seller.Inventory.Add"]
                 </a>
             </div>
@@ -34,7 +34,7 @@
             <div class="empty-icon"><i class="fa fa-car-side"></i></div>
             <h3>No vehicles listed yet</h3>
             <p>Add your first vehicle to start showing up in buyer searches.</p>
-            <a asp-action="AddCar" class="btn btn-primary fw-bold">Add your first listing</a>
+            <a asp-action="Form" class="btn btn-primary fw-bold">Add your first listing</a>
         </div>
     }
     else
@@ -77,7 +77,7 @@
                                 </td>
                                 <td class="text-end pe-4">
                                     <div class="d-inline-flex gap-2 flex-wrap justify-content-end">
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary fw-bold">
+                                        <a asp-action="Form" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary fw-bold">
                                             <i class="fa fa-pen me-1"></i>Edit
                                         </a>
                                         @if (item.CarId.HasValue)

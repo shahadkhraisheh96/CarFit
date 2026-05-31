@@ -51,62 +51,63 @@ namespace CarFitProject.Areas.Seller.Controllers
             return View(listings);
         }
 
+        // Backward-compatibility stubs: the add/edit form moved to the unified
+        // Form action. Permanent-redirect any old AddCar/Edit links there.
         [HttpGet]
-        public async Task<IActionResult> AddCar()
+        public IActionResult AddCar() => RedirectToActionPermanent(nameof(Form));
+
+        [HttpGet]
+        public IActionResult Edit(int id) => RedirectToActionPermanent(nameof(Form), new { id });
+
+        // GET: /Seller/Inventory/Form          → new listing
+        // GET: /Seller/Inventory/Form/{id}     → edit existing listing
+        [HttpGet]
+        public async Task<IActionResult> Form(int? id)
         {
             var seller = await RequireApprovedSellerAsync();
             if (seller is null) return RedirectToAction("Index", "Dashboard");
 
-            return View("Form", new CarListingFormViewModel { Year = DateTime.UtcNow.Year, Type = "Used" });
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [RequestFormLimits(MultipartBodyLengthLimit = 60_000_000)]
-        public async Task<IActionResult> AddCar(CarListingFormViewModel vm, List<IFormFile> images)
-        {
-            var seller = await RequireApprovedSellerAsync();
-            if (seller is null) return RedirectToAction("Index", "Dashboard");
-
-            ValidateImageCount(images?.Count ?? 0, 0);
-            if (!ModelState.IsValid) return View("Form", vm);
-
-            var result = await _listings.CreateAsync(vm, seller.Id, status: "Pending");
-            if (!result.Ok || result.Listing == null)
+            if (id == null)
             {
-                ModelState.AddModelError(string.Empty, result.Message);
-                return View("Form", vm);
+                return View(new CarListingFormViewModel { Year = DateTime.UtcNow.Year, Type = "Used" });
             }
 
-            await _images.SaveImagesAsync(result.Listing.CarId!.Value,
-                images ?? new List<IFormFile>(), startSortOrder: 0, makeFirstPrimary: true);
-
-            TempData["SuccessMessage"] = "Listing submitted for review.";
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
-        {
-            var seller = await RequireApprovedSellerAsync();
-            if (seller is null) return RedirectToAction("Index", "Dashboard");
-
-            var listing = await _listings.GetForFormAsync(id, seller.Id);
+            var listing = await _listings.GetForFormAsync(id.Value, seller.Id);
             if (listing == null || listing.Car == null) return NotFound();
 
-            var vm = MapToForm(listing);
-            return View("Form", vm);
+            return View(MapToForm(listing));
         }
 
+        // POST: /Seller/Inventory/Form          → create (submitted as Pending)
+        // POST: /Seller/Inventory/Form/{id}     → update
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequestFormLimits(MultipartBodyLengthLimit = 60_000_000)]
-        public async Task<IActionResult> Edit(int id, CarListingFormViewModel vm, List<IFormFile> images)
+        public async Task<IActionResult> Form(int? id, CarListingFormViewModel vm, List<IFormFile> images)
         {
             var seller = await RequireApprovedSellerAsync();
             if (seller is null) return RedirectToAction("Index", "Dashboard");
 
-            var existing = await _listings.GetForFormAsync(id, seller.Id);
+            if (id == null)
+            {
+                ValidateImageCount(images?.Count ?? 0, 0);
+                if (!ModelState.IsValid) return View(vm);
+
+                var result = await _listings.CreateAsync(vm, seller.Id, status: "Pending");
+                if (!result.Ok || result.Listing == null)
+                {
+                    ModelState.AddModelError(string.Empty, result.Message);
+                    return View(vm);
+                }
+
+                await _images.SaveImagesAsync(result.Listing.CarId!.Value,
+                    images ?? new List<IFormFile>(), startSortOrder: 0, makeFirstPrimary: true);
+
+                TempData["SuccessMessage"] = "Listing submitted for review.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            var existing = await _listings.GetForFormAsync(id.Value, seller.Id);
             if (existing == null || existing.Car == null) return NotFound();
 
             var existingCount = existing.Car.CarImages?.Count ?? 0;
@@ -115,17 +116,17 @@ namespace CarFitProject.Areas.Seller.Controllers
             if (!ModelState.IsValid)
             {
                 vm.ExistingImages = existing.Car.CarImages?.OrderBy(i => i.SortOrder).ToList() ?? new();
-                return View("Form", vm);
+                return View(vm);
             }
 
             vm.ListingId = id;
             vm.CarId = existing.CarId;
-            var result = await _listings.UpdateAsync(id, vm, seller.Id);
-            if (!result.Ok)
+            var update = await _listings.UpdateAsync(id.Value, vm, seller.Id);
+            if (!update.Ok)
             {
-                ModelState.AddModelError(string.Empty, result.Message);
+                ModelState.AddModelError(string.Empty, update.Message);
                 vm.ExistingImages = existing.Car.CarImages?.OrderBy(i => i.SortOrder).ToList() ?? new();
-                return View("Form", vm);
+                return View(vm);
             }
 
             if (images != null && images.Count > 0)
@@ -181,7 +182,7 @@ namespace CarFitProject.Areas.Seller.Controllers
 
             await _images.DeleteAsync(id);
             TempData["SuccessMessage"] = "Image removed.";
-            return RedirectToAction(nameof(Edit), new { id = listingId });
+            return RedirectToAction(nameof(Form), new { id = listingId });
         }
 
         // ------------------------------------------------------------------

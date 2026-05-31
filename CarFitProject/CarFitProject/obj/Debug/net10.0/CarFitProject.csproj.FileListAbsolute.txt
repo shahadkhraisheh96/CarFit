@@ -1059,10 +1059,11 @@ C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebass
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitPr.27CB4C8F.Up2Date
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitProject.dll
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\refint\CarFitProject.dll
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitProject.pdb
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitProject.genruntimeconfig.cache
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\ref\CarFitProject.dll
+C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\ar\CarFitProject.resources.cs
+C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\en\CarFitProject.resources.cs
