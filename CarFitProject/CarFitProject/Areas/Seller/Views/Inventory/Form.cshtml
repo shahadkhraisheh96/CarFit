@@ -1,0 +1,326 @@
+@model CarFitProject.ViewModel.CarListingFormViewModel
+@{
+    var isEdit = Model.ListingId.HasValue;
+    ViewData["Title"] = (isEdit ? SharedLocalizer["Admin.Listings.Form.Edit"] : SharedLocalizer["Seller.Inventory.Form.Title"]).Value;
+    var actionName = "Form";
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-9">
+                <a asp-action="Index" class="text-decoration-none text-white-50 small fw-bold">
+                    <i class="fa fa-arrow-left me-1"></i>Back to inventory
+                </a>
+                <h1 class="mt-2 mb-2">@ViewData["Title"]</h1>
+                @if (!isEdit)
+                {
+                    <p class="lead mb-0">New listings are submitted as <span class="chip chip-warning ms-1">@SharedLocalizer["Listing.Status.PendingInspectionReview"]</span> for admin review.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="form-section-card" style="max-width:none;">
+
+                
+
+                <form asp-action="@actionName" asp-route-id="@(isEdit ? Model.ListingId : (int?)null)" method="post" enctype="multipart/form-data" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+                    <input type="hidden" asp-for="ListingId" />
+                    <input type="hidden" asp-for="CarId" />
+
+                    <h5 class="fw-bold mt-2 mb-3">Vehicle</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Make" class="form-control" placeholder="Make" />
+                                <label asp-for="Make"></label>
+                                <span asp-validation-for="Make" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Model" class="form-control" placeholder="Model" />
+                                <label asp-for="Model"></label>
+                                <span asp-validation-for="Model" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="Year" type="number" class="form-control" placeholder="Year" />
+                                <label asp-for="Year"></label>
+                                <span asp-validation-for="Year" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <select asp-for="Type" class="form-select" id="conditionSelect">
+                                    <option value="Used">@SharedLocalizer["Listing.Condition.Used"]</option>
+                                    <option value="New">@SharedLocalizer["Listing.Condition.New"]</option>
+                                </select>
+                                <label asp-for="Type">@SharedLocalizer["Listing.Condition.Label"]</label>
+                                <span asp-validation-for="Type" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="Trim" class="form-control" placeholder="Trim" />
+                                <label asp-for="Trim"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <select asp-for="Transmission" class="form-select">
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="Manual">Manual</option>
+                                </select>
+                                <label asp-for="Transmission"></label>
+                                <span asp-validation-for="Transmission" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="EngineSize" class="form-control" placeholder="Engine size" />
+                                <label asp-for="EngineSize"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="FuelType" class="form-control" placeholder="Fuel" />
+                                <label asp-for="FuelType"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="BodyType" class="form-control" placeholder="Body type" />
+                                <label asp-for="BodyType"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="Seats" type="number" class="form-control" placeholder="Seats" />
+                                <label asp-for="Seats"></label>
+                                <span asp-validation-for="Seats" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="Kilometers" class="form-control" placeholder="Mileage" />
+                                <label asp-for="Kilometers"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="ExteriorColor" class="form-control" placeholder="Exterior color" />
+                                <label asp-for="ExteriorColor"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <input asp-for="InteriorColor" class="form-control" placeholder="Interior color" />
+                                <label asp-for="InteriorColor"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <textarea asp-for="InteriorOptions" class="form-control" style="height: 80px;" placeholder="Interior options"></textarea>
+                                <label asp-for="InteriorOptions"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <textarea asp-for="ExteriorOptions" class="form-control" style="height: 80px;" placeholder="Exterior options"></textarea>
+                                <label asp-for="ExteriorOptions"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <textarea asp-for="TechnologyOptions" class="form-control" style="height: 80px;" placeholder="Technology options"></textarea>
+                                <label asp-for="TechnologyOptions"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+                    <h5 class="fw-bold mb-3">Listing</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="ListingPrice" type="number" step="any" class="form-control" placeholder="Listing price" />
+                                <label asp-for="ListingPrice"></label>
+                                <span asp-validation-for="ListingPrice" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-floating">
+                                <input asp-for="PaymentMethodAllowed" class="form-control" placeholder="Cash / Installments / Bank" />
+                                <label asp-for="PaymentMethodAllowed"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-center">
+                            <div class="form-check">
+                                <input asp-for="InstallmentOption" class="form-check-input" type="checkbox" />
+                                <label asp-for="InstallmentOption" class="form-check-label fw-bold"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+                    <h5 class="fw-bold mb-3">Photos</h5>
+                    @if (Model.ExistingImages.Any())
+                    {
+                        <div class="row g-3 mb-3">
+                            @foreach (var img in Model.ExistingImages)
+                            {
+                                <div class="col-6 col-md-3">
+                                    <div class="position-relative border rounded-3 overflow-hidden">
+                                        <img src="@img.Url" alt="Listing photo" class="img-fluid d-block w-100" style="height: 110px; object-fit: cover;" />
+                                        @if (img.IsPrimary)
+                                        {
+                                            <div class="position-absolute top-0 start-0 m-1">
+                                                <button type="button" class="btn btn-warning rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0; opacity: 1;" title="Primary Image" disabled>
+                                                    <i class="fa fa-star text-white" style="font-size: 0.75rem;"></i>
+                                                </button>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" form="makePrimaryForm_@img.Id" class="btn btn-secondary position-absolute top-0 start-0 m-1 rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0;" title="Make Primary">
+                                                <i class="fa fa-star" style="font-size: 0.75rem;"></i>
+                                            </button>
+                                        }
+                                        <button type="submit" form="deleteImageForm_@img.Id" class="btn btn-danger position-absolute top-0 end-0 m-1 rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0;">
+                                            <i class="fa fa-xmark" style="font-size: 0.75rem;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="mb-2">
+                        <label class="form-label fw-bold text-secondary">Upload photos (3–15 total, WebP-converted server-side)</label>
+                        <input type="file" name="images" class="form-control" multiple accept="image/*" />
+                        <span class="text-danger small d-block mt-1">@Html.ValidationMessage("images")</span>
+                    </div>
+
+                    @* Inspection evidence — required for Used cars, hidden for New (toggled by JS below). *@
+                    <div id="inspectionSection" class="mt-4">
+                        <hr class="my-4" />
+                        <h5 class="fw-bold mb-1">@SharedLocalizer["Listing.Inspection.SectionTitle"]</h5>
+                        <p class="text-muted small mb-3">@SharedLocalizer["Listing.Inspection.SectionHelp"]</p>
+
+                        <div class="mb-3">
+                            <div class="form-check mb-2">
+                                <input asp-for="RequestInspection" class="form-check-input" type="radio" id="choiceUpload" value="false" />
+                                <label class="form-check-label fw-bold" for="choiceUpload">
+                                    I have an inspection document to upload
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input asp-for="RequestInspection" class="form-check-input" type="radio" id="choiceBook" value="true" />
+                                <label class="form-check-label fw-bold" for="choiceBook">
+                                    I don't have one, please book an inspection via CarFit
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="uploadSection">
+                            @if (Model.ExistingInspectionUploads.Any())
+                            {
+                                <ul class="list-group mb-3">
+                                    @foreach (var up in Model.ExistingInspectionUploads)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <a href="@up.StoredPath" target="_blank" rel="noopener" class="text-decoration-none">
+                                                <i class="fa @(up.ContentType == "application/pdf" ? "fa-file-pdf" : "fa-file-image") me-2"></i>@up.FileName
+                                            </a>
+                                            <button type="submit" form="deleteInspectionForm_@up.Id" class="btn btn-sm btn-outline-danger"><i class="fa fa-xmark"></i></button>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+
+                            <label class="form-label fw-bold text-secondary">@SharedLocalizer["Listing.Inspection.UploadLabel"]</label>
+                            <input type="file" name="inspectionFiles" id="inspectionFiles" class="form-control"
+                                   multiple accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" />
+                            <span class="text-danger small d-block mt-1">@Html.ValidationMessage("inspectionFiles")</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary fw-bold">Cancel</a>
+                        <button type="submit" class="btn btn-primary fw-bold">
+                            <i class="fa fa-floppy-disk me-1"></i>@(isEdit ? "Save changes" : "Submit listing")
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.ExistingImages != null && Model.ExistingImages.Any())
+{
+    foreach (var img in Model.ExistingImages)
+    {
+        <form id="makePrimaryForm_@img.Id" asp-action="MakePrimaryImage" method="post" class="d-none">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@img.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+        <form id="deleteImageForm_@img.Id" asp-action="DeleteImage" method="post" class="d-none" data-confirm="Remove this photo?">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@img.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+    }
+}
+
+@if (Model.ExistingInspectionUploads != null && Model.ExistingInspectionUploads.Any())
+{
+    foreach (var up in Model.ExistingInspectionUploads)
+    {
+        <form id="deleteInspectionForm_@up.Id" asp-action="DeleteInspectionUpload" method="post" class="d-none" data-confirm="@SharedLocalizer["Listing.Inspection.RemoveConfirm"]">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@up.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+    }
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Show the inspection-evidence section only for Used cars; New cars hide it
+        // and clear any chosen files so they aren't posted. Server-side still enforces this.
+        (function () {
+            var sel = document.getElementById('conditionSelect');
+            var section = document.getElementById('inspectionSection');
+            var input = document.getElementById('inspectionFiles');
+            
+            var uploadSection = document.getElementById('uploadSection');
+            var radios = document.querySelectorAll('input[name="RequestInspection"]');
+
+            if (!sel || !section) return;
+
+            function sync() {
+                var isUsed = sel.value === 'Used';
+                section.style.display = isUsed ? '' : 'none';
+                if (!isUsed && input) input.value = '';
+
+                if (isUsed && uploadSection) {
+                    var isBook = document.getElementById('choiceBook').checked;
+                    uploadSection.style.display = isBook ? 'none' : '';
+                    if (isBook && input) input.value = '';
+                }
+            }
+            sel.addEventListener('change', sync);
+            radios.forEach(r => r.addEventListener('change', sync));
+            sync();
+        })();
+    </script>
+}

@@ -1,0 +1,54 @@
+@using CarFitProject.ViewModel
+@model AdminLeadsViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Leads.Title"].Value;
+}
+
+<div class="row mb-4 align-items-center g-3">
+    <div class="col">
+        <h2 class="text-white fw-bold mb-1"><i class="fa fa-bullseye me-2 text-primary"></i>@SharedLocalizer["Admin.Leads.Title"]</h2>
+        <p class="text-muted mb-0 small">@SharedLocalizer["Admin.Subs.Total"]: <strong class="text-white font-monospace">@Model.Rows.TotalCount</strong></p>
+    </div>
+</div>
+
+<div class="admin-card p-0 overflow-hidden">
+    <div class="table-responsive">
+        <table class="table align-middle mb-0 table-hover">
+            <thead>
+                <tr>
+                    <th class="ps-4">@SharedLocalizer["Admin.Bookings.Id"]</th>
+                    <th>@SharedLocalizer["Admin.Leads.Car"]</th>
+                    <th>@SharedLocalizer["Admin.Leads.Buyer"]</th>
+                    <th>@SharedLocalizer["Admin.Leads.Seller"]</th>
+                    <th class="pe-4">@SharedLocalizer["Admin.Leads.When"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Rows.Count == 0)
+                {
+                    <tr><td colspan="5" class="text-center py-5 text-muted">@SharedLocalizer["Admin.Leads.None"]</td></tr>
+                }
+                else
+                {
+                    foreach (var r in Model.Rows)
+                    {
+                        <tr>
+                            <td class="ps-4 text-muted font-monospace fw-bold">#@r.Id</td>
+                            <td>
+                                <a asp-area="" asp-controller="Inventory" asp-action="Detail" asp-route-id="@r.ListingId" class="text-decoration-none text-primary">
+                                    @(string.IsNullOrEmpty(r.CarLabel) ? $"#{r.ListingId}" : r.CarLabel)
+                                </a>
+                            </td>
+                            <td class="text-white">@r.BuyerName</td>
+                            <td class="text-muted">@(r.SellerName ?? "—")</td>
+                            <td class="text-muted small font-monospace">@r.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<partial name="_Pager" model="@(new CarFitProject.ViewModel.PagerViewModel { Page = Model.Rows.PageIndex, TotalPages = Model.Rows.TotalPages, Action = "Index", Controller = "Leads" })" />

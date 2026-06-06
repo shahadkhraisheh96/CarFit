@@ -1,0 +1,117 @@
+
+@model CarFitProject.ViewModel.CompareViewModel
+@{
+    ViewData["Title"] = L["Compare.Page.Title"].Value;
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-9">
+                <span class="eyebrow"><i class="fa fa-scale-balanced me-1"></i> Side-by-Side</span>
+                <h1 class="mb-2">@L["Compare.Page.Title"]</h1>
+                <p class="lead mb-0">Compare specs, inspection scores, and pricing across your shortlist.</p>
+            </div>
+            <div class="col-md-3 text-md-end">
+                <a asp-area="" asp-controller="Inventory" asp-action="Search" class="btn btn-light fw-bold">
+                    <i class="fa fa-arrow-left me-1"></i>@L["Compare.BackToSearch"]
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-5">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 text-center" style="min-width: 800px;">
+                <thead class="bg-light border-bottom">
+                    <tr>
+                        <th style="width: 20%;" class="text-start p-4 text-danger fw-bolder bg-light border-end fs-5">@L["Compare.Spec"]</th>
+                        @foreach (var r in Model.Cars)
+                        {
+                            <th class="p-4 bg-white" style="min-width: 240px;">
+                                <div class="d-flex flex-column align-items-center">
+                                    @if (!string.IsNullOrEmpty(r.PrimaryImageUrl))
+                                    {
+                                        <div class="position-relative mb-3 shadow-sm rounded-4 overflow-hidden" style="width: 160px; height: 100px;">
+                                            <img src="@r.PrimaryImageUrl" alt="@r.Listing.Car?.Make @r.Listing.Car?.Model" class="w-100 h-100 object-fit-cover" />
+                                        </div>
+                                    }
+                                    else 
+                                    {
+                                        <div class="mb-3 d-flex align-items-center justify-content-center bg-light text-muted rounded-4 shadow-sm" style="width: 160px; height: 100px;">
+                                            <i class="fa-solid fa-car fs-2 opacity-50"></i>
+                                        </div>
+                                    }
+                                    <div class="fw-bold fs-5 text-dark mb-1">@r.Listing.Car?.Make @r.Listing.Car?.Model</div>
+                                    <div class="badge bg-secondary bg-opacity-10 text-secondary mb-3 rounded-pill px-3 py-1">@r.Listing.Car?.Year</div>
+                                    <a asp-area="" asp-controller="Inventory" asp-action="Detail" asp-route-id="@r.Listing.Id"
+                                       class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-4">View listing <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        void Row(string label, Func<CarFitProject.ViewModel.CompareCarRow, string> getter, bool isPrice = false)
+                        {
+                            <tr>
+                                <th scope="row" class="text-start p-3 text-danger fw-bolder bg-light border-end fs-6">@label</th>
+                                @foreach (var r in Model.Cars)
+                                {
+                                    <td class="p-3 @(isPrice ? "fw-bolder fs-5 text-danger" : "text-secondary fw-bold")">@getter(r)</td>
+                                }
+                            </tr>
+                        }
+                    }
+
+                    @{ Row("Listing price",   r => (r.Listing.ListingPrice?.ToString("N0") ?? "—") + " JD", true); }
+                    @{ Row("Type",            r => r.Listing.Car?.Type ?? "—"); }
+                    @{ Row("Transmission",    r => r.Listing.Car?.Transmission ?? "—"); }
+                    @{ Row("Body type",       r => r.Listing.Car?.BodyType ?? "—"); }
+                    @{ Row("Seats",           r => r.Listing.Car?.Seats?.ToString() ?? "—"); }
+                    @{ Row("Engine",          r => r.Listing.Car?.EngineSize ?? "—"); }
+                    @{ Row("Fuel",            r => r.Listing.Car?.FuelType ?? "—"); }
+                    @{ Row("Mileage",         r => r.Listing.Car?.Kilometers ?? "—"); }
+                    @{ Row("Exterior color",  r => r.Listing.Car?.ExteriorColor ?? "—"); }
+                    @{ Row("Interior color",  r => r.Listing.Car?.InteriorColor ?? "—"); }
+                    @{ Row("Dealer",          r => r.Listing.Seller?.Name ?? "—"); }
+                    @{ Row("City",            r => r.Listing.Seller?.City ?? "—"); }
+
+                    <tr>
+                        <th scope="row" class="text-start p-3 text-danger fw-bolder bg-light border-end fs-6">Inspection</th>
+                        @foreach (var r in Model.Cars)
+                        {
+                            <td class="p-3">
+                                @if (r.InspectionOverall.HasValue)
+                                {
+                                    <div class="d-inline-flex flex-column align-items-center">
+                                        <div class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 fw-bold fs-6 mb-1">
+                                            <i class="fa-solid fa-check-circle me-1"></i> @r.InspectionOverall.Value.ToString("0.0") / 5
+                                        </div>
+                                        <div class="small text-muted fw-semibold">Trust @(r.InspectionTrust?.ToString("0.00") ?? "—") / 5</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-light text-muted border px-3 py-2 rounded-pill"><i class="fa-solid fa-file-circle-xmark me-1"></i> No report</span>
+                                }
+                                
+                                @if (r.IsRisky)
+                                {
+                                    <div class="mt-2">
+                                        <span class="badge bg-danger text-white rounded-pill px-3 py-2 shadow-sm">
+                                            <i class="fa-solid fa-triangle-exclamation me-1"></i> Risky
+                                        </span>
+                                    </div>
+                                }
+                            </td>
+                        }
+                    </tr>
+
+                    @{ Row("Engine status",  r => r.EngineStatus); }
+                    @{ Row("Gearbox",        r => r.GearboxStatus); }
+                </tbody>
+            </table>
+        </div>
+</div>

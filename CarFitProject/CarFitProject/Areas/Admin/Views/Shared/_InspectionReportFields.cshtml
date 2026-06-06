@@ -1,0 +1,112 @@
+@model CarFitProject.ViewModel.InspectionReportFormViewModel
+@*
+    Shared structured-inspection field block (Phase 5 view model, Phase 10 reuse).
+    Rendered by both Admin/Inspections/Form.cshtml and Admin/Listings/Review.cshtml
+    (and by the Seller area, which reuses the admin inspection form) so the field
+    set is defined exactly once. The wrapping <form>, header, and buttons live in
+    the host view.
+*@
+@{
+    var chassisTerms = ViewBag.ChassisTerms as IReadOnlyList<string> ?? new List<string>();
+    var isAdminArea = (string?)ViewContext.RouteData.Values["area"] == "Admin";
+}
+
+<h5 class="fw-bold mt-2 mb-3 @(isAdminArea ? "text-white" : "")">Inspection</h5>
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="form-floating">
+            <input asp-for="CenterName" class="form-control" placeholder="Center" />
+            <label asp-for="CenterName"></label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+            <input asp-for="InspectionDate" type="date" class="form-control" placeholder="Date" />
+            <label asp-for="InspectionDate"></label>
+        </div>
+    </div>
+</div>
+
+<h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Chassis</h5>
+<div class="row g-3">
+    @for (int i = 1; i <= 4; i++)
+    {
+        var prop = $"Chassis{i}Status";
+        var current = (string)(Model.GetType().GetProperty(prop)?.GetValue(Model) ?? "جيد");
+        <div class="col-md-6 col-xl-3">
+            <label class="form-label fw-bold @(isAdminArea ? "text-muted" : "text-secondary") small">Chassis @i</label>
+            <select name="@prop" class="form-select">
+                @foreach (var term in chassisTerms)
+                {
+                    <option value="@term" selected="@(term == current)">@term</option>
+                }
+            </select>
+        </div>
+    }
+</div>
+
+<h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Body, paint, roof</h5>
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="form-floating">
+            <input asp-for="BodyCondition" class="form-control" placeholder="Body condition" />
+            <label asp-for="BodyCondition"></label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-floating">
+            <input asp-for="PaintStatus" class="form-control" placeholder="Paint status" />
+            <label asp-for="PaintStatus"></label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-floating">
+            <input asp-for="RoofCondition" class="form-control" placeholder="Roof" />
+            <label asp-for="RoofCondition"></label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+            <textarea asp-for="PaintFillerStatus" class="form-control" style="height: 80px;" placeholder="Paint filler notes"></textarea>
+            <label asp-for="PaintFillerStatus"></label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+            <textarea asp-for="DescriptionScore" class="form-control" style="height: 80px;" placeholder="Notes"></textarea>
+            <label asp-for="DescriptionScore"></label>
+        </div>
+    </div>
+</div>
+
+<h5 class="fw-bold mt-4 mb-3 @(isAdminArea ? "text-white" : "")">Engine &amp; gearbox</h5>
+<div class="row g-3">
+    <div class="col-md-3">
+        <div class="form-floating">
+            <input asp-for="EngineHealthPercent" type="number" min="0" max="100" class="form-control" placeholder="Engine %" />
+            <label asp-for="EngineHealthPercent"></label>
+            <span asp-validation-for="EngineHealthPercent" class="text-danger small"></span>
+        </div>
+    </div>
+    <div class="col-md-3 d-flex align-items-center">
+        <div class="form-check">
+            <input asp-for="EngineSmoke" class="form-check-input" type="checkbox" />
+            <label asp-for="EngineSmoke" class="form-check-label fw-bold @(isAdminArea ? "text-white" : "")"></label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label fw-bold small @(isAdminArea ? "text-muted" : "text-secondary")">Gearbox</label>
+        <select asp-for="GearboxStatus" class="form-select">
+            <option value="">—</option>
+            <option value="Good">Good</option>
+            <option value="Knocking">Knocking</option>
+        </select>
+        <span asp-validation-for="GearboxStatus" class="text-danger small"></span>
+    </div>
+    <div class="col-md-3 d-flex align-items-center">
+        <div class="form-check">
+            <input asp-for="CarseerAttached" class="form-check-input" type="checkbox" />
+            <label asp-for="CarseerAttached" class="form-check-label fw-bold @(isAdminArea ? "text-white" : "")"></label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+@{
+    ViewData["Title"] = Localizer["About.Title"].Value;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-12 text-center">
+                <span class="eyebrow"><i class="fa-solid fa-car-burst me-1"></i> About CarFit</span>
+                <h1 class="mb-2">@Localizer["About.Title"]</h1>
+                <p class="lead mb-0">Matching Jordanian drivers to the right car since day one.</p>
+                <nav aria-label="breadcrumb" class="mt-3">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-white-50 text-decoration-none">@Localizer["About.Crumb.Home"]</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">@Localizer["About.Crumb.About"]</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" style="min-height: 400px;">
+                <div class="position-relative h-100 rounded-4 overflow-hidden shadow-lg hover-lift">
+                    <img class="img-fluid w-100 h-100" src="/img/about.jpg" style="object-fit: cover;" alt="CarFit About">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="text-eyebrow d-block mb-2">@Localizer["About.Badge"]</span>
+                <h1 class="fw-bold text-dark mb-3" style="letter-spacing:-0.03em;">@Localizer["About.Heading"]</h1>
+                <p class="cf-subtitle mb-4">@Localizer["About.Lead"]</p>
+
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div>
+                            <div class="fw-bold text-dark fs-6">@Localizer["About.F1.Title"]</div>
+                            <div class="text-muted small">@Localizer["About.F1.Body"]</div>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-success">
+                        <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <div class="fw-bold text-dark fs-6">@Localizer["About.F2.Title"]</div>
+                            <div class="text-muted small">@Localizer["About.F2.Body"]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a asp-controller="Inspection" asp-action="Book" class="btn btn-primary fw-bold">
+                    <i class="fa-solid fa-clipboard-check me-2"></i>Book an Inspection
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <div class="section-heading">
+        <h2>How CarFit works</h2>
+    </div>
+    <p class="cf-subtitle mb-4">Three steps from "I want a car" to "this is the right car."</p>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="form-section-card h-100" style="max-width:none;">
+                <div class="persona-avatar d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:56px;height:56px;border-radius:14px;font-size:1.5rem;background:linear-gradient(135deg, var(--secondary) 0%, #2a2a4a 100%);">
+                    <i class="fa-solid fa-clipboard-question text-white"></i>
+                </div>
+                <h5 class="fw-bold mb-1">Tell us about you</h5>
+                <p class="text-muted small mb-0">A short 6-step questionnaire covers your family, budget, trip patterns, and preferences.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-section-card h-100" style="max-width:none;">
+                <div class="persona-avatar d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:56px;height:56px;border-radius:14px;font-size:1.5rem;background:linear-gradient(135deg, var(--primary) 0%, #b91c1c 100%);">
+                    <i class="fa-solid fa-magnifying-glass-chart text-white"></i>
+                </div>
+                <h5 class="fw-bold mb-1">Get matched</h5>
+                <p class="text-muted small mb-0">Our matching engine ranks every listing in your range and surfaces the cars that fit your life.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-section-card h-100" style="max-width:none;">
+                <div class="persona-avatar d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:56px;height:56px;border-radius:14px;font-size:1.5rem;background:linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">
+                    <i class="fa-solid fa-clipboard-check text-white"></i>
+                </div>
+                <h5 class="fw-bold mb-1">Inspect &amp; buy</h5>
+                <p class="text-muted small mb-0">Book a 150-point inspection at the dealer's lot. Buy with confidence — or walk away knowing why.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid fact py-5 my-5 text-white">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-6 col-lg-3">
+                <i class="fa-solid fa-circle-check fs-1 mb-3 text-primary-gradient"></i>
+                <h2 class="text-white mb-2 fw-bold">150+</h2>
+                <p class="text-white-50 mb-0 small">@Localizer["About.Stat.Checkpoints"]</p>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <i class="fa-solid fa-car fs-1 mb-3 text-primary-gradient"></i>
+                <h2 class="text-white mb-2 fw-bold">1,240+</h2>
+                <p class="text-white-50 mb-0 small">@Localizer["About.Stat.Vehicles"]</p>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <i class="fa-solid fa-user-tie fs-1 mb-3 text-primary-gradient"></i>
+                <h2 class="text-white mb-2 fw-bold">35+</h2>
+                <p class="text-white-50 mb-0 small">@Localizer["About.Stat.Specialists"]</p>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <i class="fa-solid fa-face-smile fs-1 mb-3 text-primary-gradient"></i>
+                <h2 class="text-white mb-2 fw-bold">98%</h2>
+                <p class="text-white-50 mb-0 small">@Localizer["About.Stat.Success"]</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Manage your profile";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="bg-white shadow-sm rounded-4 p-5">
+                <h2 class="fw-bold text-dark mb-4">@ViewData["Title"]</h2>
+
+                @if (!string.IsNullOrEmpty(Model.StatusMessage))
+                {
+                    <div class="alert alert-success" role="alert">@Model.StatusMessage</div>
+                }
+
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary small">Signed in as</label>
+                        <input class="form-control" value="@Model.Username" disabled readonly />
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.FullName" class="form-control border-2" placeholder="Your full name" autocomplete="name" />
+                        <label asp-for="Input.FullName" class="fw-bold text-secondary">Full name</label>
+                        <span asp-validation-for="Input.FullName" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Input.Email" class="form-control border-2" placeholder="name@example.com" autocomplete="email" />
+                        <label asp-for="Input.Email" class="fw-bold text-secondary">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary fw-bold py-2 px-4">
+                        <i class="fa-solid fa-floppy-disk me-2"></i>Save profile
+                    </button>
+                </form>
+
+                <hr class="my-4" />
+
+                <h5 class="fw-bold text-dark mb-3">Security</h5>
+                <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-key me-2"></i>Change password
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

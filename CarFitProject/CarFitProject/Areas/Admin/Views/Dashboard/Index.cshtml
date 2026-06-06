@@ -1,0 +1,276 @@
+@model CarFitProject.ViewModel.AdminAnalyticsViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Dashboard.Title"].Value;
+
+    var regsLabels = System.Text.Json.JsonSerializer.Serialize(Model.RegistrationsByMonth.Select(r => r.Label).ToArray());
+    var regsData = System.Text.Json.JsonSerializer.Serialize(Model.RegistrationsByMonth.Select(r => r.Count).ToArray());
+}
+
+<style>
+    .widescreen-wrapper { width: 100% !important; padding: 0 !important; margin: 0 !important; }
+    .kpi-number {
+        font-size: 2.25rem; font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .meta-year-badge {
+        background-color: #0b0f19; color: var(--text-muted); border: 1px solid var(--border-dim);
+    }
+    .custom-wide-table th {
+        font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05rem;
+        background-color: var(--bg-sidebar) !important; border-bottom: 1px solid var(--border-dim) !important; padding: 14px 12px !important;
+    }
+    .custom-wide-table td { border-bottom: 1px solid var(--border-dim) !important; padding: 1rem 0.75rem !important; }
+</style>
+
+<div class="widescreen-wrapper">
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="admin-card">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 border-bottom border-secondary pb-3" style="border-color: var(--border-dim) !important;">
+                    <div>
+                        <span class="badge badge-critical mb-2 text-uppercase tracking-wider">@SharedLocalizer["Admin.Dashboard.Badge"]</span>
+                        <h1 class="fw-bold text-white mb-0">
+                            <i class="fa-solid fa-server me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.Heading"]
+                        </h1>
+                    </div>
+                    <div class="text-md-end mt-3 mt-md-0 d-flex flex-column align-items-md-end gap-2">
+                        <a asp-area="Admin" asp-controller="Admin" asp-action="BulkLoader" class="btn btn-outline-dark text-start p-2 hover-lift text-decoration-none" style="border-color: var(--border-color) !important; max-width: 280px; background: rgba(255,255,255,0.02); border-radius: 10px;">
+                            <div class="fw-bold text-white small mb-0"><i class="fa-solid fa-file-csv me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.BulkLoader"]</div>
+                        </a>
+                    </div>
+                </div>
+                <p class="fs-5 text-muted leading-relaxed mb-0 w-100">@SharedLocalizer["Admin.Dashboard.Welcome"]</p>
+            </div>
+        </div>
+    </div>
+
+    @* KPIs *@
+    <div class="row g-4 mb-4">
+        <div class="col-12 col-md-4">
+            <div class="admin-card d-flex align-items-center justify-content-between p-4">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: rgba(216, 19, 36, 0.10); border: 1px solid var(--border-color);">
+                    <i class="fa fa-users fa-2x text-primary"></i>
+                </div>
+                <div class="text-end">
+                    <p class="mb-1 text-muted small fw-bold text-uppercase tracking-wider">@SharedLocalizer["Admin.Dashboard.KPI.Users"]</p>
+                    <h2 class="mb-0 kpi-number">@Model.TotalUsers</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="admin-card d-flex align-items-center justify-content-between p-4">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: rgba(16, 185, 129, 0.10); border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <i class="fa fa-car-side fa-2x text-success"></i>
+                </div>
+                <div class="text-end">
+                    <p class="mb-1 text-muted small fw-bold text-uppercase tracking-wider">@SharedLocalizer["Admin.Dashboard.KPI.Listings"]</p>
+                    <h2 class="mb-0 font-monospace fw-bold text-white" style="font-size: 2.25rem;">@Model.TotalActiveListings</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="admin-card d-flex align-items-center justify-content-between p-4">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.10); border: 1px solid rgba(245, 158, 11, 0.2);">
+                    <i class="fa fa-book-atlas fa-2x text-warning"></i>
+                </div>
+                <div class="text-end">
+                    <p class="mb-1 text-muted small fw-bold text-uppercase tracking-wider">@SharedLocalizer["Admin.Dashboard.KPI.Glossary"]</p>
+                    <h2 class="mb-0 font-monospace fw-bold text-white" style="font-size: 2.25rem;">@Model.TotalGlossaryTerms</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Monthly registrations chart *@
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="admin-card p-4">
+                <h5 class="fw-bold text-white mb-4"><i class="fa-solid fa-chart-area me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.Monthly"]</h5>
+                <div style="height: 300px; width: 100%;">
+                    <canvas id="registrationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Top recommended + top search terms *@
+    <div class="row g-4 mb-4">
+        <div class="col-12 col-lg-6">
+            <div class="admin-card p-0 overflow-hidden">
+                <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                    <h5 class="mb-0 text-white fw-bold"><i class="fa fa-trophy me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.TopRecommended"]</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0 custom-wide-table">
+                        <thead>
+                            <tr class="text-white">
+                                <th class="ps-4">#</th>
+                                <th>@SharedLocalizer["Admin.Dashboard.Vehicle"]</th>
+                                <th class="text-end pe-4">@SharedLocalizer["Admin.Dashboard.Recommendations"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.TopRecommended.Any())
+                            {
+                                <tr><td colspan="3" class="text-center py-4 text-muted">@SharedLocalizer["Admin.Dashboard.NoRecs"]</td></tr>
+                            }
+                            else
+                            {
+                                int rank = 1;
+                                foreach (var row in Model.TopRecommended)
+                                {
+                                    <tr>
+                                        <td class="ps-4 text-muted font-monospace fw-bold">@rank</td>
+                                        <td class="text-white fw-semibold">@row.Label</td>
+                                        <td class="text-end pe-4"><span class="badge badge-low">@row.Count</span></td>
+                                    </tr>
+                                    rank++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="admin-card p-0 overflow-hidden">
+                <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                    <h5 class="mb-0 text-white fw-bold"><i class="fa fa-magnifying-glass me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.TopSearch"]</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0 custom-wide-table">
+                        <thead>
+                            <tr class="text-white">
+                                <th class="ps-4">#</th>
+                                <th>@SharedLocalizer["Admin.Dashboard.Term"]</th>
+                                <th class="text-end pe-4">@SharedLocalizer["Admin.Dashboard.Searches"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.TopSearchTerms.Any())
+                            {
+                                <tr><td colspan="3" class="text-center py-4 text-muted">@SharedLocalizer["Admin.Dashboard.NoSearches"]</td></tr>
+                            }
+                            else
+                            {
+                                int rank = 1;
+                                foreach (var t in Model.TopSearchTerms)
+                                {
+                                    <tr>
+                                        <td class="ps-4 text-muted font-monospace fw-bold">@rank</td>
+                                        <td class="text-white fw-semibold">@t.Term</td>
+                                        <td class="text-end pe-4"><span class="badge badge-low">@t.Count</span></td>
+                                    </tr>
+                                    rank++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Recent listings *@
+    <div class="row mb-2">
+        <div class="col-12">
+            <div class="admin-card p-0 overflow-hidden shadow-sm">
+                <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                    <h5 class="mb-0 text-white fw-bold"><i class="fa fa-clock me-2 text-primary"></i>@SharedLocalizer["Admin.Dashboard.RecentListings"]</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table mb-0 table-hover align-middle w-100 custom-wide-table">
+                        <thead>
+                            <tr class="text-white">
+                                <th class="ps-4">@SharedLocalizer["Admin.Dashboard.ListingId"]</th>
+                                <th>@SharedLocalizer["Admin.Dashboard.Vehicle"]</th>
+                                <th>@SharedLocalizer["Admin.Dashboard.Price"]</th>
+                                <th class="text-center">@SharedLocalizer["Admin.Dashboard.Status"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.RecentListings.Any())
+                            {
+                                foreach (var listing in Model.RecentListings)
+                                {
+                                    <tr>
+                                        <td class="ps-4 text-muted font-monospace fw-bold">#@listing.Id</td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="text-white fw-bold text-uppercase">@(listing.Car?.Make)</span>
+                                                <span class="text-muted">@(listing.Car?.Model)</span>
+                                                <span class="badge meta-year-badge">@(listing.Car?.Year)</span>
+                                            </div>
+                                        </td>
+                                        <td class="text-primary fw-bold font-monospace">@(listing.ListingPrice?.ToString("N0")) JOD</td>
+                                        <td class="text-center">
+                                            @if (listing.Status == "Active")
+                                            {
+                                                <span class="badge badge-low">@SharedLocalizer["Admin.Dashboard.Active"]</span>
+                                            }
+                                            else if (listing.Status == "Pending")
+                                            {
+                                                <span class="badge badge-medium">@SharedLocalizer["Admin.Dashboard.Pending"]</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-critical">@listing.Status</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr><td colspan="4" class="text-center py-4 text-muted">@SharedLocalizer["Admin.Dashboard.NoListings"]</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const labelsArray = @Html.Raw(regsLabels);
+            const dataArray = @Html.Raw(regsData);
+            const ctx = document.getElementById('registrationsChart').getContext('2d');
+
+            let gradientFill = ctx.createLinearGradient(0, 0, 0, 300);
+            gradientFill.addColorStop(0, 'rgba(216, 19, 36, 0.6)');
+            gradientFill.addColorStop(1, 'rgba(216, 19, 36, 0.01)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labelsArray,
+                    datasets: [{
+                        label: 'New registrations',
+                        data: dataArray,
+                        backgroundColor: gradientFill,
+                        borderColor: '#D81324',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+                        y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8', precision: 0 }, beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
+}

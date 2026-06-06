@@ -1,0 +1,26 @@
+@model CarFitProject.ViewModel.ReviewButtonViewModel
+@{
+    var label = Model.HasReview ? SharedLocalizer["Testimonials.EditReview"] : SharedLocalizer["Testimonials.AddReview"];
+    var subtitle = Model.HasReview ? "Update your CarFit review" : "Review CarFit and help other drivers";
+}
+
+@if (Model.Variant == "card")
+{
+    <a asp-area="" asp-controller="Testimonials" asp-action="Create" class="text-decoration-none">
+        <div class="persona-card h-100">
+            <div class="d-flex align-items-center gap-3">
+                <div class="persona-avatar" style="background:linear-gradient(135deg,#f59e0b 0%,#b45309 100%);"><i class="@Model.IconClass"></i></div>
+                <div>
+                    <div class="fw-bold text-dark">@label</div>
+                    <div class="text-muted small">@subtitle</div>
+                </div>
+            </div>
+        </div>
+    </a>
+}
+else
+{
+    <a asp-area="" asp-controller="Testimonials" asp-action="Create" class="@Model.CssClass">
+        <i class="@Model.IconClass me-1"></i>@label
+    </a>
+}

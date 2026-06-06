@@ -1,0 +1,72 @@
+@model CarFitProject.ViewModel.DealerOnboardingViewModel
+@{
+    ViewData["Title"] = SharedLocalizer["Seller.Onboarding.Title"].Value;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="form-section-card">
+                <div class="text-center mb-4">
+                    <div class="persona-avatar mx-auto mb-3" style="width:64px;height:64px;border-radius:18px;"><i class="fa-solid fa-building"></i></div>
+                    <span class="text-eyebrow d-block mb-2">Dealer Onboarding</span>
+                    <h2 class="fw-bold text-dark mb-1" style="letter-spacing:-0.02em;">@SharedLocalizer["Seller.Onboarding.Heading"]</h2>
+                    <p class="cf-subtitle">@SharedLocalizer["Seller.Onboarding.Subtitle"]</p>
+                </div>
+
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+
+                    <div class="form-floating mb-3 cf-floating">
+                        <input asp-for="Name" class="form-control" placeholder=" " />
+                        <label asp-for="Name">Dealership name</label>
+                        <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Phone" class="form-control" placeholder=" " autocomplete="tel" />
+                                <label asp-for="Phone">Phone</label>
+                                <span asp-validation-for="Phone" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Email" class="form-control" placeholder=" " autocomplete="email" />
+                                <label asp-for="Email">Contact email</label>
+                                <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="City" class="form-control" placeholder=" " />
+                                <label asp-for="City">City</label>
+                                <span asp-validation-for="City" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Neighborhood" class="form-control" placeholder=" " />
+                                <label asp-for="Neighborhood">Neighborhood</label>
+                                <span asp-validation-for="Neighborhood" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-100 btn btn-lg btn-primary fw-bold">
+                        <i class="fa-solid fa-paper-plane me-2"></i>Submit for review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
