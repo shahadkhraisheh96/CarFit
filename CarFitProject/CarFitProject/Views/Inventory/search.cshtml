@@ -1,0 +1,133 @@
+@model CarFitProject.ViewModel.ListingSearchViewModel
+@{
+    ViewData["Title"] = L["Search.Page.Title"].Value;
+    var savedIds = ViewBag.SavedCarIds as HashSet<int> ?? new HashSet<int>();
+    var isBuyer = User.IsInRole("Buyer");
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-9">
+                <span class="eyebrow"><i class="fa fa-magnifying-glass me-1"></i> Inventory</span>
+                <h1 class="mb-2">@L["Search.Page.Title"]</h1>
+                <p class="lead mb-0">@string.Format(L["Search.ActiveCount"].Value, Model.Results.TotalCount)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-4 p-4 mb-4">
+        <form method="get" asp-action="Search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.Make"]</label>
+                    <input asp-for="Make" class="form-control" placeholder="Toyota, Hyundai..." />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.Model"]</label>
+                    <input asp-for="Model" class="form-control" placeholder="Corolla..." />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.YearFrom"]</label>
+                    <input asp-for="YearFrom" type="number" class="form-control" min="1950" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.YearTo"]</label>
+                    <input asp-for="YearTo" type="number" class="form-control" max="2100" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.Type"]</label>
+                    <select asp-for="Type" class="form-select">
+                        <option value="">@L["Search.Any"]</option>
+                        <option value="New">@L["Field.ConditionNew"]</option>
+                        <option value="Used">@L["Field.ConditionUsed"]</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.MinPrice"]</label>
+                    <input asp-for="PriceFrom" type="number" class="form-control" min="0" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.MaxPrice"]</label>
+                    <input asp-for="PriceTo" type="number" class="form-control" min="0" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold text-secondary">@L["Search.Field.Transmission"]</label>
+                    <select asp-for="Transmission" class="form-select">
+                        <option value="">@L["Search.Any"]</option>
+                        <option value="Automatic">@L["Field.TransmissionAuto"]</option>
+                        <option value="Manual">@L["Field.TransmissionManual"]</option>
+                    </select>
+                </div>
+                <div class="col-md-6 d-flex gap-2 justify-content-end">
+                    <a asp-action="Search" class="btn btn-outline-secondary fw-bold">@L["Search.Clear"]</a>
+                    <button type="submit" class="btn btn-primary fw-bold"><i class="fa fa-magnifying-glass me-1"></i>@L["Search.Submit"]</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (!Model.Results.Any())
+    {
+        <div class="bg-white shadow-sm rounded-4 p-5 text-center">
+            <i class="fa fa-car-side fs-1 text-muted opacity-25 mb-3 d-block"></i>
+            <p class="text-muted mb-0">@L["Search.NoMatches"]</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var l in Model.Results)
+            {
+                var primary = l.Car?.CarImages?.OrderByDescending(i => i.IsPrimary).ThenBy(i => i.SortOrder).FirstOrDefault();
+                <div class="col-md-6 col-lg-4">
+                    <div class="bg-white shadow-sm rounded-4 overflow-hidden h-100 d-flex flex-column hover-lift position-relative">
+                        @if (l.Car?.InspectionReport?.CarseerAttached == true)
+                        {
+                            <span class="badge bg-info text-white position-absolute top-0 end-0 m-2" style="z-index: 2;"><i class="fa fa-shield-halved me-1"></i>CarSeer</span>
+                        }
+                        <a asp-action="Detail" asp-route-id="@l.Id" class="text-decoration-none text-dark">
+                            <div style="height: 180px; background:#f1f1f1;">
+                                @if (primary != null)
+                                {
+                                    <img src="@primary.Url" alt="@l.Car?.Make @l.Car?.Model" class="w-100 h-100" style="object-fit: cover;" />
+                                }
+                            </div>
+                            <div class="p-3">
+                                <h5 class="fw-bold mb-1">@l.Car?.Make @l.Car?.Model</h5>
+                                <div class="text-muted small mb-2">@l.Car?.Year · @l.Car?.Transmission · @l.Car?.Type</div>
+                                <div class="fw-bold text-danger fs-5">@(l.ListingPrice?.ToString("N0")) JD</div>
+                            </div>
+                        </a>
+                        <div class="p-3 border-top d-flex gap-2 mt-auto">
+                            @if (isBuyer)
+                            {
+                                var saved = l.CarId.HasValue && savedIds.Contains(l.CarId.Value);
+                                <form asp-area="Buyer" asp-controller="Saved" asp-action="Toggle" method="post" class="m-0 flex-grow-1">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="carId" value="@l.CarId" />
+                                    <input type="hidden" name="returnUrl" value="/Inventory/Search?make=@Model.Make&model=@Model.Model&yearFrom=@Model.YearFrom&yearTo=@Model.YearTo&priceFrom=@Model.PriceFrom&priceTo=@Model.PriceTo&type=@Model.Type&transmission=@Model.Transmission&page=@Model.Results.PageIndex" />
+                                    <button type="submit" class="btn btn-sm @(saved ? "btn-danger" : "btn-outline-primary") fw-bold w-100">
+                                        <i class="fa @(saved ? "fa-bookmark-slash" : "fa-bookmark") me-1"></i>@(saved ? L["Save.Unsave"] : L["Save.Save"])
+                                    </button>
+                                </form>
+                            }
+                            <button type="button" class="btn btn-sm btn-outline-secondary fw-bold compare-toggle @(isBuyer ? "" : "flex-grow-1")"
+                                    data-listing-id="@l.Id" data-car-label="@l.Car?.Make @l.Car?.Model">
+                                <i class="fa fa-scale-balanced me-1"></i>@L["Compare.Button"]
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <partial name="_Pager" model="@(new CarFitProject.ViewModel.PagerViewModel { Page = Model.Results.PageIndex, TotalPages = Model.Results.TotalPages, Action = "Search", Controller = "Inventory", RouteValues = new { make = Model.Make, model = Model.Model, yearFrom = Model.YearFrom, yearTo = Model.YearTo, priceFrom = Model.PriceFrom, priceTo = Model.PriceTo, type = Model.Type, transmission = Model.Transmission } })" />
+    }
+</div>
+
+<partial name="_CompareBar" />
+
+@section Scripts {
+    <partial name="_CompareBarScripts" />
+}

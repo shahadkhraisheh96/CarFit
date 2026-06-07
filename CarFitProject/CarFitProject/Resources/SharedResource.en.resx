@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Lang.Switch" xml:space="preserve"><value>Language</value></data>
+  <data name="Lang.English" xml:space="preserve"><value>English</value></data>
+  <data name="Lang.Arabic" xml:space="preserve"><value>العربية</value></data>
+
+  <data name="Nav.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Nav.Search" xml:space="preserve"><value>Explore Inventory</value></data>
+  <data name="Nav.About" xml:space="preserve"><value>About</value></data>
+  <data name="Nav.Inspection" xml:space="preserve"><value>Inspection Modules</value></data>
+  <data name="Nav.Contact" xml:space="preserve"><value>Contact</value></data>
+  <data name="Nav.Login" xml:space="preserve"><value>Login</value></data>
+  <data name="Nav.Register" xml:space="preserve"><value>Register</value></data>
+  <data name="Nav.Logout" xml:space="preserve"><value>Logout</value></data>
+  <data name="Nav.AdminBase" xml:space="preserve"><value>Admin Base</value></data>
+  <data name="Nav.SellerLot" xml:space="preserve"><value>Dealer Lot</value></data>
+  <data name="Nav.BuyerHub" xml:space="preserve"><value>Buyer Hub</value></data>
+  <data name="Nav.ViewMyFits" xml:space="preserve"><value>View My Fits</value></data>
+  <data name="Nav.GetInspection" xml:space="preserve"><value>Get Inspection Report</value></data>
+  <data name="Footer.Privacy" xml:space="preserve"><value>Privacy Policy</value></data>
+
+  <data name="Home.Hero.Headline" xml:space="preserve"><value>The Intelligent Way to Buy a Used Car in Jordan</value></data>
+  <data name="Home.Hero.Tagline" xml:space="preserve"><value>Unlike traditional listing sites, CarFit uses localized lifestyle mapping to pair first-time buyers, women, and non-technical users with their ideal vehicle.</value></data>
+  <data name="Home.Hero.CTA.Questionnaire" xml:space="preserve"><value>Take the lifestyle questionnaire</value></data>
+  <data name="Home.Hero.CTA.Showroom" xml:space="preserve"><value>Explore</value></data>
+  <data name="Home.Hero.Verified" xml:space="preserve"><value>100% Verified</value></data>
+  <data name="Home.Value.SectionTitle" xml:space="preserve"><value>Protecting buyers with uncompromising transparency</value></data>
+  <data name="Home.Value.SectionSubtitle" xml:space="preserve"><value>We eliminate information asymmetry between dealers and non-technical car buyers.</value></data>
+  <data name="Home.Value.Profile.Title" xml:space="preserve"><value>Profile-driven recommendations</value></data>
+  <data name="Home.Value.Profile.Body" xml:space="preserve"><value>We match vehicles based on your age, family, purpose, and routes — not just price.</value></data>
+  <data name="Home.Value.WhiteCard.Title" xml:space="preserve"><value>White card decoding</value></data>
+  <data name="Home.Value.WhiteCard.Body" xml:space="preserve"><value>We translate the Jordanian inspection sheet (ورقة الفحص) into plain English and Arabic.</value></data>
+  <data name="Home.Value.Protection.Title" xml:space="preserve"><value>Protection for first-time buyers</value></data>
+  <data name="Home.Value.Protection.Body" xml:space="preserve"><value>Heavily damaged frames or cut chassis (شاصي مقصوص) are flagged automatically.</value></data>
+
+  <data name="Wizard.StepOfN" xml:space="preserve"><value>Step {0} of {1}</value></data>
+  <data name="Wizard.Step.Basics" xml:space="preserve"><value>Basics</value></data>
+  <data name="Wizard.Step.Family" xml:space="preserve"><value>Family</value></data>
+  <data name="Wizard.Step.PurposeTrip" xml:space="preserve"><value>Purpose &amp; trip</value></data>
+  <data name="Wizard.Step.Budget" xml:space="preserve"><value>Budget</value></data>
+  <data name="Wizard.Step.Preferences" xml:space="preserve"><value>Preferences</value></data>
+  <data name="Wizard.Step.Review" xml:space="preserve"><value>Review</value></data>
+
+  <data name="Wizard.Step1.Title" xml:space="preserve"><value>Tell us about yourself</value></data>
+  <data name="Wizard.Step1.Subtitle" xml:space="preserve"><value>A few quick basics to set the tone of your recommendations.</value></data>
+  <data name="Wizard.Step2.Title" xml:space="preserve"><value>Family</value></data>
+  <data name="Wizard.Step2.Subtitle" xml:space="preserve"><value>This helps us match seat count and safety features.</value></data>
+  <data name="Wizard.Step3.Title" xml:space="preserve"><value>How will you use it?</value></data>
+  <data name="Wizard.Step3.Subtitle" xml:space="preserve"><value>Purpose and trip type shape body type and engine recommendations.</value></data>
+  <data name="Wizard.Step4.Title" xml:space="preserve"><value>Budget &amp; payment</value></data>
+  <data name="Wizard.Step4.Subtitle" xml:space="preserve"><value>All amounts are in Jordanian Dinar (JD).</value></data>
+  <data name="Wizard.Step5.Title" xml:space="preserve"><value>Car preferences</value></data>
+  <data name="Wizard.Step5.Subtitle" xml:space="preserve"><value>Last set of choices before we match cars to you.</value></data>
+  <data name="Wizard.Review.Title" xml:space="preserve"><value>Review &amp; submit</value></data>
+  <data name="Wizard.Review.Subtitle" xml:space="preserve"><value>Check your answers — you can go back to any step to make changes.</value></data>
+
+  <data name="Action.Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Action.Next" xml:space="preserve"><value>Next</value></data>
+  <data name="Action.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Action.Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Action.Edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="Action.Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="Action.Rename" xml:space="preserve"><value>Rename</value></data>
+  <data name="Action.Activate" xml:space="preserve"><value>Activate</value></data>
+  <data name="Action.Review" xml:space="preserve"><value>Review</value></data>
+  <data name="Action.SaveProfile" xml:space="preserve"><value>Save profile</value></data>
+  <data name="Action.SaveChanges" xml:space="preserve"><value>Save changes</value></data>
+  <data name="Action.Submit" xml:space="preserve"><value>Submit</value></data>
+
+  <data name="Field.ProfileName" xml:space="preserve"><value>Profile name</value></data>
+  <data name="Field.Age" xml:space="preserve"><value>Age</value></data>
+  <data name="Field.MaritalStatus" xml:space="preserve"><value>Marital status</value></data>
+  <data name="Field.MaritalSingle" xml:space="preserve"><value>Single</value></data>
+  <data name="Field.MaritalMarried" xml:space="preserve"><value>Married</value></data>
+  <data name="Field.HasKids" xml:space="preserve"><value>Do you have kids?</value></data>
+  <data name="Field.KidsCount" xml:space="preserve"><value>Number of kids</value></data>
+  <data name="Field.Yes" xml:space="preserve"><value>Yes</value></data>
+  <data name="Field.No" xml:space="preserve"><value>No</value></data>
+  <data name="Field.Purpose" xml:space="preserve"><value>Primary purpose</value></data>
+  <data name="Field.Purpose.Work" xml:space="preserve"><value>Work</value></data>
+  <data name="Field.Purpose.University" xml:space="preserve"><value>University</value></data>
+  <data name="Field.Purpose.Family" xml:space="preserve"><value>Family use</value></data>
+  <data name="Field.Purpose.Travel" xml:space="preserve"><value>Travel</value></data>
+  <data name="Field.TripType" xml:space="preserve"><value>Trip type</value></data>
+  <data name="Field.TripShort" xml:space="preserve"><value>Short (city)</value></data>
+  <data name="Field.TripLong" xml:space="preserve"><value>Long (highway)</value></data>
+  <data name="Field.BudgetMin" xml:space="preserve"><value>Minimum budget (JD)</value></data>
+  <data name="Field.BudgetMax" xml:space="preserve"><value>Maximum budget (JD)</value></data>
+  <data name="Field.PaymentMethod" xml:space="preserve"><value>Payment method</value></data>
+  <data name="Field.PaymentCash" xml:space="preserve"><value>Cash</value></data>
+  <data name="Field.PaymentInstallments" xml:space="preserve"><value>Installments</value></data>
+  <data name="Field.InstallmentMonths" xml:space="preserve"><value>Installment months</value></data>
+  <data name="Field.Condition" xml:space="preserve"><value>Condition</value></data>
+  <data name="Field.ConditionNew" xml:space="preserve"><value>New</value></data>
+  <data name="Field.ConditionUsed" xml:space="preserve"><value>Used</value></data>
+  <data name="Field.ConditionAny" xml:space="preserve"><value>No preference</value></data>
+  <data name="Field.Transmission" xml:space="preserve"><value>Transmission</value></data>
+  <data name="Field.TransmissionAuto" xml:space="preserve"><value>Automatic</value></data>
+  <data name="Field.TransmissionManual" xml:space="preserve"><value>Manual</value></data>
+  <data name="Field.Size" xml:space="preserve"><value>Size</value></data>
+  <data name="Field.SizeSmall" xml:space="preserve"><value>Small</value></data>
+  <data name="Field.SizeMedium" xml:space="preserve"><value>Medium</value></data>
+  <data name="Field.SizeSUV" xml:space="preserve"><value>SUV</value></data>
+  <data name="Field.HasKids.Display" xml:space="preserve"><value>Has kids</value></data>
+  <data name="Field.Budget" xml:space="preserve"><value>Budget</value></data>
+  <data name="Review.SubmitNew" xml:space="preserve"><value>Save profile</value></data>
+  <data name="Review.SubmitEdit" xml:space="preserve"><value>Save changes</value></data>
+
+  <data name="Please give this profile a name." xml:space="preserve"><value>Please give this profile a name.</value></data>
+  <data name="Name must be between 1 and 100 characters." xml:space="preserve"><value>Name must be between 1 and 100 characters.</value></data>
+  <data name="Please enter your age." xml:space="preserve"><value>Please enter your age.</value></data>
+  <data name="Age must be between 18 and 100." xml:space="preserve"><value>Age must be between 18 and 100.</value></data>
+  <data name="Please choose a marital status." xml:space="preserve"><value>Please choose a marital status.</value></data>
+  <data name="Please pick Single or Married." xml:space="preserve"><value>Please pick Single or Married.</value></data>
+  <data name="Please tell us whether you have kids." xml:space="preserve"><value>Please tell us whether you have kids.</value></data>
+  <data name="Please enter at least 1." xml:space="preserve"><value>Please enter at least 1.</value></data>
+  <data name="Please enter how many kids you have." xml:space="preserve"><value>Please enter how many kids you have.</value></data>
+  <data name="Please pick a primary purpose." xml:space="preserve"><value>Please pick a primary purpose.</value></data>
+  <data name="Please pick one of the listed options." xml:space="preserve"><value>Please pick one of the listed options.</value></data>
+  <data name="Please pick a trip type." xml:space="preserve"><value>Please pick a trip type.</value></data>
+  <data name="Please pick Short or Long." xml:space="preserve"><value>Please pick Short or Long.</value></data>
+  <data name="Please enter a minimum budget." xml:space="preserve"><value>Please enter a minimum budget.</value></data>
+  <data name="Please enter a maximum budget." xml:space="preserve"><value>Please enter a maximum budget.</value></data>
+  <data name="Budget must be a positive number." xml:space="preserve"><value>Budget must be a positive number.</value></data>
+  <data name="Please pick a payment method." xml:space="preserve"><value>Please pick a payment method.</value></data>
+  <data name="Please pick Cash or Installments." xml:space="preserve"><value>Please pick Cash or Installments.</value></data>
+  <data name="Please enter a number of months between 1 and 120." xml:space="preserve"><value>Please enter a number of months between 1 and 120.</value></data>
+  <data name="Minimum budget must be less than maximum budget." xml:space="preserve"><value>Minimum budget must be less than maximum budget.</value></data>
+  <data name="Please enter how many months of installments." xml:space="preserve"><value>Please enter how many months of installments.</value></data>
+  <data name="Please pick a condition preference." xml:space="preserve"><value>Please pick a condition preference.</value></data>
+  <data name="Please pick New, Used, or No Preference." xml:space="preserve"><value>Please pick New, Used, or No Preference.</value></data>
+  <data name="Please pick a transmission preference." xml:space="preserve"><value>Please pick a transmission preference.</value></data>
+  <data name="Please pick Automatic or Manual." xml:space="preserve"><value>Please pick Automatic or Manual.</value></data>
+  <data name="Please pick a size preference." xml:space="preserve"><value>Please pick a size preference.</value></data>
+  <data name="Please pick Small, Medium, or SUV." xml:space="preserve"><value>Please pick Small, Medium, or SUV.</value></data>
+
+  <data name="Dashboard.Title" xml:space="preserve"><value>Your tailored match portfolio</value></data>
+  <data name="Dashboard.Subtitle" xml:space="preserve"><value>Cross-referencing your custom lifestyle habits against live vehicle listings.</value></data>
+  <data name="Dashboard.SwitchPersona" xml:space="preserve"><value>Switch active persona:</value></data>
+  <data name="Dashboard.ManageProfiles" xml:space="preserve"><value>Manage profiles</value></data>
+  <data name="Dashboard.SavedCars" xml:space="preserve"><value>Saved cars</value></data>
+  <data name="Dashboard.NewPersona" xml:space="preserve"><value>Build a new persona...</value></data>
+  <data name="Testimonials.AddReview" xml:space="preserve"><value>Add Review</value></data>
+  <data name="Testimonials.EditReview" xml:space="preserve"><value>Edit Review</value></data>
+  <data name="Dashboard.WhyThisMatch" xml:space="preserve"><value>Why this match:</value></data>
+  <data name="Dashboard.ViewListing" xml:space="preserve"><value>View listing</value></data>
+  <data name="Dashboard.MatchPercent" xml:space="preserve"><value>{0}% Match</value></data>
+  <data name="Dashboard.Trust" xml:space="preserve"><value>Trust</value></data>
+  <data name="Dashboard.Listing" xml:space="preserve"><value>Listing</value></data>
+  <data name="Dashboard.RiskyFlagged" xml:space="preserve"><value>Flagged risky — official inspection recommended.</value></data>
+  <data name="Dashboard.NoMatches.Title" xml:space="preserve"><value>No direct matches found.</value></data>
+  <data name="Dashboard.NoMatches.Body" xml:space="preserve"><value>Try loosening your budget or changing your size preference.</value></data>
+  <data name="Dashboard.NoMatches.CTA" xml:space="preserve"><value>Update questionnaire</value></data>
+
+  <data name="Save.Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Save.Unsave" xml:space="preserve"><value>Unsave</value></data>
+  <data name="Save.SaveThisCar" xml:space="preserve"><value>Save this car</value></data>
+  <data name="Save.Page.Title" xml:space="preserve"><value>Saved cars</value></data>
+  <data name="Save.Free.Status" xml:space="preserve"><value>{0} / {1} on the Free plan.</value></data>
+  <data name="Save.Premium.Status" xml:space="preserve"><value>Premium plan — unlimited saves.</value></data>
+  <data name="Save.Empty" xml:space="preserve"><value>You haven't saved any cars yet.</value></data>
+  <data name="Save.BrowseListings" xml:space="preserve"><value>Browse listings</value></data>
+
+  <data name="Compare.Page.Title" xml:space="preserve"><value>Compare cars</value></data>
+  <data name="Compare.Button" xml:space="preserve"><value>Compare</value></data>
+  <data name="Compare.AddToCompare" xml:space="preserve"><value>Add to compare</value></data>
+  <data name="Compare.BackToSearch" xml:space="preserve"><value>Back to search</value></data>
+  <data name="Compare.Spec" xml:space="preserve"><value>Spec</value></data>
+  <data name="Compare.Bar.Empty" xml:space="preserve"><value>No cars selected.</value></data>
+  <data name="Compare.Bar.Summary" xml:space="preserve"><value>{0} / {1} listings selected.</value></data>
+
+  <data name="Profiles.Page.Title" xml:space="preserve"><value>My profiles</value></data>
+  <data name="Profiles.Page.Subtitle" xml:space="preserve"><value>Create, edit, and switch between your CarFit lifestyle profiles.</value></data>
+  <data name="Profiles.New" xml:space="preserve"><value>New profile</value></data>
+  <data name="Profiles.Empty" xml:space="preserve"><value>You don't have any profiles yet.</value></data>
+  <data name="Profiles.StartQuestionnaire" xml:space="preserve"><value>Start the questionnaire</value></data>
+  <data name="Profiles.Active" xml:space="preserve"><value>Active</value></data>
+
+  <data name="Search.Page.Title" xml:space="preserve"><value>Search the marketplace</value></data>
+  <data name="Search.ActiveCount" xml:space="preserve"><value>{0} active listings.</value></data>
+  <data name="Search.Field.Make" xml:space="preserve"><value>Make</value></data>
+  <data name="Search.Field.Model" xml:space="preserve"><value>Model</value></data>
+  <data name="Search.Field.YearFrom" xml:space="preserve"><value>Year from</value></data>
+  <data name="Search.Field.YearTo" xml:space="preserve"><value>Year to</value></data>
+  <data name="Search.Field.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Search.Field.MinPrice" xml:space="preserve"><value>Min price (JD)</value></data>
+  <data name="Search.Field.MaxPrice" xml:space="preserve"><value>Max price (JD)</value></data>
+  <data name="Search.Field.Transmission" xml:space="preserve"><value>Transmission</value></data>
+  <data name="Search.Any" xml:space="preserve"><value>Any</value></data>
+  <data name="Search.Clear" xml:space="preserve"><value>Clear</value></data>
+  <data name="Search.Submit" xml:space="preserve"><value>Search</value></data>
+  <data name="Search.NoMatches" xml:space="preserve"><value>No listings match these filters yet.</value></data>
+
+  <data name="Detail.BackToSearch" xml:space="preserve"><value>Back to search</value></data>
+  <data name="Detail.ListingPrice" xml:space="preserve"><value>Listing price</value></data>
+  <data name="Detail.Payment" xml:space="preserve"><value>Payment</value></data>
+  <data name="Detail.Seller" xml:space="preserve"><value>Seller</value></data>
+  <data name="Detail.Role.Dealer" xml:space="preserve"><value>Dealer</value></data>
+  <data name="Detail.Role.User" xml:space="preserve"><value>User</value></data>
+  <data name="Detail.CallSeller" xml:space="preserve"><value>Call seller</value></data>
+  <data name="Detail.CopyPhone" xml:space="preserve"><value>Copy phone number</value></data>
+  <data name="Detail.WhatsApp" xml:space="preserve"><value>WhatsApp</value></data>
+  <data name="Detail.Email" xml:space="preserve"><value>Send email</value></data>
+  <data name="Detail.Buy.Button" xml:space="preserve"><value>Buy This Car</value></data>
+  <data name="Detail.Buy.ModalTitle" xml:space="preserve"><value>Contact Seller</value></data>
+  <data name="Detail.Buy.Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Detail.Buy.WhatsAppPrefill" xml:space="preserve"><value>Hi, I'm interested in your {0} {1} {2} on CarFit</value></data>
+  <data name="Detail.Buy.RequestInspection" xml:space="preserve"><value>Request mechanic inspection</value></data>
+  <data name="Detail.Buy.CardHint" xml:space="preserve"><value>Tap 'Buy This Car' to see contact options</value></data>
+  <data name="Detail.Mechanic.Title" xml:space="preserve"><value>Request a mechanic visit</value></data>
+  <data name="Detail.Mechanic.Subtitle" xml:space="preserve"><value>A trusted mechanic will inspect this car before you commit.</value></data>
+  <data name="Detail.Mechanic.Label" xml:space="preserve"><value>Mechanic</value></data>
+  <data name="Detail.Mechanic.Placeholder" xml:space="preserve"><value>— pick a mechanic —</value></data>
+  <data name="Detail.Mechanic.YourName" xml:space="preserve"><value>Your name</value></data>
+  <data name="Detail.Mechanic.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Detail.Mechanic.Notes" xml:space="preserve"><value>Anything we should know? (optional)</value></data>
+  <data name="Detail.Mechanic.Submit" xml:space="preserve"><value>Request visit</value></data>
+  <data name="Detail.Mechanic.None" xml:space="preserve"><value>No mechanics seeded yet.</value></data>
+  <data name="Detail.Share" xml:space="preserve"><value>Copy listing link</value></data>
+  <data name="Detail.Share.Copied" xml:space="preserve"><value>Link copied</value></data>
+  <data name="Detail.Inspection.Title" xml:space="preserve"><value>Inspection report (ورقة الفحص)</value></data>
+  <data name="Detail.Inspection.CarSeer" xml:space="preserve"><value>CarSeer attached</value></data>
+  <data name="Detail.Inspection.NoReport" xml:space="preserve"><value>No inspection report has been attached to this listing yet.</value></data>
+  <data name="Detail.Inspection.NoneShort" xml:space="preserve"><value>No inspection yet</value></data>
+  <data name="Detail.ViewInspectionSheet" xml:space="preserve"><value>View Inspection Sheet</value></data>
+  <data name="Detail.DownloadPdf" xml:space="preserve"><value>Download PDF</value></data>
+  <data name="Detail.Inspection.OverallScore" xml:space="preserve"><value>Overall score</value></data>
+  <data name="Detail.Inspection.Engine" xml:space="preserve"><value>Engine</value></data>
+  <data name="Detail.Inspection.Gearbox" xml:space="preserve"><value>Gearbox</value></data>
+  <data name="Detail.Inspection.ChassisPoints" xml:space="preserve"><value>Chassis points</value></data>
+  <data name="Detail.Inspection.Center" xml:space="preserve"><value>Center</value></data>
+  <data name="Detail.Inspection.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Detail.Inspection.Body" xml:space="preserve"><value>Body condition</value></data>
+  <data name="Detail.Inspection.Roof" xml:space="preserve"><value>Roof</value></data>
+  <data name="Detail.Inspection.Paint" xml:space="preserve"><value>Paint</value></data>
+  <data name="Detail.Inspection.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Detail.Inspection.RiskyAlert" xml:space="preserve"><value>Flagged as Risky. One or more chassis points have been cut, replaced, or written off. We recommend an official technical inspection before purchase.</value></data>
+
+  <!-- VM Display names — keys equal the English string so [Display(Name="...")] resolves automatically via AddDataAnnotationsLocalization. -->
+  <data name="Profile name" xml:space="preserve"><value>Profile name</value></data>
+  <data name="Marital status" xml:space="preserve"><value>Marital status</value></data>
+  <data name="Do you have kids?" xml:space="preserve"><value>Do you have kids?</value></data>
+  <data name="Number of kids" xml:space="preserve"><value>Number of kids</value></data>
+  <data name="Primary purpose" xml:space="preserve"><value>Primary purpose</value></data>
+  <data name="Trip type" xml:space="preserve"><value>Trip type</value></data>
+  <data name="Minimum budget (JD)" xml:space="preserve"><value>Minimum budget (JD)</value></data>
+  <data name="Maximum budget (JD)" xml:space="preserve"><value>Maximum budget (JD)</value></data>
+  <data name="Payment method" xml:space="preserve"><value>Payment method</value></data>
+  <data name="Installment months" xml:space="preserve"><value>Installment months</value></data>
+  <data name="Condition" xml:space="preserve"><value>Condition</value></data>
+  <data name="Transmission" xml:space="preserve"><value>Transmission</value></data>
+  <data name="Size" xml:space="preserve"><value>Size</value></data>
+
+  <!-- Admin chrome -->
+  <data name="Admin.BrandSuffix" xml:space="preserve"><value>CarFit Admin</value></data>
+  <data name="Admin.Panel" xml:space="preserve"><value>Admin Panel</value></data>
+  <data name="Admin.PanelSubtitle" xml:space="preserve"><value>CarFit Administrator</value></data>
+  <data name="Admin.Nav.Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="Admin.Nav.Users" xml:space="preserve"><value>User Management</value></data>
+  <data name="Admin.Nav.DealerApprovals" xml:space="preserve"><value>Dealer Approvals</value></data>
+  <data name="Admin.Nav.Glossary" xml:space="preserve"><value>Glossary Manager</value></data>
+  <data name="Admin.Nav.Testimonials" xml:space="preserve"><value>Testimonials</value></data>
+  <data name="Admin.Nav.InventoryLot" xml:space="preserve"><value>Inventory Lot</value></data>
+  <data name="Admin.Nav.ViewSite" xml:space="preserve"><value>View Website</value></data>
+  <data name="Admin.Nav.Logout" xml:space="preserve"><value>Logout System</value></data>
+  <data name="Admin.Nav.DashboardControl" xml:space="preserve"><value>Dashboard Control</value></data>
+  <data name="Admin.Nav.SignOut" xml:space="preserve"><value>Sign Out System</value></data>
+  <data name="Admin.SearchPlaceholder" xml:space="preserve"><value>Search parameters...</value></data>
+  <data name="Admin.NoNotifications" xml:space="preserve"><value>No new notification alerts.</value></data>
+  <data name="Admin.RoleLabel" xml:space="preserve"><value>Admin</value></data>
+  <data name="Admin.Footer.Brand" xml:space="preserve"><value>CarFit Workspace Platform</value></data>
+  <data name="Admin.Footer.Context" xml:space="preserve"><value> Root Security Context</value></data>
+
+  <!-- Admin screens -->
+  <data name="Admin.Dashboard.Title" xml:space="preserve"><value>Analytics Overview</value></data>
+  <data name="Admin.Users.Title" xml:space="preserve"><value>User Management</value></data>
+  <data name="Admin.Dealers.Pending.Title" xml:space="preserve"><value>Pending Dealer Approvals</value></data>
+  <data name="Admin.Listings.Title" xml:space="preserve"><value>All Listings</value></data>
+  <data name="Admin.Listings.Form.Create" xml:space="preserve"><value>Create Listing</value></data>
+  <data name="Admin.Listings.Form.Edit" xml:space="preserve"><value>Edit Listing</value></data>
+  <data name="Admin.Inspections.Form.Title" xml:space="preserve"><value>Inspection Report</value></data>
+  <data name="Admin.Glossary.Title" xml:space="preserve"><value>Glossary Manager</value></data>
+  <data name="Admin.BulkLoader.Title" xml:space="preserve"><value>Bulk CSV Loader</value></data>
+
+  <!-- Seller screens -->
+  <data name="Seller.Dashboard.Title" xml:space="preserve"><value>Dealer Dashboard</value></data>
+  <data name="Seller.Dashboard.Welcome" xml:space="preserve"><value>Welcome, {0}</value></data>
+  <data name="Seller.Onboarding.Title" xml:space="preserve"><value>Dealer Onboarding</value></data>
+  <data name="Seller.Onboarding.Heading" xml:space="preserve"><value>Tell us about your dealership</value></data>
+  <data name="Seller.Onboarding.Subtitle" xml:space="preserve"><value>We'll review your application before you can list vehicles.</value></data>
+  <data name="Seller.Inventory.Title" xml:space="preserve"><value>My Listings</value></data>
+  <data name="Seller.Inventory.Subtitle" xml:space="preserve"><value>Manage the vehicles you've submitted to CarFit.</value></data>
+  <data name="Seller.Inventory.Add" xml:space="preserve"><value>Add a listing</value></data>
+  <data name="Seller.Inventory.Form.Title" xml:space="preserve"><value>Add a Vehicle</value></data>
+  <data name="Seller.Approved" xml:space="preserve"><value>Approved</value></data>
+  <data name="Seller.PendingReview" xml:space="preserve"><value>Pending review</value></data>
+  <data name="Seller.Dashboard.PendingApproval" xml:space="preserve"><value>Pending admin approval</value></data>
+  <data name="Seller.Dashboard.PendingAlert" xml:space="preserve"><value>Your dealership profile is awaiting review. You'll be able to list vehicles once an administrator approves your account.</value></data>
+  <data name="Seller.Dashboard.Phone" xml:space="preserve"><value>Contact phone</value></data>
+  <data name="Seller.Dashboard.Email" xml:space="preserve"><value>Contact email</value></data>
+  <data name="Seller.Dashboard.Inventory" xml:space="preserve"><value>Inventory</value></data>
+  <data name="Seller.Dashboard.ManageListings" xml:space="preserve"><value>Manage listings</value></data>
+
+  <!-- About -->
+  <data name="About.Title" xml:space="preserve"><value>About Our Advisor</value></data>
+  <data name="About.Crumb.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="About.Crumb.About" xml:space="preserve"><value>About</value></data>
+  <data name="About.Badge" xml:space="preserve"><value>CARFIT TECHNOLOGY</value></data>
+  <data name="About.Heading" xml:space="preserve"><value>Smart Way to Evaluate Pre-Owned Vehicles</value></data>
+  <data name="About.Lead" xml:space="preserve"><value>We bridge backend technical analytical inspection data with clean, user-focused diagnostic metrics. Our mission is to take the guesswork out of purchasing used vehicles through rigorous verification parameters and AI-driven matching profiles.</value></data>
+  <data name="About.F1.Title" xml:space="preserve"><value>Data-Driven Vehicle Compatibility</value></data>
+  <data name="About.F1.Body" xml:space="preserve"><value>Match vehicles to exact lifestyle profiles using multi-point scoring variables.</value></data>
+  <data name="About.F2.Title" xml:space="preserve"><value>Uncompromising Verification</value></data>
+  <data name="About.F2.Body" xml:space="preserve"><value>Every report is backed by real-time field engine scanners and diagnostic logs.</value></data>
+  <data name="About.Stat.Checkpoints" xml:space="preserve"><value>Inspection Checkpoints</value></data>
+  <data name="About.Stat.Vehicles" xml:space="preserve"><value>Vehicles Evaluated</value></data>
+  <data name="About.Stat.Specialists" xml:space="preserve"><value>Expert Specialists</value></data>
+  <data name="About.Stat.Success" xml:space="preserve"><value>Success Match Rate</value></data>
+
+  <!-- Contact -->
+  <data name="Contact.Title" xml:space="preserve"><value>Contact Us</value></data>
+  <data name="Contact.Crumb" xml:space="preserve"><value>Contact</value></data>
+  <data name="Contact.Badge" xml:space="preserve"><value>COMMUNICATION NODE</value></data>
+  <data name="Contact.Heading" xml:space="preserve"><value>Contact For Report Verification Queries</value></data>
+  <data name="Contact.Tagline" xml:space="preserve"><value>Reach out to our vehicle valuation coordinators for live assistance.</value></data>
+  <data name="Contact.Body" xml:space="preserve"><value>Have questions regarding a recent vehicle inspection report, or need help adjusting your matching filter constraints? Send our technical automotive evaluation desk a direct message.</value></data>
+  <data name="Contact.Field.Name" xml:space="preserve"><value>Your Name</value></data>
+  <data name="Contact.Field.Email" xml:space="preserve"><value>Your Email</value></data>
+  <data name="Contact.Field.Subject" xml:space="preserve"><value>Subject</value></data>
+  <data name="Contact.Field.Message" xml:space="preserve"><value>Message</value></data>
+  <data name="Contact.Send" xml:space="preserve"><value>Send Message</value></data>
+
+  <!-- Privacy -->
+  <data name="Privacy.Badge" xml:space="preserve"><value>LEGAL DATA PROTECTION</value></data>
+  <data name="Privacy.Title" xml:space="preserve"><value>Privacy Policy</value></data>
+  <data name="Privacy.Body1" xml:space="preserve"><value>At CarFit, we prioritize the protection and security of your personal data. This privacy policy describes how we collect, process, and protect your information when using our smart recommendation questionnaire or listing dealership inventory.</value></data>
+  <data name="Privacy.Body2" xml:space="preserve"><value>We securely store user profiles and vehicle search constraints locally in Jordan. We do not sell or share user data with unauthorized third parties. All inspection logs are fully encrypted during transit.</value></data>
+
+  <!-- Inspection Index -->
+  <data name="Inspection.Title" xml:space="preserve"><value>Inspection Modules</value></data>
+  <data name="Inspection.Crumb" xml:space="preserve"><value>Modules</value></data>
+  <data name="Inspection.Badge" xml:space="preserve"><value>CORE DIAGNOSTIC INFRASTRUCTURE</value></data>
+  <data name="Inspection.Heading" xml:space="preserve"><value>Explore Our Diagnostic Inspection Framework</value></data>
+  <data name="Inspection.Tagline" xml:space="preserve"><value>We offer transparent appraisal standards built for secondary markets.</value></data>
+  <data name="Inspection.Tab1" xml:space="preserve"><value>01. Powertrain Scanner</value></data>
+  <data name="Inspection.Tab2" xml:space="preserve"><value>02. Chassis Integrity</value></data>
+  <data name="Inspection.Tab3" xml:space="preserve"><value>03. History &amp; Evaluation</value></data>
+  <data name="Inspection.Tab1.Heading" xml:space="preserve"><value>Powertrain and ECU Diagnostic Scanning</value></data>
+  <data name="Inspection.Tab1.Body" xml:space="preserve"><value>We hook deep sensor telemetry directly to the vehicle's onboard terminal to monitor cylinder compression balance, transmission shift delays, and active warning codes.</value></data>
+  <data name="Inspection.Tab1.B1" xml:space="preserve"><value>Live sensor data acquisition</value></data>
+  <data name="Inspection.Tab1.B2" xml:space="preserve"><value>Historical fault code decoding</value></data>
+  <data name="Inspection.Tab1.B3" xml:space="preserve"><value>Fluid degradation evaluation</value></data>
+  <data name="Inspection.Tab2.Heading" xml:space="preserve"><value>Chassis Structure Alignment Validation</value></data>
+  <data name="Inspection.Tab2.Body" xml:space="preserve"><value>Our inspection specialists check the undercarriage structural members with precision thickness tools to spot hidden frame repairs, collision fixes, or rust patterns.</value></data>
+  <data name="Inspection.Tab2.B1" xml:space="preserve"><value>Chassis frame thickness measurement</value></data>
+  <data name="Inspection.Tab2.B2" xml:space="preserve"><value>Prior collision structural tracking</value></data>
+  <data name="Inspection.Tab2.B3" xml:space="preserve"><value>Suspension geometry checkups</value></data>
+  <data name="Inspection.Tab3.Heading" xml:space="preserve"><value>Market History Tracking &amp; Valuation Matrix</value></data>
+  <data name="Inspection.Tab3.Body" xml:space="preserve"><value>We combine technical field findings with ownership database histories to establish a true vehicle condition baseline and fair pricing valuation metrics.</value></data>
+  <data name="Inspection.Tab3.B1" xml:space="preserve"><value>Ownership sequence tracking</value></data>
+  <data name="Inspection.Tab3.B2" xml:space="preserve"><value>Odometer tracking validation</value></data>
+  <data name="Inspection.Tab3.B3" xml:space="preserve"><value>Fair market value calculation</value></data>
+  <data name="Inspection.BookBtn" xml:space="preserve"><value>Book This Package</value></data>
+
+  <!-- Book -->
+  <data name="Book.Title" xml:space="preserve"><value>Book Inspection Report</value></data>
+  <data name="Book.Header" xml:space="preserve"><value>Schedule Appraisals</value></data>
+  <data name="Book.Crumb" xml:space="preserve"><value>Booking Gateway</value></data>
+  <data name="Book.Success" xml:space="preserve"><value>Success!</value></data>
+  <data name="Book.Badge" xml:space="preserve"><value> BOOKING ENGINE</value></data>
+  <data name="Book.Heading" xml:space="preserve"><value>Verify Your Next Vehicle Purchase</value></data>
+  <data name="Book.Subtitle" xml:space="preserve"><value>Schedule a detailed mobile inspection at the dealer's lot in Jordan.</value></data>
+  <data name="Book.Name" xml:space="preserve"><value>Your Name</value></data>
+  <data name="Book.NamePlaceholder" xml:space="preserve"><value>e.g. Ahmad Al-Saeed</value></data>
+  <data name="Book.Email" xml:space="preserve"><value>Email Address</value></data>
+  <data name="Book.Package" xml:space="preserve"><value>Inspection Package</value></data>
+  <data name="Book.PackagePlaceholder" xml:space="preserve"><value>Select Package Tier</value></data>
+  <data name="Book.Package1" xml:space="preserve"><value>01. Powertrain &amp; ECU Scanner (JD 35)</value></data>
+  <data name="Book.Package2" xml:space="preserve"><value>02. Undercarriage &amp; Chassis Alignment (JD 50)</value></data>
+  <data name="Book.Package3" xml:space="preserve"><value>03. All-Inclusive Ultimate Verification (JD 75)</value></data>
+  <data name="Book.Date" xml:space="preserve"><value>Preferred Inspection Date</value></data>
+  <data name="Book.Notes" xml:space="preserve"><value>Vehicle Details &amp; Location Notes</value></data>
+  <data name="Book.NotesPlaceholder" xml:space="preserve"><value>Mention Make, Model, Year, Seller Location, or specific areas of concern...</value></data>
+  <data name="Book.Submit" xml:space="preserve"><value>Schedule Verification Session</value></data>
+
+  <!-- Error -->
+  <data name="Error.Title" xml:space="preserve"><value>Error.</value></data>
+  <data name="Error.Subtitle" xml:space="preserve"><value>An error occurred while processing your request.</value></data>
+  <data name="Error.RequestId" xml:space="preserve"><value>Request ID:</value></data>
+
+  <!-- Compare bar -->
+  <data name="Compare.Bar.Label" xml:space="preserve"><value>Compare</value></data>
+  <data name="Compare.Bar.Clear" xml:space="preserve"><value>Clear</value></data>
+
+  <!-- Login partial -->
+  <data name="LoginPartial.Hello" xml:space="preserve"><value>Hello {0}!</value></data>
+
+  <!-- Admin Dashboard extra -->
+  <data name="Admin.Dashboard.Badge" xml:space="preserve"><value>Administrative Root</value></data>
+  <data name="Admin.Dashboard.Heading" xml:space="preserve"><value>CarFit Central Control Engine</value></data>
+  <data name="Admin.Dashboard.BulkLoader" xml:space="preserve"><value>Bulk CSV Loader Matrix</value></data>
+  <data name="Admin.Dashboard.Welcome" xml:space="preserve"><value>Welcome to the administrative master workspace.</value></data>
+  <data name="Admin.Dashboard.KPI.Users" xml:space="preserve"><value>Platform Users</value></data>
+  <data name="Admin.Dashboard.KPI.Listings" xml:space="preserve"><value>Active Listings</value></data>
+  <data name="Admin.Dashboard.KPI.Glossary" xml:space="preserve"><value>Glossary Terms</value></data>
+  <data name="Admin.Dashboard.Monthly" xml:space="preserve"><value>Monthly new registrations</value></data>
+  <data name="Admin.Dashboard.TopRecommended" xml:space="preserve"><value>Top 5 most-recommended cars</value></data>
+  <data name="Admin.Dashboard.TopSearch" xml:space="preserve"><value>Top 10 search terms</value></data>
+  <data name="Admin.Dashboard.RecentListings" xml:space="preserve"><value>Recent inventory additions</value></data>
+  <data name="Admin.Dashboard.Vehicle" xml:space="preserve"><value>Vehicle</value></data>
+  <data name="Admin.Dashboard.Recommendations" xml:space="preserve"><value>Recommendations</value></data>
+  <data name="Admin.Dashboard.Term" xml:space="preserve"><value>Term</value></data>
+  <data name="Admin.Dashboard.Searches" xml:space="preserve"><value>Searches</value></data>
+  <data name="Admin.Dashboard.ListingId" xml:space="preserve"><value>Listing ID</value></data>
+  <data name="Admin.Dashboard.Price" xml:space="preserve"><value>Listing Price</value></data>
+  <data name="Admin.Dashboard.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Admin.Dashboard.NoRecs" xml:space="preserve"><value>No recommendation history yet.</value></data>
+  <data name="Admin.Dashboard.NoSearches" xml:space="preserve"><value>No search activity logged yet.</value></data>
+  <data name="Admin.Dashboard.NoListings" xml:space="preserve"><value>No listings yet.</value></data>
+  <data name="Admin.Dashboard.Active" xml:space="preserve"><value>Active</value></data>
+  <data name="Admin.Dashboard.Pending" xml:space="preserve"><value>Pending</value></data>
+  <data name="Common.JOD" xml:space="preserve"><value>JD</value></data>
+  <data name="Billing.Eyebrow" xml:space="preserve"><value>Subscription</value></data>
+  <data name="Billing.ChoosePlan.Title" xml:space="preserve"><value>Choose your plan</value></data>
+  <data name="Billing.ChoosePlan.Subtitle" xml:space="preserve"><value>Publish listings and get priority placement in search results.</value></data>
+  <data name="Billing.AlreadyActive" xml:space="preserve"><value>You have an active subscription.</value></data>
+  <data name="Billing.ManageLink" xml:space="preserve"><value>Manage billing</value></data>
+  <data name="Billing.Subscribe" xml:space="preserve"><value>Subscribe</value></data>
+  <data name="Billing.Interval.Week" xml:space="preserve"><value>week</value></data>
+  <data name="Billing.Interval.Month" xml:space="preserve"><value>month</value></data>
+  <data name="Billing.Interval.Year" xml:space="preserve"><value>year</value></data>
+  <data name="Billing.Interval.PerPost" xml:space="preserve"><value>per listing</value></data>
+  <data name="Billing.Trial.Title" xml:space="preserve"><value>3-day free trial</value></data>
+  <data name="Billing.Trial.Desc" xml:space="preserve"><value>Try CarFit free for 3 days. Post listings at no cost during your trial.</value></data>
+  <data name="Billing.Trial.ActiveUntil" xml:space="preserve"><value>Your free trial is active until {0}.</value></data>
+  <data name="Billing.Trial.Start" xml:space="preserve"><value>Start free trial</value></data>
+  <data name="Billing.Trial.Ended" xml:space="preserve"><value>Your free trial has ended.</value></data>
+  <data name="Billing.PerPost.Title" xml:space="preserve"><value>Pay per listing</value></data>
+  <data name="Billing.PerPost.Desc" xml:space="preserve"><value>After your trial, pay a small fee for each listing you publish.</value></data>
+  <data name="Billing.PerPost.GoPost" xml:space="preserve"><value>Post a car</value></data>
+  <data name="Billing.PerPost.Pay" xml:space="preserve"><value>Pay &amp; post</value></data>
+  <data name="Billing.Manage.Title" xml:space="preserve"><value>Billing</value></data>
+  <data name="Billing.Manage.CurrentPlan" xml:space="preserve"><value>Current plan</value></data>
+  <data name="Billing.Manage.NextBilling" xml:space="preserve"><value>Next billing</value></data>
+  <data name="Billing.Manage.TrialEnds" xml:space="preserve"><value>Trial ends</value></data>
+  <data name="Billing.Manage.CancelScheduled" xml:space="preserve"><value>Your subscription is scheduled to end at the close of the current period.</value></data>
+  <data name="Billing.Manage.NoPlan" xml:space="preserve"><value>You don't have an active plan.</value></data>
+  <data name="Billing.Manage.PerPostCredits" xml:space="preserve"><value>Pay-per-post credits available: {0}</value></data>
+  <data name="Billing.Manage.Actions" xml:space="preserve"><value>Manage</value></data>
+  <data name="Billing.Manage.UpdateCard" xml:space="preserve"><value>Update payment method</value></data>
+  <data name="Billing.Manage.Cancel" xml:space="preserve"><value>Cancel subscription</value></data>
+  <data name="Billing.Manage.CancelConfirm" xml:space="preserve"><value>Cancel your subscription at the end of the current period?</value></data>
+  <data name="Billing.Manage.LifetimePaid" xml:space="preserve"><value>Total paid</value></data>
+  <data name="Billing.Manage.History" xml:space="preserve"><value>Payment history</value></data>
+  <data name="Billing.Manage.NoHistory" xml:space="preserve"><value>No payments yet.</value></data>
+  <data name="Billing.History.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Billing.History.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Billing.History.Amount" xml:space="preserve"><value>Amount</value></data>
+  <data name="Billing.History.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Billing.Status.Trial" xml:space="preserve"><value>Trial</value></data>
+  <data name="Billing.Status.Active" xml:space="preserve"><value>Active</value></data>
+  <data name="Billing.Status.PastDue" xml:space="preserve"><value>Past due</value></data>
+  <data name="Billing.Status.Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Billing.Status.Expired" xml:space="preserve"><value>Expired</value></data>
+  <data name="Billing.Type.Subscription" xml:space="preserve"><value>Subscription</value></data>
+  <data name="Billing.Type.PerPost" xml:space="preserve"><value>Per listing</value></data>
+  <data name="Billing.Success.Title" xml:space="preserve"><value>Payment successful</value></data>
+  <data name="Billing.Success.Body" xml:space="preserve"><value>Thanks! Your payment was received and your account is being updated.</value></data>
+  <data name="Billing.Cancelled.Title" xml:space="preserve"><value>Checkout cancelled</value></data>
+  <data name="Billing.Cancelled.Body" xml:space="preserve"><value>No charge was made. You can choose a plan whenever you're ready.</value></data>
+  <data name="Admin.Nav.Subscriptions" xml:space="preserve"><value>Subscriptions</value></data>
+  <data name="Admin.Subs.Title" xml:space="preserve"><value>Subscriptions</value></data>
+  <data name="Admin.Subs.AllStatuses" xml:space="preserve"><value>All statuses</value></data>
+  <data name="Admin.Subs.Name" xml:space="preserve"><value>Subscriber</value></data>
+  <data name="Admin.Subs.Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Admin.Subs.Plan" xml:space="preserve"><value>Plan</value></data>
+  <data name="Admin.Subs.Fee" xml:space="preserve"><value>Fee</value></data>
+  <data name="Admin.Subs.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Admin.Subs.Start" xml:space="preserve"><value>Start date</value></data>
+  <data name="Admin.Subs.NextBilling" xml:space="preserve"><value>Next billing</value></data>
+  <data name="Admin.Subs.LifetimePaid" xml:space="preserve"><value>Total paid</value></data>
+  <data name="Admin.Subs.None" xml:space="preserve"><value>No subscriptions found.</value></data>
+  <data name="Admin.Subs.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Seller.Dashboard.BillingHint" xml:space="preserve"><value>Manage your subscription &amp; payment method</value></data>
+  <data name="Admin.Inv.StatusFilter" xml:space="preserve"><value>Status:</value></data>
+  <data name="Admin.Inv.SellerFilter" xml:space="preserve"><value>Seller type:</value></data>
+  <data name="Admin.Inv.All" xml:space="preserve"><value>All</value></data>
+  <data name="Admin.Inv.Image" xml:space="preserve"><value>Image</value></data>
+  <data name="Admin.Inv.Seller" xml:space="preserve"><value>Seller</value></data>
+  <data name="Admin.Inv.SellerRole" xml:space="preserve"><value>Seller Type</value></data>
+  <data name="Admin.Inv.Created" xml:space="preserve"><value>Created</value></data>
+  <data name="Admin.Role.User" xml:space="preserve"><value>User</value></data>
+  <data name="Admin.Role.Dealer" xml:space="preserve"><value>Dealer</value></data>
+  <data name="Admin.Nav.Bookings" xml:space="preserve"><value>Inspection Bookings</value></data>
+  <data name="Admin.Nav.InspectionReports" xml:space="preserve"><value>Inspection Reports</value></data>
+  <data name="Admin.Insp.Title" xml:space="preserve"><value>Inspection Reports</value></data>
+  <data name="Admin.Insp.Filter" xml:space="preserve"><value>Report:</value></data>
+  <data name="Admin.Insp.With" xml:space="preserve"><value>With report</value></data>
+  <data name="Admin.Insp.Without" xml:space="preserve"><value>Without</value></data>
+  <data name="Admin.Insp.Car" xml:space="preserve"><value>Car</value></data>
+  <data name="Admin.Insp.Report" xml:space="preserve"><value>Report</value></data>
+  <data name="Admin.Insp.Date" xml:space="preserve"><value>Inspection date</value></data>
+  <data name="Admin.Insp.None" xml:space="preserve"><value>None</value></data>
+  <data name="Admin.Insp.Edit" xml:space="preserve"><value>Edit inspection</value></data>
+  <data name="Admin.Insp.Empty" xml:space="preserve"><value>No listings found.</value></data>
+  <data name="Admin.Nav.Leads" xml:space="preserve"><value>Buyer Leads</value></data>
+  <data name="Admin.Leads.Title" xml:space="preserve"><value>Buyer Leads</value></data>
+  <data name="Admin.Leads.Car" xml:space="preserve"><value>Car</value></data>
+  <data name="Admin.Leads.Buyer" xml:space="preserve"><value>Buyer</value></data>
+  <data name="Admin.Leads.Seller" xml:space="preserve"><value>Seller</value></data>
+  <data name="Admin.Leads.When" xml:space="preserve"><value>When</value></data>
+  <data name="Admin.Leads.None" xml:space="preserve"><value>No buyer leads yet.</value></data>
+  <data name="Admin.Bookings.Title" xml:space="preserve"><value>Inspection Bookings</value></data>
+  <data name="Admin.Bookings.Id" xml:space="preserve"><value>Booking ID</value></data>
+  <data name="Admin.Bookings.Customer" xml:space="preserve"><value>Customer</value></data>
+  <data name="Admin.Bookings.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Admin.Bookings.Car" xml:space="preserve"><value>Car</value></data>
+  <data name="Admin.Bookings.Mechanic" xml:space="preserve"><value>Inspector</value></data>
+  <data name="Admin.Bookings.Scheduled" xml:space="preserve"><value>Scheduled</value></data>
+  <data name="Admin.Bookings.Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Admin.Bookings.View" xml:space="preserve"><value>View</value></data>
+  <data name="Admin.Bookings.None" xml:space="preserve"><value>No bookings found.</value></data>
+  <data name="Admin.Bookings.From" xml:space="preserve"><value>From</value></data>
+  <data name="Admin.Bookings.To" xml:space="preserve"><value>To</value></data>
+  <data name="Admin.Bookings.Search" xml:space="preserve"><value>Search</value></data>
+  <data name="Admin.Bookings.SearchPlaceholder" xml:space="preserve"><value>Name or email…</value></data>
+  <data name="Admin.Bookings.Apply" xml:space="preserve"><value>Apply</value></data>
+  <data name="Admin.Bookings.Status.Pending" xml:space="preserve"><value>Pending</value></data>
+  <data name="Admin.Bookings.Status.Confirmed" xml:space="preserve"><value>Confirmed</value></data>
+  <data name="Admin.Bookings.Status.Completed" xml:space="preserve"><value>Completed</value></data>
+  <data name="Admin.Bookings.Status.Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Admin.Bookings.Details" xml:space="preserve"><value>Booking details</value></data>
+  <data name="Admin.Bookings.Package" xml:space="preserve"><value>Package</value></data>
+  <data name="Admin.Bookings.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Admin.Bookings.Inspection" xml:space="preserve"><value>Inspection report</value></data>
+  <data name="Admin.Bookings.TrustScore" xml:space="preserve"><value>Trust score</value></data>
+  <data name="Admin.Bookings.NoInspection" xml:space="preserve"><value>No inspection report for this car yet.</value></data>
+  <data name="Admin.Bookings.ViewListing" xml:space="preserve"><value>View listing</value></data>
+  <data name="Admin.Bookings.Carseer" xml:space="preserve"><value>CarSeer attached</value></data>
+  <data name="Admin.Bookings.StatusUpdated" xml:space="preserve"><value>Status updated</value></data>
+  <data name="Admin.Bookings.Back" xml:space="preserve"><value>Back to bookings</value></data>
+  <data name="Admin.Bookings.UpdateStatus" xml:space="preserve"><value>Update status</value></data>
+  <data name="Admin.Bookings.Confirm" xml:space="preserve"><value>Confirm</value></data>
+  <data name="Admin.Bookings.Complete" xml:space="preserve"><value>Mark completed</value></data>
+  <data name="Admin.Bookings.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Admin.Bookings.CancelConfirm" xml:space="preserve"><value>Cancel this booking?</value></data>
+  <data name="Phone number" xml:space="preserve"><value>Phone number</value></data>
+  <data name="Phone number is required" xml:space="preserve"><value>Phone number is required</value></data>
+  <data name="Enter a valid Jordanian mobile number (07XXXXXXXX)" xml:space="preserve"><value>Enter a valid Jordanian mobile number (07XXXXXXXX)</value></data>
+  <data name="This phone number is already registered" xml:space="preserve"><value>This phone number is already registered</value></data>
+  <data name="Admin.Nav.Tools" xml:space="preserve"><value>Tools</value></data>
+  <data name="Admin.Tools.Title" xml:space="preserve"><value>Maintenance Tools</value></data>
+  <data name="Admin.Tools.Backfill.Heading" xml:space="preserve"><value>Backfill missing phone numbers</value></data>
+  <data name="Admin.Tools.Backfill.Desc" xml:space="preserve"><value>{0} users currently have no phone number.</value></data>
+  <data name="Admin.Tools.Backfill.Button" xml:space="preserve"><value>Backfill missing phone numbers</value></data>
+  <data name="Admin.Tools.Confirm" xml:space="preserve"><value>This will assign random Jordanian phone numbers to {0} users with no phone. Continue?</value></data>
+  <data name="Admin.Tools.None" xml:space="preserve"><value>All users already have a phone number.</value></data>
+  <data name="Updated {0} users. {1} already had phones." xml:space="preserve"><value>Updated {0} users. {1} already had phones.</value></data>
+  <data name="Account.UpdatePhone.Title" xml:space="preserve"><value>Update your phone number</value></data>
+  <data name="Account.UpdatePhone.Banner" xml:space="preserve"><value>We assigned you a placeholder phone number. Please set your real number — it's needed for buyer contact and SMS notifications.</value></data>
+  <data name="Account.UpdatePhone.Save" xml:space="preserve"><value>Save phone number</value></data>
+  <data name="Account.UpdatePhone.Skip" xml:space="preserve"><value>Skip for now</value></data>
+  <data name="Account.UpdatePhone.Saved" xml:space="preserve"><value>Thanks — your phone number has been updated.</value></data>
+
+  <!-- Admin: Makes management -->
+  <data name="Admin.Nav.Makes" xml:space="preserve"><value>Makes</value></data>
+  <data name="Admin.Makes.Title" xml:space="preserve"><value>Manage Makes</value></data>
+
+  <!-- Home: Browse by Make -->
+  <data name="Home.Makes.Badge" xml:space="preserve"><value>EXPLORE THE LOT</value></data>
+  <data name="Home.Makes.SectionTitle" xml:space="preserve"><value>Browse by Make</value></data>
+  <data name="Home.Makes.SectionSubtitle" xml:space="preserve"><value>Jump straight to the brands available right now.</value></data>
+  <data name="Home.Makes.CarsAvailable" xml:space="preserve"><value>{0} cars available</value></data>
+  <data name="Home.Makes.Empty" xml:space="preserve"><value>No makes are available yet — check back soon.</value></data>
+
+  <!-- Phase 10: listing condition, inspection upload, approval flow -->
+  <data name="Listing.Condition.Label" xml:space="preserve"><value>Condition</value></data>
+  <data name="Listing.Condition.New" xml:space="preserve"><value>New</value></data>
+  <data name="Listing.Condition.Used" xml:space="preserve"><value>Used</value></data>
+  <data name="Listing.Inspection.SectionTitle" xml:space="preserve"><value>Inspection documents</value></data>
+  <data name="Listing.Inspection.SectionHelp" xml:space="preserve"><value>Used cars require at least one inspection document. Upload up to 10 files (PDF, JPG, PNG, or WebP), 25 MB each.</value></data>
+  <data name="Listing.Inspection.UploadLabel" xml:space="preserve"><value>Upload inspection documents</value></data>
+  <data name="Listing.Inspection.RemoveConfirm" xml:space="preserve"><value>Remove this inspection document?</value></data>
+  <data name="Listing.Status.Draft" xml:space="preserve"><value>Draft</value></data>
+  <data name="Listing.Status.PendingInspectionReview" xml:space="preserve"><value>Pending review</value></data>
+  <data name="Listing.Status.Approved" xml:space="preserve"><value>Approved</value></data>
+  <data name="Listing.Status.Rejected" xml:space="preserve"><value>Rejected</value></data>
+  <data name="Listing.Status.Sold" xml:space="preserve"><value>Sold</value></data>
+  <data name="Listing.Status.RejectionReasonLabel" xml:space="preserve"><value>Reason</value></data>
+  <data name="Admin.Inv.ConditionFilter" xml:space="preserve"><value>Condition:</value></data>
+  <data name="Admin.Listings.ReviewBtn" xml:space="preserve"><value>Review</value></data>
+  <data name="Admin.Review.Back" xml:space="preserve"><value>Back to listings</value></data>
+  <data name="Admin.Review.VehicleDetails" xml:space="preserve"><value>Vehicle details</value></data>
+  <data name="Admin.Review.Seller" xml:space="preserve"><value>Seller</value></data>
+  <data name="Admin.Review.Photos" xml:space="preserve"><value>Photos</value></data>
+  <data name="Admin.Review.UploadsTitle" xml:space="preserve"><value>Seller inspection documents</value></data>
+  <data name="Admin.Review.NoUploads" xml:space="preserve"><value>No inspection documents were uploaded.</value></data>
+  <data name="Admin.Review.InspectionTitle" xml:space="preserve"><value>Structured inspection report</value></data>
+  <data name="Admin.Review.ReportSaved" xml:space="preserve"><value>Inspection report saved.</value></data>
+  <data name="Admin.Review.ReportRequired" xml:space="preserve"><value>Fill in and save the inspection report before approving this used car.</value></data>
+  <data name="Admin.Review.SaveInspection" xml:space="preserve"><value>Save inspection</value></data>
+  <data name="Admin.Review.Decision" xml:space="preserve"><value>Decision</value></data>
+  <data name="Admin.Review.Approve" xml:space="preserve"><value>Approve listing</value></data>
+  <data name="Admin.Review.ApproveBlocked" xml:space="preserve"><value>Save the inspection report first to enable approval.</value></data>
+  <data name="Admin.Review.Reject" xml:space="preserve"><value>Reject listing</value></data>
+  <data name="Admin.Review.RejectConfirm" xml:space="preserve"><value>Reject this listing and notify the seller?</value></data>
+  <data name="Admin.Review.RejectReasonLabel" xml:space="preserve"><value>Rejection reason</value></data>
+  <data name="Admin.Review.RejectReasonPlaceholder" xml:space="preserve"><value>Tell the seller what needs to change…</value></data>
+
+</root>

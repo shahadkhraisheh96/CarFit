@@ -1,0 +1,81 @@
+@model CarFitProject.ViewModel.ProfileDraftViewModel
+@{
+    ViewData["Title"] = L["Wizard.Review.Title"].Value;
+    ViewData["WizardStep"] = 6;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <partial name="_WizardProgress" />
+            <div class="form-section-card">
+                <div class="section-heading">
+                    <h2>@L["Wizard.Review.Title"]</h2>
+                </div>
+                <p class="text-muted mb-4">@L["Wizard.Review.Subtitle"]</p>
+
+                <dl class="row mb-4">
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.ProfileName"]</dt>
+                    <dd class="col-sm-7">@Model.ProfileName</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Age"]</dt>
+                    <dd class="col-sm-7">@Model.Age</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.MaritalStatus"]</dt>
+                    <dd class="col-sm-7">@Model.MaritalStatus</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.HasKids.Display"]</dt>
+                    <dd class="col-sm-7">
+                        @if (Model.HasKids == true)
+                        {
+                            <span>@L["Field.Yes"] — @Model.KidsCount</span>
+                        }
+                        else
+                        {
+                            <span>@L["Field.No"]</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Purpose"]</dt>
+                    <dd class="col-sm-7">@Model.Purpose</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.TripType"]</dt>
+                    <dd class="col-sm-7">@Model.TripType</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Budget"]</dt>
+                    <dd class="col-sm-7">@Model.BudgetMin – @Model.BudgetMax JD</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.PaymentMethod"]</dt>
+                    <dd class="col-sm-7">
+                        @Model.PaymentMethod
+                        @if (Model.PaymentMethod == "Installments" && Model.InstallmentMonths.HasValue)
+                        {
+                            <span> · @Model.InstallmentMonths</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Condition"]</dt>
+                    <dd class="col-sm-7">@(Model.ConditionPref == "Any" ? L["Field.ConditionAny"].Value : Model.ConditionPref)</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Transmission"]</dt>
+                    <dd class="col-sm-7">@Model.TransmissionPref</dd>
+
+                    <dt class="col-sm-5 fw-semibold text-secondary">@L["Field.Size"]</dt>
+                    <dd class="col-sm-7">@Model.SizePref</dd>
+                </dl>
+
+                <form method="post" asp-action="Submit">
+                    @Html.AntiForgeryToken()
+                    <div class="sticky-cta mt-4 justify-content-between">
+                        <a asp-action="Step5" class="btn btn-outline-secondary fw-bold">
+                            <i class="fa fa-arrow-left me-2"></i>@L["Action.Back"]
+                        </a>
+                        <button type="submit" class="btn btn-primary fw-bold">
+                            <i class="fa fa-check me-2"></i>@(Model.ExistingProfileId.HasValue ? L["Review.SubmitEdit"] : L["Review.SubmitNew"])
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

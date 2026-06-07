@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@using CarFitProject.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarFitProject.Resources.SharedResource> L
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="@L["Nav.Logout"]">@string.Format(L["LoginPartial.Hello"].Value, User.Identity?.Name)</a>
+    </li>
+    <li class="nav-item">
+        <form id="logoutForm" method="post" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded">
+                @L["Nav.Logout"]
+            </button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@L["Nav.Register"]</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@L["Nav.Login"]</a>
+    </li>
+}
+</ul>

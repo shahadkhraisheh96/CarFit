@@ -1,0 +1,1332 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\shaha\\CarFit\\CarFitProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\resources\\sharedresource.en.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\resources\\sharedresource.en.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\inspections\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\inspections\\form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\seller\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\seller\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\seller\\views\\inventory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\seller\\views\\inventory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\seller\\views\\onboarding\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\seller\\views\\onboarding\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\seller\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\seller\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\seller\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\seller\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\inventory\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\inventory\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\buyer\\views\\compare\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\buyer\\views\\compare\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\models\\carimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\models\\carimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\models\\carfitdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\models\\carfitdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\models\\make.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\models\\make.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\inspection\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\inspection\\book.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\inspectionbookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\inspectionbookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\inspectionbookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\inspectionbookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\controllers\\inspectionbookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\controllers\\inspectionbookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\billing\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\billing\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\billing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\billing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\billing\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\billing\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\inventory\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\inventory\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\billing\\cancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\billing\\cancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\admin\\userslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\admin\\userslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\resources\\sharedresource.ar.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\resources\\sharedresource.ar.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\buyer\\controllers\\savedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\buyer\\controllers\\savedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\savedcarsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\savedcarsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\recommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\recommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\controllers\\advisorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\controllers\\advisorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\bcryptpasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\bcryptpasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\viewmodel\\carlistingformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\viewmodel\\carlistingformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\imagestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\imagestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\models\\inspectionbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\models\\inspectionbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\controllers\\inspectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\viewmodel\\inspectionreportformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\viewmodel\\inspectionreportformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\inspectionreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\inspectionreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\inspectionscoringservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\inspectionscoringservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\listingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\listingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\services\\mechanicseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\services\\mechanicseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\dealers\\pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\dealers\\pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\buyer\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\buyer\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\listings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\listings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\admin\\glossarymanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\admin\\glossarymanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260530011227_phase3a_listingstatusandimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260530011227_phase3a_listingstatusandimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\areas\\admin\\views\\admin\\bulkloader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\areas\\admin\\views\\admin\\bulkloader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529230617_phase2a_questionnairefields.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529230617_phase2a_questionnairefields.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529230617_phase2a_questionnairefields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529230617_phase2a_questionnairefields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\20260529223241_phase1a_applicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\20260529223241_phase1a_applicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\20260529223241_phase1a_applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\20260529223241_phase1a_applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529221547_phase0b_identityandsellerlink.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529221547_phase0b_identityandsellerlink.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529221547_phase0b_identityandsellerlink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529221547_phase0b_identityandsellerlink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529205402_addavailablecardetailsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529205402_addavailablecardetailsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260529205402_addavailablecardetailsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260529205402_addavailablecardetailsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260528205536_initialbaseline.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260528205536_initialbaseline.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\migrations\\20260528205536_initialbaseline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\migrations\\20260528205536_initialbaseline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\20260528121455_initialidentitytables.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\20260528121455_initialidentitytables.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\20260528121455_initialidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\20260528121455_initialidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\00000000000000_createidentityschema.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\00000000000000_createidentityschema.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|c:\\users\\shaha\\carfit\\carfitproject\\carfitproject\\data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06739B57-1026-1596-5ED6-C65DE2DD6218}|CarFitProject\\CarFitProject.csproj|solutionrelative:carfitproject\\data\\migrations\\00000000000000_createidentityschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Onboarding\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Seller\\Views\\Onboarding\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Onboarding\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Seller\\Views\\Onboarding\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:50:48.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Seller\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Seller\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:50:37.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADEAAACDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:16:37.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:16:30.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Views\\Compare\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Buyer\\Views\\Compare\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Views\\Compare\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Buyer\\Views\\Compare\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABsAAACIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T18:39:39.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Inspections\\Form.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Inspections\\Form.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Inspections\\Form.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Inspections\\Form.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAIAwwB4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:40:43.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAwCoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:38:26.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SharedResource.en.resx",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Resources\\SharedResource.en.resx",
+              "RelativeDocumentMoniker": "CarFitProject\\Resources\\SharedResource.en.resx",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Resources\\SharedResource.en.resx",
+              "RelativeToolTip": "CarFitProject\\Resources\\SharedResource.en.resx",
+              "ViewState": "AgIAADMBAAAAAAAAAAAAAEsBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-06-01T12:44:37.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Seller\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Seller\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:50:50.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Seller\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Seller\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:50:53.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Inventory\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Seller\\Views\\Inventory\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Seller\\Views\\Inventory\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Seller\\Views\\Inventory\\Index.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T20:51:08.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "bootstrap-utilities.min.css",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAQAAAAhegAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-05T17:43:55.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "bootstrap-utilities.css.map",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAB4iQEAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-05T17:43:53.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:38:46.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:38:13.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "search.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inventory\\search.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Inventory\\search.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inventory\\search.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Inventory\\search.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGEAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:37:35.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "bootstrap-utilities.min.css.map",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACkMQEAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-05T17:43:58.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAGcBAAAAAAAAAAAAAGwBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:35:02.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "bootstrap-utilities.rtl.css",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+              "ViewState": "AgIAAIQHAAAAAAAAAAApwJgHAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-05T17:44:00.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAAP0AAAAAAAAAAAApwBEBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-05T17:44:49.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "bootstrap-utilities.css",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+              "ViewState": "AgIAAIwHAAAAAAAAAAApwKAHAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-05T17:43:34.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CarFitDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\CarFitDbContext.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Models\\CarFitDbContext.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\CarFitDbContext.cs",
+              "RelativeToolTip": "CarFitProject\\Models\\CarFitDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T16:27:55.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\Car.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Models\\Car.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\Car.cs",
+              "RelativeToolTip": "CarFitProject\\Models\\Car.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T16:27:53.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Make.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\Make.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Models\\Make.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\Make.cs",
+              "RelativeToolTip": "CarFitProject\\Models\\Make.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T16:27:46.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Program.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Program.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Program.cs",
+              "RelativeToolTip": "CarFitProject\\Program.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAYwPYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:47.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAAQVAAAAAAAAAAAcwBIVAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-06-04T13:13:21.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\appsettings.json",
+              "RelativeDocumentMoniker": "CarFitProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\appsettings.json",
+              "RelativeToolTip": "CarFitProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-01T13:03:28.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CarImage.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\CarImage.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Models\\CarImage.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\CarImage.cs",
+              "RelativeToolTip": "CarFitProject\\Models\\CarImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T16:27:57.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "SharedResource.ar.resx",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Resources\\SharedResource.ar.resx",
+              "RelativeDocumentMoniker": "CarFitProject\\Resources\\SharedResource.ar.resx",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Resources\\SharedResource.ar.resx",
+              "RelativeToolTip": "CarFitProject\\Resources\\SharedResource.ar.resx",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAWwAkBAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-06-01T12:43:50.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Book.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inspection\\Book.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Inspection\\Book.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inspection\\Book.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Inspection\\Book.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:37:53.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Success.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Success.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Billing\\Success.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Success.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Billing\\Success.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T11:50:28.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Billing\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Billing\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T11:50:29.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Manage.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Manage.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Billing\\Manage.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Manage.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Billing\\Manage.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T11:50:31.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "InspectionBookingsController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\InspectionBookingsController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Controllers\\InspectionBookingsController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\InspectionBookingsController.cs",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Controllers\\InspectionBookingsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T11:52:00.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T11:52:12.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inventory\\Detail.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Inventory\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Inventory\\Detail.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Inventory\\Detail.cshtml",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAIwDsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:36:07.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Details.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Details.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Details.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\InspectionBookings\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T11:52:11.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "CarFitProject\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\appsettings.Development.json",
+              "RelativeToolTip": "CarFitProject\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-04T06:54:52.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Cancel.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Cancel.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Billing\\Cancel.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Billing\\Cancel.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Billing\\Cancel.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T09:01:53.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "SubscriptionService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\SubscriptionService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\SubscriptionService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\SubscriptionService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\SubscriptionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:44:59.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UsersList.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\UsersList.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Admin\\UsersList.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\UsersList.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Admin\\UsersList.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAD4AAACTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:45:08.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "SavedController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Controllers\\SavedController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Buyer\\Controllers\\SavedController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Controllers\\SavedController.cs",
+              "RelativeToolTip": "CarFitProject\\Areas\\Buyer\\Controllers\\SavedController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAB4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:43:47.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UserProfileService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\UserProfileService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\UserProfileService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\UserProfileService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\UserProfileService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:45:07.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "SavedCarsService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\SavedCarsService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\SavedCarsService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\SavedCarsService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\SavedCarsService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABgAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:43:45.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "RecommendationService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\RecommendationService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\RecommendationService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\RecommendationService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\RecommendationService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:43:43.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:41.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "CarListingFormViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\ViewModel\\CarListingFormViewModel.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\ViewModel\\CarListingFormViewModel.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\ViewModel\\CarListingFormViewModel.cs",
+              "RelativeToolTip": "CarFitProject\\ViewModel\\CarListingFormViewModel.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAAGEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:40.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "BCryptPasswordHasher.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\BCryptPasswordHasher.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\BCryptPasswordHasher.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\BCryptPasswordHasher.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\BCryptPasswordHasher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:38.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "AdvisorController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\AdvisorController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Controllers\\AdvisorController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\AdvisorController.cs",
+              "RelativeToolTip": "CarFitProject\\Controllers\\AdvisorController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:35.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAQwJQAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:23.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ImageStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\ImageStorageService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\ImageStorageService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\ImageStorageService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\ImageStorageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:41:23.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "InspectionBooking.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\InspectionBooking.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Models\\InspectionBooking.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Models\\InspectionBooking.cs",
+              "RelativeToolTip": "CarFitProject\\Models\\InspectionBooking.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:12.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "InspectionController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\InspectionController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Controllers\\InspectionController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\InspectionController.cs",
+              "RelativeToolTip": "CarFitProject\\Controllers\\InspectionController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAYwDYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:14.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "InspectionReportFormViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\ViewModel\\InspectionReportFormViewModel.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\ViewModel\\InspectionReportFormViewModel.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\ViewModel\\InspectionReportFormViewModel.cs",
+              "RelativeToolTip": "CarFitProject\\ViewModel\\InspectionReportFormViewModel.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAuwEUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:16.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "InspectionReportService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\InspectionReportService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\InspectionReportService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\InspectionReportService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\InspectionReportService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwEYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:19.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "InspectionScoringService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\InspectionScoringService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\InspectionScoringService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\InspectionScoringService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\InspectionScoringService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:25.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "LanguageController.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\LanguageController.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Controllers\\LanguageController.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Controllers\\LanguageController.cs",
+              "RelativeToolTip": "CarFitProject\\Controllers\\LanguageController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:30.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "ListingService.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\ListingService.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\ListingService.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\ListingService.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\ListingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:32.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "MechanicSeed.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\MechanicSeed.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Services\\MechanicSeed.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Services\\MechanicSeed.cs",
+              "RelativeToolTip": "CarFitProject\\Services\\MechanicSeed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:42:36.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "moment.min.js",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+              "RelativeDocumentMoniker": "CarFitProject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+              "RelativeToolTip": "CarFitProject\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAADzJQIAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-01T12:42:41.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Pending.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Dealers\\Pending.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Dealers\\Pending.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Dealers\\Pending.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Dealers\\Pending.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAABkAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:42:46.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Buyer\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Buyer\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Buyer\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAABEAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:42:05.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Listings\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Listings\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Listings\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Listings\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:41:53.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAwMYAAACNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:41:26.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "GlossaryManager.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\GlossaryManager.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Admin\\GlossaryManager.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\GlossaryManager.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Admin\\GlossaryManager.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAACwAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:41:15.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "20260530011227_Phase3a_ListingStatusAndImages.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260530011227_Phase3a_ListingStatusAndImages.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260530011227_Phase3a_ListingStatusAndImages.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260530011227_Phase3a_ListingStatusAndImages.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260530011227_Phase3a_ListingStatusAndImages.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAE0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:40:08.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "BulkLoader.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\BulkLoader.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Areas\\Admin\\Views\\Admin\\BulkLoader.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Areas\\Admin\\Views\\Admin\\BulkLoader.cshtml",
+              "RelativeToolTip": "CarFitProject\\Areas\\Admin\\Views\\Admin\\BulkLoader.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:39:36.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "CarFitProject\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "CarFitProject\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-01T12:39:22.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "20260529230617_Phase2a_QuestionnaireFields.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.Designer.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:48.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "20260529230617_Phase2a_QuestionnaireFields.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529230617_Phase2a_QuestionnaireFields.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:47.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "20260529223241_Phase1a_ApplicationUser.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:45.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "20260529223241_Phase1a_ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\20260529223241_Phase1a_ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:44.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "20260529221547_Phase0b_IdentityAndSellerLink.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:42.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "20260529221547_Phase0b_IdentityAndSellerLink.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529221547_Phase0b_IdentityAndSellerLink.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:41.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "20260529205402_AddAvailableCarDetailsView.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:37.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "20260529205402_AddAvailableCarDetailsView.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260529205402_AddAvailableCarDetailsView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:36.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "20260528205536_InitialBaseline.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260528205536_InitialBaseline.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260528205536_InitialBaseline.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260528205536_InitialBaseline.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260528205536_InitialBaseline.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:34.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "20260528205536_InitialBaseline.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260528205536_InitialBaseline.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Migrations\\20260528205536_InitialBaseline.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Migrations\\20260528205536_InitialBaseline.cs",
+              "RelativeToolTip": "CarFitProject\\Migrations\\20260528205536_InitialBaseline.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:33.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "20260528121455_InitialIdentityTables.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:31.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "20260528121455_InitialIdentityTables.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\20260528121455_InitialIdentityTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:29.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "00000000000000_CreateIdentitySchema.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:23.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "00000000000000_CreateIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeDocumentMoniker": "CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\shaha\\CarFit\\CarFitProject\\CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "RelativeToolTip": "CarFitProject\\Data\\Migrations\\00000000000000_CreateIdentitySchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T12:34:22.337Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

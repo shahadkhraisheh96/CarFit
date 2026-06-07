@@ -1,0 +1,197 @@
+@model List<CarFitProject.Models.ApplicationUser>
+@inject Microsoft.Extensions.Configuration.IConfiguration Config
+@inject Microsoft.AspNetCore.Identity.UserManager<CarFitProject.Models.ApplicationUser> UserManager
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Users.Title"].Value;
+    var seededAdminEmail = Config["AdminSeed:Email"];
+}
+
+<style>
+    .widescreen-wrapper {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .custom-user-table th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.05rem;
+        background-color: var(--bg-sidebar) !important;
+        border-bottom: 1px solid var(--border-dim) !important;
+        padding: 14px 12px !important;
+    }
+
+    .custom-user-table td {
+        border-bottom: 1px solid var(--border-dim) !important;
+        padding: 1rem 0.75rem !important;
+    }
+
+    .style-user-badge {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.04em;
+    }
+</style>
+
+<div class="widescreen-wrapper">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="admin-card d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+                <div>
+                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-primary small d-inline-block mb-2 fw-bold">
+                        <i class="fa fa-arrow-left me-1"></i> Back to Control Base
+                    </a>
+                    <h2 class="text-white fw-bold mb-1">
+                        <i class="fa-solid fa-users-gear me-2 text-primary"></i>User Accounts Directory
+                    </h2>
+                    <p class="text-muted mb-0 small">
+                        All registered accounts mapped on the CarFit identity manager core. Total active nodes: <strong class="text-white font-monospace">@(Model?.Count ?? 0)</strong>
+                    </p>
+                </div>
+                <div>
+                    <span class="badge badge-critical px-3 py-2 text-uppercase tracking-wider" style="font-size: 0.75rem;">Live Registry</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="admin-card p-0 overflow-hidden shadow-sm">
+                <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                    <h5 class="mb-0 fw-bold text-white fs-6"><i class="fa-solid fa-table-list me-2 text-primary"></i>Registered Platform Users</h5>
+                    <span class="badge badge-low font-monospace">@(Model?.Count ?? 0) Accounts</span>
+                </div>
+
+                
+                
+
+                <div class="table-responsive">
+                    <table class="table text-start align-middle mb-0 table-hover w-100 custom-user-table">
+                        <thead>
+                            <tr>
+                                <th class="ps-4" style="width: 6%;">#</th>
+                                <th style="width: 30%;">User Info</th>
+                                <th style="width: 20%;">Role</th>
+                                <th class="text-center" style="width: 10%;">Status</th>
+                                <th class="text-center" style="width: 10%;">Email</th>
+                                <th class="text-center pe-4" style="width: 24%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model == null || !Model.Any())
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center py-5 text-muted">
+                                        <i class="fa fa-users-slash fs-2 mb-3 d-block text-primary opacity-25"></i>
+                                        No user accounts found in the system logs.
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                int row = 1;
+                                foreach (var user in Model)
+                                {
+                                    var isSeededAdmin = !string.IsNullOrEmpty(seededAdminEmail)
+                                        && string.Equals(user.Email, seededAdminEmail, System.StringComparison.OrdinalIgnoreCase);
+                                    var roles = await UserManager.GetRolesAsync(user);
+                                    <tr>
+                                        <td class="ps-4 text-muted font-monospace fw-bold">#@row</td>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0 shadow-sm" style="width: 38px; height: 38px; background: var(--primary-gradient); font-size: 0.9rem;">
+                                                    @(user.UserName?.Substring(0, 1).ToUpper() ?? "?")
+                                                </div>
+                                                <div>
+                                                    <div class="text-white fw-semibold">@(string.IsNullOrEmpty(user.FullName) ? user.UserName : user.FullName)</div>
+                                                    <div class="text-muted small"><i class="fa-regular fa-envelope me-1"></i>@user.Email</div>
+                                                    <div class="text-muted small"><i class="fa-solid fa-phone me-1"></i>@(string.IsNullOrEmpty(user.PhoneNumber) ? "No Phone" : user.PhoneNumber)</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-white-50">
+                                            @if (roles.Any())
+                                            {
+                                                foreach (var role in roles)
+                                                {
+                                                    string badgeClass = role.ToLower() switch
+                                                    {
+                                                        "admin" => "badge-critical",
+                                                        "seller" => "badge-medium",
+                                                        "dealer" => "badge-medium",
+                                                        "buyer" => "badge-low",
+                                                        _ => "badge-low"
+                                                    };
+                                                    <span class="badge @badgeClass me-1 text-uppercase style-user-badge py-1">@role</span>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted small fw-bold">No Role</span>
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            @if (user.IsActive)
+                                            {
+                                                <span class="badge badge-low py-1.5 text-uppercase style-user-badge"><i class="fa fa-circle-check me-1"></i>Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-critical py-1.5 text-uppercase style-user-badge"><i class="fa fa-ban me-1"></i>Disabled</span>
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            @if (user.EmailConfirmed)
+                                            {
+                                                <span class="badge badge-low py-1.5 text-uppercase style-user-badge"><i class="fa fa-check me-1"></i>Verified</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-medium py-1.5 text-uppercase style-user-badge"><i class="fa fa-clock me-1"></i>Pending</span>
+                                            }
+                                        </td>
+                                        <td class="text-center pe-4">
+                                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                                @if (user.IsActive)
+                                                {
+                                                    <form asp-area="Admin" asp-controller="Admin" asp-action="DeactivateUser" method="post" class="m-0">
+                                                        @Html.AntiForgeryToken()
+                                                        <input type="hidden" name="id" value="@user.Id" />
+                                                        <button type="submit" class="btn btn-sm btn-outline-warning fw-bold" @(isSeededAdmin ? "disabled title=\"Cannot deactivate the seeded admin\"" : "")>
+                                                            <i class="fa fa-ban me-1"></i>Deactivate
+                                                        </button>
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <form asp-area="Admin" asp-controller="Admin" asp-action="ActivateUser" method="post" class="m-0">
+                                                        @Html.AntiForgeryToken()
+                                                        <input type="hidden" name="id" value="@user.Id" />
+                                                        <button type="submit" class="btn btn-sm btn-outline-success fw-bold">
+                                                            <i class="fa fa-circle-check me-1"></i>Activate
+                                                        </button>
+                                                    </form>
+                                                }
+                                                <form asp-area="Admin" asp-controller="Admin" asp-action="DeleteUser" method="post" class="m-0" data-confirm="Delete this user permanently? This cannot be undone.">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@user.Id" />
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger fw-bold" @(isSeededAdmin ? "disabled title=\"Cannot delete the seeded admin\"" : "")>
+                                                        <i class="fa fa-trash me-1"></i>Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    row++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

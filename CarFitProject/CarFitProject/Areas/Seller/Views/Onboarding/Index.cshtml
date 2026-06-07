@@ -1,0 +1,111 @@
+@model CarFitProject.ViewModel.DealerOnboardingViewModel
+@{
+    ViewData["Title"] = SharedLocalizer["Seller.Onboarding.Title"].Value;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Dealer Workflow Stepper -->
+            <div class="mb-5">
+                <div class="wizard-stepper d-none d-md-flex" aria-label="Dealership workflow progress">
+                    <div class="wizard-step is-done">
+                        <span class="step-bullet"><i class="fa-solid fa-check"></i></span>
+                        <span class="step-label">Register</span>
+                    </div>
+                    <span class="wizard-connector" aria-hidden="true"></span>
+                    
+                    <div class="wizard-step is-active">
+                        <span class="step-bullet">2</span>
+                        <span class="step-label">Profile</span>
+                    </div>
+                    <span class="wizard-connector" aria-hidden="true"></span>
+                    
+                    <div class="wizard-step">
+                        <span class="step-bullet">3</span>
+                        <span class="step-label">Approval</span>
+                    </div>
+                    <span class="wizard-connector" aria-hidden="true"></span>
+                    
+                    <div class="wizard-step">
+                        <span class="step-bullet">4</span>
+                        <span class="step-label">Post Cars</span>
+                    </div>
+                </div>
+
+                <!-- Mobile version -->
+                <div class="d-md-none">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <small class="text-eyebrow">STEP 2 OF 4</small>
+                        <small class="text-muted fw-bold">Setup Profile</small>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 8px; border-radius: 50px;">
+                        <div class="progress-bar" style="width: 50%; background: var(--primary-gradient);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section-card">
+                <div class="text-center mb-4">
+                    <div class="persona-avatar mx-auto mb-3" style="width:64px;height:64px;border-radius:18px;"><i class="fa-solid fa-building"></i></div>
+                    <span class="text-eyebrow d-block mb-2">Step 2: Dealership Profile</span>
+                    <h2 class="fw-bold text-dark mb-1" style="letter-spacing:-0.02em;">@SharedLocalizer["Seller.Onboarding.Heading"]</h2>
+                    <p class="cf-subtitle">Fill in your dealership details. You will need admin approval before you can post your first vehicle.</p>
+                </div>
+
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+
+                    <div class="form-floating mb-3 cf-floating">
+                        <input asp-for="Name" class="form-control" placeholder=" " />
+                        <label asp-for="Name">Dealership name</label>
+                        <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Phone" class="form-control" placeholder=" " autocomplete="tel" />
+                                <label asp-for="Phone">Phone</label>
+                                <span asp-validation-for="Phone" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Email" class="form-control" placeholder=" " autocomplete="email" />
+                                <label asp-for="Email">Contact email</label>
+                                <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="City" class="form-control" placeholder=" " />
+                                <label asp-for="City">City</label>
+                                <span asp-validation-for="City" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating cf-floating">
+                                <input asp-for="Neighborhood" class="form-control" placeholder=" " />
+                                <label asp-for="Neighborhood">Neighborhood</label>
+                                <span asp-validation-for="Neighborhood" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-100 btn btn-lg btn-primary fw-bold">
+                        <i class="fa-solid fa-paper-plane me-2"></i>Submit for review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,80 @@
+@model CarFitProject.ViewModel.QuestionnaireStep2ViewModel
+@{
+    ViewData["Title"] = L["Wizard.Step2.Title"].Value;
+    ViewData["WizardStep"] = 2;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <partial name="_WizardProgress" />
+            <div class="form-section-card">
+                <div class="section-heading">
+                    <h2>@L["Wizard.Step2.Title"]</h2>
+                </div>
+                <p class="text-muted mb-4">@L["Wizard.Step2.Subtitle"]</p>
+
+                <form method="post" asp-action="Step2" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+
+                    <div class="mb-4">
+                        <label class="cf-field-label d-block mb-2">@L["Field.HasKids"]</label>
+                        <div class="row g-3" role="group" aria-label="@L["Field.HasKids"]">
+                            <div class="col-sm-6">
+                                <input asp-for="HasKids" type="radio" class="option-input" id="kids-no" value="false" autocomplete="off" />
+                                <label for="kids-no" class="option-card">
+                                    <div class="option-icon"><i class="fa-solid fa-xmark"></i></div>
+                                    <div class="option-title">@L["Field.No"]</div>
+                                    <div class="option-sub">No kids yet</div>
+                                </label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input asp-for="HasKids" type="radio" class="option-input" id="kids-yes" value="true" autocomplete="off" />
+                                <label for="kids-yes" class="option-card">
+                                    <div class="option-icon"><i class="fa-solid fa-children"></i></div>
+                                    <div class="option-title">@L["Field.Yes"]</div>
+                                    <div class="option-sub">I have children</div>
+                                </label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="HasKids" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="form-floating mb-4 cf-floating" id="kidsCountWrapper">
+                        <input asp-for="KidsCount" type="number" min="1" max="20" class="form-control" placeholder=" " />
+                        <label asp-for="KidsCount"></label>
+                        <span asp-validation-for="KidsCount" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="sticky-cta mt-4 justify-content-between">
+                        <button type="submit" name="action" value="back" formnovalidate class="btn btn-outline-secondary fw-bold">
+                            <i class="fa fa-arrow-left me-2"></i>@L["Action.Back"]
+                        </button>
+                        <button type="submit" name="action" value="next" class="btn btn-primary fw-bold">
+                            @L["Action.Next"]<i class="fa fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function () {
+            var wrapper = document.getElementById('kidsCountWrapper');
+            function syncVisibility() {
+                var yes = document.getElementById('kids-yes');
+                wrapper.style.display = (yes && yes.checked) ? '' : 'none';
+            }
+            ['kids-no','kids-yes'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('change', syncVisibility);
+            });
+            syncVisibility();
+        })();
+    </script>
+}

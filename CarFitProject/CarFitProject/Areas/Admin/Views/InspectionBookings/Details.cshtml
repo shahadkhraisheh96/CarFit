@@ -1,0 +1,125 @@
+@model CarFitProject.Models.InspectionBooking
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Bookings.Details"].Value;
+    var car = Model.CarListing?.Car;
+    var report = car?.InspectionReport;
+
+    (string Cls, string Style) StatusBadge(string s) => s switch
+    {
+        "Completed" => ("badge-low", ""),
+        "Pending" => ("badge-medium", ""),
+        "Confirmed" => ("", "background:rgba(59,130,246,0.15);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);"),
+        _ => ("", "background:rgba(148,163,184,0.15);color:#cbd5e1;border:1px solid rgba(148,163,184,0.3);")
+    };
+    var badge = StatusBadge(Model.Status);
+}
+
+<div class="row mb-4 align-items-center g-3">
+    <div class="col">
+        <a asp-action="Index" class="text-decoration-none text-primary small d-inline-block mb-2 fw-bold"><i class="fa fa-arrow-left me-1"></i>@SharedLocalizer["Admin.Bookings.Back"]</a>
+        <h2 class="text-white fw-bold mb-1"><i class="fa fa-clipboard-check me-2 text-primary"></i>@SharedLocalizer["Admin.Bookings.Details"] <span class="text-muted font-monospace">#@Model.Id</span></h2>
+    </div>
+    <div class="col-auto">
+        <span class="badge @badge.Cls text-uppercase" style="@badge.Style">@SharedLocalizer[$"Admin.Bookings.Status.{Model.Status}"]</span>
+    </div>
+</div>
+
+
+
+<div class="row g-3">
+    <div class="col-lg-6">
+        <div class="admin-card h-100">
+            <h5 class="text-white fw-bold mb-3"><i class="fa fa-user me-2 text-primary"></i>@SharedLocalizer["Admin.Bookings.Customer"]</h5>
+            <dl class="row mb-0 small">
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Customer"]</dt><dd class="col-7 text-white">@Model.CustomerName</dd>
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Email"]</dt><dd class="col-7 text-white font-monospace">@Model.CustomerEmail</dd>
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Package"]</dt><dd class="col-7 text-white">@Model.PackageType</dd>
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Scheduled"]</dt><dd class="col-7 text-white font-monospace">@Model.PreferredDate.ToLocalTime().ToString("yyyy-MM-dd")</dd>
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Mechanic"]</dt><dd class="col-7 text-white">@(Model.Mechanic?.Name ?? "—")</dd>
+                <dt class="col-5 text-muted">@SharedLocalizer["Admin.Inv.Created"]</dt><dd class="col-7 text-white font-monospace">@Model.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</dd>
+                @if (Model.StatusUpdatedAt.HasValue)
+                {
+                    <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.StatusUpdated"]</dt>
+                    <dd class="col-7 text-white font-monospace">@Model.StatusUpdatedAt.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</dd>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.VehicleNotes))
+                {
+                    <dt class="col-5 text-muted">@SharedLocalizer["Admin.Bookings.Notes"]</dt>
+                    <dd class="col-7 text-white">@Model.VehicleNotes</dd>
+                }
+            </dl>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="admin-card h-100">
+            <h5 class="text-white fw-bold mb-3"><i class="fa fa-car me-2 text-primary"></i>@SharedLocalizer["Admin.Bookings.Car"]</h5>
+            @if (car != null)
+            {
+                <p class="text-white mb-2">@car.Make @car.Model <span class="text-muted">@car.Year</span></p>
+                @if (Model.CarListingId.HasValue)
+                {
+                    <a asp-area="" asp-controller="Inventory" asp-action="Detail" asp-route-id="@Model.CarListingId" class="btn btn-sm btn-outline-primary fw-bold mb-3">
+                        <i class="fa fa-up-right-from-square me-1"></i>@SharedLocalizer["Admin.Bookings.ViewListing"]
+                    </a>
+                }
+
+                <hr class="border-secondary" />
+                <h6 class="text-white fw-bold mb-2"><i class="fa fa-clipboard-check me-2 text-primary"></i>@SharedLocalizer["Admin.Bookings.Inspection"]</h6>
+                @if (report != null)
+                {
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+                        <span class="badge badge-low">@SharedLocalizer["Admin.Bookings.TrustScore"]: @(report.CalculatedTrustScore?.ToString("0.0") ?? report.OverallScore?.ToString("0.0") ?? "—")</span>
+                        @if (report.CarseerAttached == true)
+                        {
+                            <span class="badge" style="background:rgba(59,130,246,0.15);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);"><i class="fa fa-certificate me-1"></i>@SharedLocalizer["Admin.Bookings.Carseer"]</span>
+                        }
+                        @if (!string.IsNullOrEmpty(report.CenterName))
+                        {
+                            <span class="text-muted small">@report.CenterName</span>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted small mb-0">@SharedLocalizer["Admin.Bookings.NoInspection"]</p>
+                }
+            }
+            else
+            {
+                <p class="text-muted mb-0">—</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="admin-card mt-3">
+    <h5 class="text-white fw-bold mb-3"><i class="fa fa-gears me-2 text-primary"></i>@SharedLocalizer["Admin.Bookings.UpdateStatus"]</h5>
+    <div class="d-flex flex-wrap gap-2">
+        @if (Model.Status == "Pending")
+        {
+            <form asp-action="UpdateStatus" method="post" class="m-0">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Id" /><input type="hidden" name="status" value="Confirmed" /><input type="hidden" name="returnTo" value="details" />
+                <button type="submit" class="btn btn-sm btn-success fw-bold"><i class="fa fa-check me-1"></i>@SharedLocalizer["Admin.Bookings.Confirm"]</button>
+            </form>
+        }
+        @if (Model.Status == "Pending" || Model.Status == "Confirmed")
+        {
+            <form asp-action="UpdateStatus" method="post" class="m-0">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Id" /><input type="hidden" name="status" value="Completed" /><input type="hidden" name="returnTo" value="details" />
+                <button type="submit" class="btn btn-sm btn-outline-success fw-bold"><i class="fa fa-flag-checkered me-1"></i>@SharedLocalizer["Admin.Bookings.Complete"]</button>
+            </form>
+        }
+        @if (Model.Status != "Cancelled" && Model.Status != "Completed")
+        {
+            <form asp-action="UpdateStatus" method="post" class="m-0" data-confirm="@SharedLocalizer["Admin.Bookings.CancelConfirm"]">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Id" /><input type="hidden" name="status" value="Cancelled" /><input type="hidden" name="returnTo" value="details" />
+                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold"><i class="fa fa-ban me-1"></i>@SharedLocalizer["Admin.Bookings.Cancel"]</button>
+            </form>
+        }
+    </div>
+</div>

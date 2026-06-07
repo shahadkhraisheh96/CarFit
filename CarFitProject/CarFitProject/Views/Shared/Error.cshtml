@@ -1,0 +1,15 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarFitProject.Resources.SharedResource> L
+@model ErrorViewModel
+@{
+    ViewData["Title"] = L["Error.Title"].Value;
+}
+
+<h1 class="text-danger">@L["Error.Title"]</h1>
+<h2 class="text-danger">@L["Error.Subtitle"]</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>@L["Error.RequestId"]</strong> <code>@Model.RequestId</code>
+    </p>
+}

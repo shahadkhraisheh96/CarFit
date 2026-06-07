@@ -1,0 +1,625 @@
+@model CarFitProject.ViewModel.CarListingFormViewModel
+@{
+    var isEdit = Model.ListingId.HasValue;
+    ViewData["Title"] = (isEdit ? SharedLocalizer["Admin.Listings.Form.Edit"] : SharedLocalizer["Seller.Inventory.Form.Title"]).Value;
+    var actionName = "Form";
+}
+
+<div class="container py-4">
+    <div class="page-hero mb-4">
+        <div class="row align-items-center g-3">
+            <div class="col-md-9">
+                <a asp-action="Index" class="text-decoration-none text-white-50 small fw-bold">
+                    <i class="fa fa-arrow-left me-1"></i>Back to inventory
+                </a>
+                <h1 class="mt-2 mb-2">@ViewData["Title"]</h1>
+                @if (!isEdit)
+                {
+                    <p class="lead mb-0">New listings are submitted as <span class="chip chip-warning ms-1">@SharedLocalizer["Listing.Status.PendingInspectionReview"]</span> for admin review.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="form-section-card" style="max-width:none;">
+
+                
+
+                <form id="wizardForm" asp-action="@actionName" asp-route-id="@(isEdit ? Model.ListingId : (int?)null)" method="post" enctype="multipart/form-data" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+                    <input type="hidden" asp-for="ListingId" />
+                    <input type="hidden" asp-for="CarId" />
+
+                    <!-- Wizard Stepper -->
+                    <div class="mb-4">
+                        <div class="wizard-stepper d-none d-md-flex" aria-label="Form progress" id="wizardStepper">
+                            <div class="wizard-step is-active" data-step="1">
+                                <span class="step-bullet">1</span>
+                                <span class="step-label">Basics</span>
+                            </div>
+                            <span class="wizard-connector" aria-hidden="true"></span>
+                            <div class="wizard-step" data-step="2">
+                                <span class="step-bullet">2</span>
+                                <span class="step-label">Specs</span>
+                            </div>
+                            <span class="wizard-connector" aria-hidden="true"></span>
+                            <div class="wizard-step" data-step="3">
+                                <span class="step-bullet">3</span>
+                                <span class="step-label">Features</span>
+                            </div>
+                            <span class="wizard-connector" aria-hidden="true"></span>
+                            <div class="wizard-step" data-step="4">
+                                <span class="step-bullet">4</span>
+                                <span class="step-label">Listing</span>
+                            </div>
+                        </div>
+                        <div class="d-md-none">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-eyebrow" id="mobileStepText">Step 1 of 4</small>
+                                <small class="text-muted fw-bold" id="mobileStepTitle">Basics</small>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 8px; border-radius: 50px;">
+                                <div class="progress-bar" id="mobileProgressBar" style="width: 25%; background: var(--primary-gradient);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: Basics -->
+                    <div class="wizard-step-content" id="step1">
+                        <h5 class="fw-bold mb-3">Vehicle Basics</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="Make" class="form-select" id="makeSelect" required>
+                                        <option value="">Select Make</option>
+                                    </select>
+                                    <label asp-for="Make"></label>
+                                    <span asp-validation-for="Make" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="Model" class="form-select" id="modelSelect" required>
+                                        <option value="">Select Model</option>
+                                    </select>
+                                    <label asp-for="Model"></label>
+                                    <span asp-validation-for="Model" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="Year" class="form-select" required>
+                                        <option value="">Select Year</option>
+                                        @for(int i = DateTime.Now.Year + 1; i >= 1990; i--) {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                    <label asp-for="Year"></label>
+                                    <span asp-validation-for="Year" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="Type" class="form-select" id="conditionSelect" required>
+                                        <option value="Used">@SharedLocalizer["Listing.Condition.Used"]</option>
+                                        <option value="New">@SharedLocalizer["Listing.Condition.New"]</option>
+                                    </select>
+                                    <label asp-for="Type">@SharedLocalizer["Listing.Condition.Label"]</label>
+                                    <span asp-validation-for="Type" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="Trim" class="form-control" placeholder="Trim" />
+                                    <label asp-for="Trim"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="Transmission" class="form-select" required>
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Manual">Manual</option>
+                                    </select>
+                                    <label asp-for="Transmission"></label>
+                                    <span asp-validation-for="Transmission" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="Seats" type="number" class="form-control" placeholder="Seats" required />
+                                    <label asp-for="Seats"></label>
+                                    <span asp-validation-for="Seats" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="Kilometers" class="form-control" placeholder="Mileage" />
+                                    <label asp-for="Kilometers"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary fw-bold">Cancel</a>
+                            <button type="button" class="btn btn-primary fw-bold next-step" data-current="1">
+                                Next <i class="fa fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Specifications -->
+                    <div class="wizard-step-content d-none" id="step2">
+                        <h5 class="fw-bold mb-3">Specifications</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="EngineSize" class="form-control" placeholder="Engine size" />
+                                    <label asp-for="EngineSize"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="FuelType" class="form-select">
+                                        <option value="">Select Fuel</option>
+                                        <option value="Gasoline">Gasoline</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="Electric">Electric</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                        <option value="Plug-in Hybrid">Plug-in Hybrid</option>
+                                    </select>
+                                    <label asp-for="FuelType"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="BodyType" class="form-select">
+                                        <option value="">Select Body Type</option>
+                                        <option value="Sedan">Sedan</option>
+                                        <option value="SUV">SUV</option>
+                                        <option value="Hatchback">Hatchback</option>
+                                        <option value="Coupe">Coupe</option>
+                                        <option value="Convertible">Convertible</option>
+                                        <option value="Pickup Truck">Pickup Truck</option>
+                                        <option value="Minivan">Minivan</option>
+                                        <option value="Wagon">Wagon</option>
+                                    </select>
+                                    <label asp-for="BodyType"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="ExteriorColor" class="form-select">
+                                        <option value="">Select Color</option>
+                                        <option value="White">White</option>
+                                        <option value="Black">Black</option>
+                                        <option value="Silver">Silver</option>
+                                        <option value="Gray">Gray</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Brown">Brown</option>
+                                        <option value="Green">Green</option>
+                                        <option value="Yellow">Yellow</option>
+                                    </select>
+                                    <label asp-for="ExteriorColor"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating cf-floating">
+                                    <select asp-for="InteriorColor" class="form-select">
+                                        <option value="">Select Color</option>
+                                        <option value="Black">Black</option>
+                                        <option value="Beige">Beige</option>
+                                        <option value="Gray">Gray</option>
+                                        <option value="Brown">Brown</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Tan">Tan</option>
+                                    </select>
+                                    <label asp-for="InteriorColor"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary fw-bold prev-step" data-current="2">
+                                <i class="fa fa-arrow-left me-1"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary fw-bold next-step" data-current="2">
+                                Next <i class="fa fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Features -->
+                    <div class="wizard-step-content d-none" id="step3">
+                        <h5 class="fw-bold mb-3">Features & Options</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <textarea asp-for="InteriorOptions" class="form-control" style="height: 120px;" placeholder="Interior options"></textarea>
+                                    <label asp-for="InteriorOptions"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <textarea asp-for="ExteriorOptions" class="form-control" style="height: 120px;" placeholder="Exterior options"></textarea>
+                                    <label asp-for="ExteriorOptions"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <textarea asp-for="TechnologyOptions" class="form-control" style="height: 120px;" placeholder="Technology options"></textarea>
+                                    <label asp-for="TechnologyOptions"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary fw-bold prev-step" data-current="3">
+                                <i class="fa fa-arrow-left me-1"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary fw-bold next-step" data-current="3">
+                                Next <i class="fa fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Listing & Photos -->
+                    <div class="wizard-step-content d-none" id="step4">
+                        <h5 class="fw-bold mb-3">Listing Details & Media</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="ListingPrice" type="number" step="any" class="form-control" placeholder="Listing price" required />
+                                    <label asp-for="ListingPrice"></label>
+                                    <span asp-validation-for="ListingPrice" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-floating cf-floating">
+                                    <input asp-for="PaymentMethodAllowed" class="form-control" placeholder="Cash / Installments / Bank" />
+                                    <label asp-for="PaymentMethodAllowed"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-center">
+                                <div class="form-check">
+                                    <input asp-for="InstallmentOption" class="form-check-input" type="checkbox" />
+                                    <label asp-for="InstallmentOption" class="form-check-label fw-bold"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+                        <h5 class="fw-bold mb-3">Photos</h5>
+                        @if (Model.ExistingImages.Any())
+                        {
+                            <div class="row g-3 mb-3">
+                                @foreach (var img in Model.ExistingImages)
+                                {
+                                    <div class="col-6 col-md-3">
+                                        <div class="position-relative border rounded-3 overflow-hidden">
+                                            <img src="@img.Url" alt="Listing photo" class="img-fluid d-block w-100" style="height: 110px; object-fit: cover;" />
+                                            @if (img.IsPrimary)
+                                            {
+                                                <div class="position-absolute top-0 start-0 m-1">
+                                                    <button type="button" class="btn btn-warning rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0; opacity: 1;" title="Primary Image" disabled>
+                                                        <i class="fa fa-star text-white" style="font-size: 0.75rem;"></i>
+                                                    </button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit" form="makePrimaryForm_@img.Id" class="btn btn-secondary position-absolute top-0 start-0 m-1 rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0;" title="Make Primary">
+                                                    <i class="fa fa-star" style="font-size: 0.75rem;"></i>
+                                                </button>
+                                            }
+                                            <button type="submit" form="deleteImageForm_@img.Id" class="btn btn-danger position-absolute top-0 end-0 m-1 rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 28px; height: 28px; padding: 0;">
+                                                <i class="fa fa-xmark" style="font-size: 0.75rem;"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        <div class="mb-2">
+                            <label class="form-label fw-bold text-secondary">Upload photos (3–15 total, WebP-converted server-side)</label>
+                            <input type="file" name="images" class="form-control" multiple accept="image/*" />
+                            <span class="text-danger small d-block mt-1">@Html.ValidationMessage("images")</span>
+                        </div>
+
+                        <div id="inspectionSection" class="mt-4">
+                            <hr class="my-4" />
+                            <h5 class="fw-bold mb-1">@SharedLocalizer["Listing.Inspection.SectionTitle"]</h5>
+                            <p class="text-muted small mb-3">@SharedLocalizer["Listing.Inspection.SectionHelp"]</p>
+
+                            <div class="mb-3">
+                                <div class="form-check mb-2">
+                                    <input asp-for="RequestInspection" class="form-check-input" type="radio" id="choiceUpload" value="false" />
+                                    <label class="form-check-label fw-bold" for="choiceUpload">
+                                        I have an inspection document to upload
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input asp-for="RequestInspection" class="form-check-input" type="radio" id="choiceBook" value="true" />
+                                    <label class="form-check-label fw-bold" for="choiceBook">
+                                        I don't have one, please book an inspection via CarFit
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="uploadSection">
+                                @if (Model.ExistingInspectionUploads.Any())
+                                {
+                                    <ul class="list-group mb-3">
+                                        @foreach (var up in Model.ExistingInspectionUploads)
+                                        {
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <a href="@up.StoredPath" target="_blank" rel="noopener" class="text-decoration-none">
+                                                    <i class="fa @(up.ContentType == "application/pdf" ? "fa-file-pdf" : "fa-file-image") me-2"></i>@up.FileName
+                                                </a>
+                                                <button type="submit" form="deleteInspectionForm_@up.Id" class="btn btn-sm btn-outline-danger"><i class="fa fa-xmark"></i></button>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+
+                                <label class="form-label fw-bold text-secondary">@SharedLocalizer["Listing.Inspection.UploadLabel"]</label>
+                                <input type="file" name="inspectionFiles" id="inspectionFiles" class="form-control"
+                                       multiple accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" />
+                                <span class="text-danger small d-block mt-1">@Html.ValidationMessage("inspectionFiles")</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary fw-bold prev-step" data-current="4">
+                                <i class="fa fa-arrow-left me-1"></i> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary fw-bold" id="submitFormBtn">
+                                <i class="fa fa-floppy-disk me-1"></i>@(isEdit ? "Save changes" : "Submit listing")
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.ExistingImages != null && Model.ExistingImages.Any())
+{
+    foreach (var img in Model.ExistingImages)
+    {
+        <form id="makePrimaryForm_@img.Id" asp-action="MakePrimaryImage" method="post" class="d-none">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@img.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+        <form id="deleteImageForm_@img.Id" asp-action="DeleteImage" method="post" class="d-none" data-confirm="Remove this photo?">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@img.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+    }
+}
+
+@if (Model.ExistingInspectionUploads != null && Model.ExistingInspectionUploads.Any())
+{
+    foreach (var up in Model.ExistingInspectionUploads)
+    {
+        <form id="deleteInspectionForm_@up.Id" asp-action="DeleteInspectionUpload" method="post" class="d-none" data-confirm="@SharedLocalizer["Listing.Inspection.RemoveConfirm"]">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@up.Id" />
+            <input type="hidden" name="listingId" value="@Model.ListingId" />
+        </form>
+    }
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const carData = {
+            "Toyota": ["Camry", "Corolla", "RAV4", "Highlander", "Tacoma", "Tundra", "Prius", "Yaris", "Land Cruiser", "Hilux", "Avalon", "Supra", "Sienna", "4Runner"],
+            "Honda": ["Civic", "Accord", "CR-V", "Pilot", "Odyssey", "Fit", "HR-V", "Ridgeline", "Passport", "City", "Insight"],
+            "Ford": ["F-150", "Mustang", "Explorer", "Escape", "Focus", "Fiesta", "Fusion", "Edge", "Ranger", "Bronco", "Expedition", "Taurus"],
+            "Chevrolet": ["Silverado", "Camaro", "Corvette", "Malibu", "Equinox", "Tahoe", "Suburban", "Colorado", "Traverse", "Cruze", "Impala", "Spark"],
+            "Nissan": ["Altima", "Sentra", "Maxima", "Rogue", "Pathfinder", "Murano", "Frontier", "Titan", "370Z", "GT-R", "Leaf", "Versa", "Armada", "Kicks"],
+            "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "X7", "M3", "M4", "M5", "Z4", "4 Series", "8 Series", "i3", "i8"],
+            "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLA", "GLC", "GLE", "GLS", "A-Class", "G-Class", "AMG GT", "CLA", "CLS", "EQC"],
+            "Audi": ["A3", "A4", "A6", "A8", "Q3", "Q5", "Q7", "Q8", "R8", "TT", "e-tron", "S4", "RS3", "RS5", "RS7"],
+            "Volkswagen": ["Golf", "Jetta", "Passat", "Tiguan", "Atlas", "Touareg", "Arteon", "ID.4", "Polo", "GTI", "Beetle"],
+            "Hyundai": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Kona", "Accent", "Veloster", "Ioniq", "Venue", "Azera"],
+            "Kia": ["Optima/K5", "Sorento", "Sportage", "Telluride", "Forte", "Rio", "Soul", "Stinger", "Carnival", "Seltos", "Niro"],
+            "Lexus": ["IS", "ES", "GS", "LS", "NX", "RX", "GX", "LX", "RC", "LC", "UX"],
+            "Jeep": ["Wrangler", "Grand Cherokee", "Cherokee", "Compass", "Renegade", "Gladiator", "Wagoneer"],
+            "Subaru": ["Outback", "Forester", "Crosstrek", "Impreza", "Legacy", "WRX", "BRZ", "Ascent"],
+            "Porsche": ["911", "Cayenne", "Macan", "Panamera", "Taycan", "Boxster", "Cayman"],
+            "Land Rover": ["Range Rover", "Range Rover Sport", "Range Rover Evoque", "Range Rover Velar", "Discovery", "Discovery Sport", "Defender"],
+            "Mazda": ["Mazda3", "Mazda6", "CX-3", "CX-30", "CX-5", "CX-9", "MX-5 Miata"],
+            "Dodge": ["Charger", "Challenger", "Durango", "Journey", "Grand Caravan"],
+            "Chrysler": ["300", "Pacifica", "Voyager"],
+            "Ram": ["1500", "2500", "3500", "ProMaster"],
+            "GMC": ["Sierra", "Canyon", "Yukon", "Acadia", "Terrain", "Savana"],
+            "Volvo": ["XC40", "XC60", "XC90", "S60", "S90", "V60", "V90"],
+            "Tesla": ["Model S", "Model 3", "Model X", "Model Y", "Cybertruck", "Roadster"],
+            "Jaguar": ["XE", "XF", "XJ", "F-Type", "E-Pace", "F-Pace", "I-Pace"],
+            "Acura": ["ILX", "TLX", "RLX", "RDX", "MDX", "NSX"],
+            "Infiniti": ["Q50", "Q60", "Q70", "QX50", "QX60", "QX80"],
+            "Cadillac": ["ATS", "CTS", "CT4", "CT5", "XT4", "XT5", "XT6", "Escalade"],
+            "Lincoln": ["Navigator", "Aviator", "Corsair", "Nautilus", "Continental"],
+            "Buick": ["Encore", "Envision", "Enclave", "Regal"],
+            "Mitsubishi": ["Outlander", "Eclipse Cross", "Mirage", "Lancer", "Pajero"],
+            "Mini": ["Cooper", "Clubman", "Countryman"],
+            "Fiat": ["500", "500X", "500L", "124 Spider"],
+            "Alfa Romeo": ["Giulia", "Stelvio", "4C"],
+            "Genesis": ["G70", "G80", "G90", "GV70", "GV80"],
+            "Maserati": ["Ghibli", "Quattroporte", "Levante", "GranTurismo", "MC20"],
+            "Aston Martin": ["Vantage", "DB11", "DBS Superleggera", "DBX"],
+            "Bentley": ["Continental GT", "Flying Spur", "Bentayga"],
+            "Rolls-Royce": ["Phantom", "Ghost", "Wraith", "Dawn", "Cullinan"],
+            "Ferrari": ["488", "F8 Tributo", "Portofino", "Roma", "SF90 Stradale", "812 Superfast"],
+            "Lamborghini": ["Huracan", "Aventador", "Urus"],
+            "McLaren": ["570S", "720S", "GT", "Artura"],
+            "Peugeot": ["208", "308", "508", "2008", "3008", "5008"],
+            "Renault": ["Clio", "Megane", "Captur", "Kadjar", "Koleos"],
+            "Suzuki": ["Swift", "Vitara", "Jimny", "Baleno", "Ignis"],
+            "BYD": ["Atto 3", "Seal", "Dolphin", "Han", "Tang", "Song Plus", "Qin Plus", "Yuan Plus"],
+            "Neta": ["Neta V", "Neta U", "Neta S", "Neta GT"],
+            "Geely": ["Coolray", "Monjaro", "Tugella", "Okavango", "Azkarra", "Emgrand", "Preface"],
+            "MG": ["MG ZS", "MG HS", "MG RX5", "MG5", "MG6", "MG GT", "MG4 EV", "Marvel R", "Whale"],
+            "Chery": ["Tiggo 2 Pro", "Tiggo 4 Pro", "Tiggo 7 Pro", "Tiggo 8 Pro", "Arrizo 5", "Arrizo 6 Pro", "Arrizo 8"],
+            "Changan": ["CS35 Plus", "CS75 Plus", "CS85 Coupe", "CS95", "UNI-T", "UNI-K", "UNI-V", "Eado Plus", "Alsvin"],
+            "Haval": ["Jolion", "H6", "H6 GT", "H9", "DarGo"],
+            "Exeed": ["LX", "TXL", "VX", "RX"],
+            "Jetour": ["X70", "X70 Plus", "X90 Plus", "Dashing", "T2"],
+            "GWM": ["Poer", "Wingle 5", "Wingle 7", "Tank 300", "Tank 500", "Ora Good Cat"],
+            "JAC": ["J7", "S3", "S4", "S7", "T8", "JS4", "JS6"],
+            "BAIC": ["X35", "X55", "X7", "BJ40", "BJ80"],
+            "Dongfeng": ["AX7", "A30", "Forthing T5", "Forthing U-Tour"],
+            "Other": ["Other"]
+        };
+
+        (function () {
+            var currentMake = '@Html.Raw(Model?.Make ?? "")';
+            var currentModel = '@Html.Raw(Model?.Model ?? "")';
+            
+            var makeSelect = document.getElementById('makeSelect');
+            var modelSelect = document.getElementById('modelSelect');
+            
+            if (makeSelect && modelSelect) {
+                // Populate makes
+                Object.keys(carData).sort().forEach(function(make) {
+                    var option = document.createElement("option");
+                    option.value = make;
+                    option.text = make;
+                    makeSelect.appendChild(option);
+                });
+                
+                // Set initial make
+                if (currentMake) {
+                    makeSelect.value = currentMake;
+                }
+                
+                // Function to populate models
+                function populateModels(make) {
+                    modelSelect.innerHTML = '<option value="">Select Model</option>';
+                    if (make && carData[make]) {
+                        carData[make].forEach(function(model) {
+                            var option = document.createElement("option");
+                            option.value = model;
+                            option.text = model;
+                            modelSelect.appendChild(option);
+                        });
+                    }
+                }
+                
+                // Listen for make changes
+                makeSelect.addEventListener('change', function() {
+                    populateModels(this.value);
+                });
+                
+                // Initial population of models if make is selected
+                if (makeSelect.value) {
+                    populateModels(makeSelect.value);
+                    if (currentModel) {
+                        modelSelect.value = currentModel;
+                    }
+                }
+            }
+        })();
+
+        // Show the inspection-evidence section only for Used cars; New cars hide it
+        // and clear any chosen files so they aren't posted. Server-side still enforces this.
+        (function () {
+            var sel = document.getElementById('conditionSelect');
+            var section = document.getElementById('inspectionSection');
+            var input = document.getElementById('inspectionFiles');
+            
+            var uploadSection = document.getElementById('uploadSection');
+            var radios = document.querySelectorAll('input[name="RequestInspection"]');
+
+            if (!sel || !section) return;
+
+            function sync() {
+                var isUsed = sel.value === 'Used';
+                section.style.display = isUsed ? '' : 'none';
+                if (!isUsed && input) input.value = '';
+
+                if (isUsed && uploadSection) {
+                    var isBook = document.getElementById('choiceBook').checked;
+                    uploadSection.style.display = isBook ? 'none' : '';
+                    if (isBook && input) input.value = '';
+                }
+            }
+            sel.addEventListener('change', sync);
+            radios.forEach(r => r.addEventListener('change', sync));
+            sync();
+        })();
+
+        // Wizard navigation logic
+        (function() {
+            var currentStep = 1;
+            var totalSteps = 4;
+            var stepNames = ['Basics', 'Specs', 'Features', 'Listing'];
+            var form = $('#wizardForm');
+
+            function showStep(step) {
+                $('.wizard-step-content').addClass('d-none');
+                $('#step' + step).removeClass('d-none');
+
+                // Update desktop stepper
+                $('.wizard-step').removeClass('is-active is-done');
+                $('.wizard-step').each(function() {
+                    var s = parseInt($(this).data('step'));
+                    if (s < step) {
+                        $(this).addClass('is-done');
+                        $(this).find('.step-bullet').html('<i class="fa-solid fa-check"></i>');
+                    } else if (s === step) {
+                        $(this).addClass('is-active');
+                        $(this).find('.step-bullet').text(s);
+                    } else {
+                        $(this).find('.step-bullet').text(s);
+                    }
+                });
+
+                // Update mobile stepper
+                $('#mobileStepText').text('Step ' + step + ' of ' + totalSteps);
+                $('#mobileStepTitle').text(stepNames[step - 1]);
+                $('#mobileProgressBar').css('width', Math.round(100 * step / totalSteps) + '%');
+            }
+
+            $('.next-step').click(function() {
+                var step = parseInt($(this).data('current'));
+                
+                // Trigger unobtrusive validation
+                if (form.length && $.validator && $.validator.unobtrusive) {
+                    form.validate();
+                }
+
+                // Validate only the inputs in the current step
+                var isValid = true;
+                $('#step' + step).find('input, select, textarea').each(function() {
+                    // Check if it's required by data-val-required or HTML5 required
+                    if ($(this).attr('data-val-required') || $(this).prop('required')) {
+                        if (!form.validate().element(this)) {
+                            isValid = false;
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    currentStep = step + 1;
+                    showStep(currentStep);
+                    window.scrollTo(0, 0);
+                }
+            });
+
+            $('.prev-step').click(function() {
+                var step = parseInt($(this).data('current'));
+                currentStep = step - 1;
+                showStep(currentStep);
+                window.scrollTo(0, 0);
+            });
+            
+            showStep(1);
+        })();
+    </script>
+}

@@ -1,0 +1,131 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    var hasError = !ViewData.ModelState.IsValid || !string.IsNullOrEmpty(Model.Input?.SelectedRole);
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <!-- Role Selection Cards -->
+        <div class="col-lg-8 @(hasError ? "d-none" : "")" id="roleSelectionStep">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary px-3 py-2 rounded-pill fw-bold mb-3">ONBOARDING ACCOUNT PORTAL</span>
+                <h2 class="fw-bold text-dark mb-1">Create Account</h2>
+                <p class="text-muted">Choose your account type to get started.</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center mb-4">
+                <div class="col-md-6">
+                    <div class="persona-card h-100 border-2 shadow-sm" style="cursor: pointer;" onclick="selectRole('Buyer', 'Register as a Car Buyer')">
+                        <div class="text-center p-4">
+                            <div class="display-4 text-danger mb-3"><i class="fa-solid fa-car-side"></i></div>
+                            <h4 class="fw-bold text-dark">Car Buyer</h4>
+                            <p class="text-muted small mb-0">Register to access matching lists and find your perfect car.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="persona-card h-100 border-2 shadow-sm" style="cursor: pointer;" onclick="selectRole('Dealer', 'Register as a Dealership')">
+                        <div class="text-center p-4">
+                            <div class="display-4 text-danger mb-3"><i class="fa-solid fa-warehouse"></i></div>
+                            <h4 class="fw-bold text-dark">Car Dealership</h4>
+                            <p class="text-muted small mb-0">Register to manage vehicle lots and sell to buyers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center border-top pt-4">
+                <p class="mb-0">
+                    <span class="text-muted small">Already have an account?</span> 
+                    <a asp-page="./Login" class="text-decoration-none text-danger small fw-bold">Sign in here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="col-lg-6 @(hasError ? "" : "d-none")" id="registrationFormStep">
+            <div class="glass-card shadow-lg bg-white rounded-4 p-5">
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-sm btn-link text-decoration-none text-muted mb-3" onclick="goBack()"><i class="fa-solid fa-arrow-left me-1"></i> Back to Role Selection</button>
+                    <h2 class="fw-bold text-dark mb-1" id="formTitle">Create Account</h2>
+                    <p class="text-muted">Please fill in your details.</p>
+                </div>
+
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <input type="hidden" asp-for="Input.SelectedRole" id="selectedRoleInput" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3" role="alert"></div>
+                    
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.FullName" class="form-control border-2" autocomplete="name" aria-required="true" placeholder="Your full name" />
+                        <label asp-for="Input.FullName" class="fw-bold text-secondary">Full Name</label>
+                        <span asp-validation-for="Input.FullName" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control border-2" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <label asp-for="Input.Email" class="fw-bold text-secondary">Email Address</label>
+                        <span asp-validation-for="Input.Email" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.PhoneNumber" class="form-control border-2" type="tel" autocomplete="tel" aria-required="true" placeholder="07XXXXXXXX" dir="ltr" />
+                        <label asp-for="Input.PhoneNumber" class="fw-bold text-secondary">@SharedLocalizer["Phone number"]</label>
+                        <span asp-validation-for="Input.PhoneNumber" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" class="form-control border-2" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.Password" class="fw-bold text-secondary">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger small mt-1 d-block"></span>
+                    </div>
+                    
+                    <div class="form-floating mb-4">
+                        <input asp-for="Input.ConfirmPassword" class="form-control border-2" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.ConfirmPassword" class="fw-bold text-secondary">Confirm Password</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger small mt-1 d-block"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary py-3 fw-bold"><i class="fa-solid fa-user-plus me-2"></i>Create Profile Account</button>
+                    </div>
+
+                    <div class="text-center border-top pt-3">
+                        <p class="mb-0">
+                            <span class="text-muted small">Already have an account?</span> 
+                            <a asp-page="./Login" class="text-decoration-none text-danger small fw-bold">Sign in here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function selectRole(role, title) {
+            document.getElementById('selectedRoleInput').value = role;
+            document.getElementById('formTitle').innerText = title;
+            document.getElementById('roleSelectionStep').classList.add('d-none');
+            document.getElementById('registrationFormStep').classList.remove('d-none');
+        }
+
+        function goBack() {
+            document.getElementById('registrationFormStep').classList.add('d-none');
+            document.getElementById('roleSelectionStep').classList.remove('d-none');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var role = document.getElementById('selectedRoleInput').value;
+            if (role === 'Buyer') {
+                document.getElementById('formTitle').innerText = 'Register as a Car Buyer';
+            } else if (role === 'Dealer') {
+                document.getElementById('formTitle').innerText = 'Register as a Dealership';
+            }
+        });
+    </script>
+}

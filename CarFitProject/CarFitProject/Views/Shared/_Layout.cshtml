@@ -1,0 +1,559 @@
+@{
+    var culture = System.Globalization.CultureInfo.CurrentUICulture.Name.StartsWith("ar") ? "ar" : "en";
+    var dir = culture == "ar" ? "rtl" : "ltr";
+    var bootstrapCss = culture == "ar"
+        ? "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+        : "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+}
+<!DOCTYPE html>
+<html lang="@culture" dir="@dir">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    @if (culture == "ar")
+    {
+        <link rel="stylesheet" href="@bootstrapCss" crossorigin="anonymous" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="@bootstrapCss" />
+    }
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CarFitProject.styles.css" asp-append-version="true" />
+    <link href="~/css/style.css" rel="stylesheet" asp-append-version="true" />
+    <script>
+        const initTheme = localStorage.getItem('theme') || 'light';
+        if (initTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+
+    <style>
+            /* 🛠️ COMPREHENSIVE POSITIONING MECHANICS */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .main-content-wrapper {
+                flex: 1 0 auto;
+            }
+
+            /* 🏢 CORPORATE FOOTER STYLING ARCHITECTURE */
+            .site-footer {
+                flex-shrink: 0;
+                background-color: #1e293b; /* Dark Slate theme matches admin styles */
+                color: #94a3b8;
+                border-top: 4px solid var(--primary, #0d6efd);
+                font-size: 0.9rem;
+            }
+
+                .site-footer h5 {
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                }
+
+                .site-footer a {
+                    color: #94a3b8;
+                    transition: color 0.2s ease-in-out;
+                }
+
+                    .site-footer a:hover {
+                        color: #ffffff !important;
+                    }
+
+            .footer-social-icon {
+                width: 36px;
+                height: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.05);
+                color: #ffffff !important;
+                transition: background-color 0.2s ease;
+            }
+
+                .footer-social-icon:hover {
+                    background-color: var(--primary, #0d6efd);
+                }
+
+            .footer-bottom {
+                background-color: #0f172a;
+                color: #64748b;
+                font-size: 0.8rem;
+            }
+
+            /* ===== NAVBAR CENTERING & DROPDOWN LAYOUT ===== */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 1030;
+            }
+            /* Center the nav links */
+            .cf-nav-center {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* Right button (Red Theme primary gradient) */
+            .cf-menu-btn {
+                background: var(--primary-gradient);
+                color: #fff !important;
+                border: none;
+                border-radius: 50px;
+                padding: 0.5rem 1.25rem;
+                font-size: 0.95rem;
+                font-weight: 600;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                box-shadow: 0 4px 15px rgba(216, 19, 36, 0.3);
+            }
+            .cf-menu-btn:hover, .cf-menu-btn:focus {
+                color: #fff !important;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 22px rgba(216, 19, 36, 0.45);
+                background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            }
+            .cf-menu-btn::after {
+                margin-left: 6px;
+            }
+
+            /* Dropdown style to match theme */
+            .cf-dropdown {
+                border: 1px solid var(--border-color);
+                border-radius: 14px;
+                min-width: 220px;
+                box-shadow: var(--shadow-lg);
+                padding: 0.6rem 0;
+                animation: cfDropIn 0.18s ease;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+            }
+            @@keyframes cfDropIn {
+                from { opacity: 0; transform: translateY(-6px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+            .cf-dropdown .dropdown-item {
+                padding: 0.55rem 1.2rem;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--secondary);
+                transition: background 0.15s, color 0.15s;
+                border-radius: 8px;
+                margin: 0 0.4rem;
+                width: calc(100% - 0.8rem);
+            }
+            .cf-dropdown .dropdown-item:hover {
+                background: rgba(216, 19, 36, 0.08);
+                color: var(--primary);
+            }
+            .cf-dropdown .dropdown-item.active {
+                background: rgba(216, 19, 36, 0.12);
+                color: var(--primary);
+            }
+            .cf-dropdown .dropdown-divider {
+                border-color: rgba(216, 19, 36, 0.1);
+            }
+
+            /* Language switcher globe icon */
+            .cf-nav-right .nav-link {
+                color: var(--secondary) !important;
+                font-size: 1.25rem;
+                padding: 0.5rem;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.25s ease, color 0.25s ease;
+            }
+            .cf-nav-right .nav-link:hover {
+                color: var(--primary) !important;
+                background: rgba(216, 19, 36, 0.08);
+            }
+            .cf-nav-right .nav-link.dropdown-toggle::after {
+                display: none !important;
+            }
+
+            /* Responsive: undo absolute centering on mobile */
+            @@media (max-width: 991px) {
+                .cf-nav-center {
+                    position: static;
+                    transform: none;
+                    width: 100%;
+                }
+                .cf-nav-right {
+                    margin-top: 0.75rem;
+                    padding-bottom: 0.5rem;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="main-content-wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light sticky-top py-2 px-4">
+                @* LEFT: Logo *@
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-flex align-items-center">
+                    <h2 class="m-0"><i class="fa-solid fa-car-burst me-2"></i>CarFit</h2>
+                </a>
+
+                @* Mobile toggler *@
+                <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    @* CENTER: Main nav links *@
+                    <ul class="navbar-nav mx-auto py-3 py-lg-0 gap-lg-1 cf-nav-center">
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"
+                               class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                                @Localizer["Nav.Home"]
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="About"
+                               class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "About" ? "active" : "")">
+                                @Localizer["Nav.About"]
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="Contact"
+                               class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "Contact" ? "active" : "")">
+                                @Localizer["Nav.Contact"]
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Inventory" asp-action="Search"
+                               class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Inventory" && ViewContext.RouteData.Values["Action"]?.ToString() == "Search" ? "active" : "")">
+                                @Localizer["Nav.Search"]
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Dealerships" asp-action="Index"
+                               class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dealerships" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                Dealerships
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Buyer") || User.IsInRole("Seller") || User.IsInRole("Dealer"))
+                        {
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Inspection" asp-action="Index"
+                                   class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Inspection" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                                    Inspection
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                    @* RIGHT: Single dropdown button & Language Switcher *@
+                    <div class="d-flex align-items-center gap-2 ms-auto cf-nav-right">
+                        <partial name="_LanguageSwitcher" />
+                        <div class="dropdown">
+                            <button class="btn cf-menu-btn dropdown-toggle d-flex align-items-center gap-2"
+                                    type="button" id="navMenuBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                    <i class="fa-solid fa-user-circle fs-5"></i>
+                                    <span class="d-none d-sm-inline fw-semibold">@User.Identity.Name?.Split('@')[0]</span>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-user fs-5"></i>
+                                    <span class="d-none d-sm-inline fw-semibold">@Localizer["Nav.Login"]</span>
+                                }
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end cf-dropdown shadow-lg" aria-labelledby="navMenuBtn">
+
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                    @* Role-specific dashboard link *@
+                                    if (User.IsInRole("Admin"))
+                                    {
+                                        <li>
+                                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-shield-halved me-2 text-danger"></i>@Localizer["Nav.AdminBase"]
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (User.IsInRole("Dealer"))
+                                    {
+                                        <li>
+                                            <a asp-area="Seller" asp-controller="Dashboard" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-building me-2 text-danger"></i>@Localizer["Nav.SellerLot"]
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="Seller" asp-controller="Inventory" asp-action="Form" class="dropdown-item">
+                                                <i class="fa-solid fa-plus me-2 text-danger"></i>Add a Car
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="" asp-controller="Billing" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-credit-card me-2 text-danger"></i>Billing
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (User.IsInRole("Buyer"))
+                                    {
+                                        <li>
+                                            <a asp-area="Buyer" asp-controller="Dashboard" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-user-gear me-2 text-danger"></i>@Localizer["Nav.BuyerHub"]
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="Seller" asp-controller="Inventory" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-car me-2 text-danger"></i>My Cars
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="Seller" asp-controller="Inventory" asp-action="Form" class="dropdown-item">
+                                                <i class="fa-solid fa-plus me-2 text-danger"></i>Post a Car
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="Buyer" asp-controller="Profiles" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-users-viewfinder me-2 text-danger"></i>My Personas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="Buyer" asp-controller="Saved" asp-action="Index" class="dropdown-item">
+                                                <i class="fa-solid fa-bookmark me-2 text-danger"></i>Saved Cars
+                                            </a>
+                                        </li>
+                                    }
+                                    <li><hr class="dropdown-divider my-1"></li>
+
+                                    @* Logout *@
+                                    <li>
+                                        <form asp-area="Identity" asp-page="/Account/Logout"
+                                              asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"
+                                              method="post" id="navLogoutForm">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="dropdown-item text-danger">
+                                                <i class="fa-solid fa-right-from-bracket me-2 text-danger"></i>@Localizer["Nav.Logout"]
+                                            </button>
+                                        </form>
+                                    </li>
+                                }
+                                else
+                                {
+                                    @* Login link *@
+                                    <li>
+                                        <a asp-area="Identity" asp-page="/Account/Login" class="dropdown-item">
+                                            <i class="fa-solid fa-right-to-bracket me-2 text-danger"></i>@Localizer["Nav.Login"]
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="Identity" asp-page="/Account/Register" class="dropdown-item">
+                                            <i class="fa-solid fa-user-plus me-2 text-danger"></i>@Localizer["Nav.Register"]
+                                        </a>
+                                    </li>
+                                }
+                                <li><hr class="dropdown-divider my-1"></li>
+                                <li>
+                                    <button class="dropdown-item" id="theme-toggle" type="button">
+                                        <i class="fa-solid fa-moon me-2 text-danger" id="theme-icon"></i><span id="theme-text">Dark Mode</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        @if (ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index")
+        {
+            <main role="main">
+                @RenderBody()
+            </main>
+        }
+        else
+        {
+            <div class="container my-4">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        }
+    </div>
+    <footer class="site-footer pt-5">
+        <div class="container pb-4">
+            @{
+                var isAuth = User.Identity != null && User.Identity.IsAuthenticated;
+                var sideColClass = isAuth ? "col-12 col-md-3" : "col-12 col-md-4";
+            }
+            <div class="row g-4">
+                <div class="@sideColClass">
+                    <h5 class="mb-3 text-white"><i class="fa-solid fa-car-burst text-primary me-2"></i>CarFit</h5>
+                    <p class="small text-white-50 mb-3">
+                        Empowering smart automotive choices in the local market with live inventory streams, transparent evaluation scorecards, and data-driven marketplace insights.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-linkedin-in text-white"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram text-white"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h5 class="mb-3 text-white">Marketplace</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a asp-area="" asp-controller="Inventory" asp-action="Search" class="text-decoration-none text-white-50">Search Vehicles</a></li>
+                        <li><a asp-area="" asp-controller="Inspection" asp-action="Index" class="text-decoration-none text-white-50">Inspection Hub</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About" class="text-decoration-none text-white-50">About Company</a></li>
+                        @if (!isAuth)
+                        {
+                            <li><a asp-area="Identity" asp-page="/Account/Login" class="text-decoration-none text-white-50">Login</a></li>
+                            <li><a asp-area="Identity" asp-page="/Account/Register" class="text-decoration-none text-white-50">Register</a></li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h5 class="mb-3 text-white">Support</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="text-decoration-none text-white-50">Help Desk</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-white-50">Privacy Terms</a></li>
+                        <li><a asp-area="" asp-controller="Testimonials" asp-action="Index" class="text-decoration-none text-white-50">Testimonials</a></li>
+                        <li><a asp-area="" asp-controller="Billing" asp-action="Index" class="text-decoration-none text-white-50">Billing</a></li>
+                        <li><a asp-area="" asp-controller="Advisor" asp-action="Index" class="text-decoration-none text-white-50">Advisor</a></li>
+                    </ul>
+                </div>
+
+                @if (isAuth)
+                {
+                    <div class="col-6 col-md-2">
+                        <h5 class="mb-3 text-white">My Dashboard</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 small">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-white-50">Overview</a></li>
+                                <li><a asp-area="Admin" asp-controller="Admin" asp-action="Index" class="text-decoration-none text-white-50">Users</a></li>
+                                <li><a asp-area="Admin" asp-controller="Dealers" asp-action="Index" class="text-decoration-none text-white-50">Dealers</a></li>
+                                <li><a asp-area="Admin" asp-controller="InspectionBookings" asp-action="Index" class="text-decoration-none text-white-50">Bookings</a></li>
+                                <li><a asp-area="Admin" asp-controller="Inspections" asp-action="Index" class="text-decoration-none text-white-50">Inspections</a></li>
+                                <li><a asp-area="Admin" asp-controller="Listings" asp-action="Index" class="text-decoration-none text-white-50">Listings</a></li>
+                            }
+                            else if (User.IsInRole("Dealer") || User.IsInRole("Seller"))
+                            {
+                                <li><a asp-area="Seller" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-white-50">Overview</a></li>
+                                <li><a asp-area="Seller" asp-controller="Inventory" asp-action="Index" class="text-decoration-none text-white-50">My Inventory</a></li>
+                                <li><a asp-area="Seller" asp-controller="Inspections" asp-action="Index" class="text-decoration-none text-white-50">My Inspections</a></li>
+                                <li><a asp-area="Seller" asp-controller="Onboarding" asp-action="Index" class="text-decoration-none text-white-50">Onboarding</a></li>
+                            }
+                            else if (User.IsInRole("Buyer"))
+                            {
+                                <li><a asp-area="Buyer" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-white-50">Overview</a></li>
+                                <li><a asp-area="Buyer" asp-controller="Questionnaire" asp-action="Index" class="text-decoration-none text-white-50">Questionnaire</a></li>
+                                <li><a asp-area="Buyer" asp-controller="Compare" asp-action="Index" class="text-decoration-none text-white-50">Compare Vehicles</a></li>
+                                <li><a asp-area="Buyer" asp-controller="Saved" asp-action="Index" class="text-decoration-none text-white-50">Saved Vehicles</a></li>
+                                <li><a asp-area="Buyer" asp-controller="Profiles" asp-action="Index" class="text-decoration-none text-white-50">My Profile</a></li>
+                            }
+                        </ul>
+                    </div>
+                }
+
+                <div class="@sideColClass">
+                    <h5 class="mb-3 text-white">Contact Operations</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small text-white-50">
+                        <li><i class="fa-solid fa-location-dot me-2 text-primary"></i> <span class="text-white">Zarqa City Center Core, Jordan</span></li>
+                        <li><i class="fa-solid fa-phone me-2 text-primary"></i> <span class="text-white">+962 7 XXXXXXXX</span></li>
+                        <li><i class="fa-solid fa-envelope me-2 text-primary"></i> <span class="text-white">support@carfit.com</span></li>
+                        <li><i class="fa-solid fa-clock me-2 text-primary"></i> Sunday &mdash; Saturday: 09:00 AM &mdash; 06:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center text-white-50">
+                &copy; @DateTime.Now.Year - <span class="text-white fw-medium">CarFit Project</span> &middot; All Rights Reserved. Development Team Integration Hub.
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .swal2-popup.theme-popup { border-radius: 1.5rem !important; font-family: 'Outfit', sans-serif !important; box-shadow: 0 15px 40px rgba(13, 13, 22, 0.14) !important; }
+        .swal2-title { font-weight: 700 !important; }
+    </style>
+    <script>
+        window.SwalTheme = Swal.mixin({
+            customClass: {
+                popup: 'theme-popup',
+                confirmButton: 'btn btn-primary rounded-3 px-4 ms-2 fw-bold',
+                cancelButton: 'btn btn-secondary rounded-3 px-4 me-2 fw-bold'
+            },
+            buttonsStyling: false
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <text>
+                SwalTheme.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@Html.Raw(TempData["SuccessMessage"].ToString().Replace("'", "\\'").Replace("\r", "").Replace("\n", " "))'
+                });
+                </text>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <text>
+                SwalTheme.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '@Html.Raw(TempData["ErrorMessage"].ToString().Replace("'", "\\'").Replace("\r", "").Replace("\n", " "))'
+                });
+                </text>
+            }
+
+            document.querySelectorAll('form[data-confirm]').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var text = this.getAttribute('data-confirm');
+                    SwalTheme.fire({
+                        title: 'Are you sure?',
+                        text: text,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, proceed!',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.removeAttribute('data-confirm');
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

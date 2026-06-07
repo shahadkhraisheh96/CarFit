@@ -1,0 +1,210 @@
+@model List<CarFitProject.Areas.Admin.Models.MakeRowViewModel>
+@using System.Text.Encodings.Web
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = SharedLocalizer["Admin.Makes.Title"].Value;
+}
+
+<style>
+    .makes-table th {
+        font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05rem;
+        background-color: var(--bg-sidebar) !important; border-bottom: 1px solid var(--border-dim) !important;
+        padding: 14px 12px !important;
+    }
+    .makes-table td { border-bottom: 1px solid var(--border-dim) !important; padding: 0.85rem 0.75rem !important; }
+    .makes-table tbody tr:hover { background-color: rgba(255,255,255,0.015) !important; }
+    /* Actual brand logos sit on a transparent background so transparent PNG/SVG logos
+       present cleanly; only the initial-letter placeholder keeps a tinted box. */
+    .make-logo, .make-logo-fallback {
+        width: 44px; height: 44px; border-radius: 10px; object-fit: contain;
+    }
+    .make-logo { background: transparent; }
+    .make-logo-fallback {
+        display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary, #D81324);
+        background: rgba(216,19,36,0.12); font-size: 1.1rem;
+    }
+</style>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="admin-card d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+            <div>
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none text-primary small d-inline-block mb-2 fw-bold">
+                    <i class="fa fa-arrow-left me-1"></i> Back to Control Base
+                </a>
+                <h2 class="text-white fw-bold mb-1"><i class="fa fa-trademark me-2 text-primary"></i>@SharedLocalizer["Admin.Makes.Title"]</h2>
+                <p class="text-muted mb-0 small">Manage car brands and the logos shown in the home page "Browse by Make" grid.</p>
+            </div>
+            <div class="mt-2 mt-sm-0">
+                <button type="button" class="btn btn-primary fw-bold px-4 shadow-sm" onclick="openMakeModal(0, '', '')">
+                    <i class="fa fa-plus me-1"></i> Add Make
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="admin-card p-0 overflow-hidden shadow-sm">
+            <div class="py-3 px-4 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.15); border-color: var(--border-dim) !important;">
+                <h5 class="mb-0 fw-bold text-white fs-6"><i class="fa-solid fa-trademark me-2 text-primary"></i>Brand Lookup</h5>
+                <span class="badge badge-low font-monospace">@(Model?.Count ?? 0) Makes</span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table text-start align-middle mb-0 table-hover w-100 makes-table">
+                    <thead>
+                        <tr class="text-white">
+                            <th class="ps-4" style="width: 80px;">Logo</th>
+                            <th>Make</th>
+                            <th style="width: 18%;">Available Cars</th>
+                            <th style="width: 32%;">Logo URL</th>
+                            <th class="text-center" style="width: 16%;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model == null || !Model.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center py-5 text-muted">
+                                    <i class="fa fa-trademark fs-1 mb-3 d-block text-primary opacity-25"></i>
+                                    No makes yet. Add one, or they will be auto-created from the catalog on startup.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var m in Model)
+                            {
+                                var initial = string.IsNullOrWhiteSpace(m.Name) ? "?" : m.Name.Trim()[..1].ToUpper();
+                                <tr>
+                                    <td class="ps-4">
+                                        @if (!string.IsNullOrEmpty(m.LogoUrl))
+                                        {
+                                            <img src="@m.LogoUrl" alt="@m.Name" class="make-logo"
+                                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                                            <div class="make-logo-fallback" style="display:none;">@initial</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="make-logo-fallback">@initial</div>
+                                        }
+                                    </td>
+                                    <td class="text-white fw-bold">@m.Name</td>
+                                    <td><span class="badge badge-low font-monospace">@m.CarCount</span></td>
+                                    <td class="text-white-50 small font-monospace text-break">@(string.IsNullOrEmpty(m.LogoUrl) ? "—" : m.LogoUrl)</td>
+                                    <td class="text-center">
+                                        <div class="d-inline-flex gap-2 justify-content-center">
+                                            <button type="button" class="btn btn-sm btn-outline-primary fw-bold px-3"
+                                                    onclick="openMakeModal(@m.Id, '@JavaScriptEncoder.Default.Encode(m.Name)', '@JavaScriptEncoder.Default.Encode(m.LogoUrl ?? "")')">
+                                                <i class="fa fa-pen me-1"></i>Edit
+                                            </button>
+                                            <form asp-action="Delete" method="post" class="m-0" data-confirm="Delete the make &quot;@m.Name&quot;? This only removes the lookup row (cars and listings are untouched).">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@m.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger fw-bold px-3"><i class="fa fa-trash me-1"></i>Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="makeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-white border-1" style="background-color: var(--bg-card); border-color: var(--border-dim);">
+            <div class="modal-header border-bottom" style="border-color: var(--border-dim) !important;">
+                <h5 class="modal-title fw-bold" id="makeModalTitle">Manage Make</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-area="Admin" asp-controller="Makes" asp-action="Save" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" id="makeIdInput" value="0" />
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Brand Name</label>
+                        <input type="text" name="name" id="makeNameInput" class="form-control text-white" maxlength="50" placeholder="e.g. Toyota" required />
+                        <small id="makeNameHint" class="text-muted d-none">Name is locked after creation — it links to existing cars.</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Logo Image URL</label>
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <img id="makeLogoPreview" src="" alt="" class="make-logo" style="display:none;"
+                                 onerror="this.style.display='none';document.getElementById('makeLogoPreviewFallback').style.display='flex';" />
+                            <div id="makeLogoPreviewFallback" class="make-logo-fallback">?</div>
+                            <span class="text-white-50 small">Live preview of the pasted URL.</span>
+                        </div>
+                        <input type="url" name="logoUrl" id="makeLogoUrlInput" class="form-control text-white" maxlength="2048"
+                               placeholder="https://example.com/logos/toyota.png" />
+                        <small class="text-muted">Paste an image address from your browser (right-click an image → “Copy image address”). Clear it to remove the logo.</small>
+                    </div>
+                </div>
+                <div class="modal-footer border-top" style="border-color: var(--border-dim) !important;">
+                    <button type="button" class="btn btn-outline-dark px-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary fw-bold px-4">Save Make</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openMakeModal(id, name, logoUrl) {
+            var clearName = decodeURIComponent(name);
+            var clearLogo = decodeURIComponent(logoUrl);
+            var isEdit = id && id > 0;
+
+            document.getElementById('makeIdInput').value = id || 0;
+            document.getElementById('makeModalTitle').innerHTML = isEdit
+                ? '⚙️ Edit Make: <span class="text-primary">' + clearName + '</span>'
+                : '✨ Add New Make';
+
+            var nameInput = document.getElementById('makeNameInput');
+            nameInput.value = clearName;
+            // Name is read-only on edit to keep the Car.Make link intact.
+            if (isEdit) { nameInput.setAttribute('readonly', 'readonly'); }
+            else { nameInput.removeAttribute('readonly'); }
+            document.getElementById('makeNameHint').classList.toggle('d-none', !isEdit);
+
+            document.getElementById('makeLogoUrlInput').value = clearLogo;
+            renderLogoPreview();
+
+            new bootstrap.Modal(document.getElementById('makeModal')).show();
+        }
+
+        // Live preview: reflect whatever URL is currently in the box; fall back to the
+        // initial-letter badge when empty or when the image fails to load.
+        function renderLogoPreview() {
+            var url = document.getElementById('makeLogoUrlInput').value.trim();
+            var name = document.getElementById('makeNameInput').value.trim();
+            var preview = document.getElementById('makeLogoPreview');
+            var fallback = document.getElementById('makeLogoPreviewFallback');
+            fallback.textContent = name ? name.charAt(0).toUpperCase() : '?';
+            if (url) {
+                preview.src = url;
+                preview.style.display = '';
+                fallback.style.display = 'none';
+            } else {
+                preview.removeAttribute('src');
+                preview.style.display = 'none';
+                fallback.style.display = 'flex';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var urlInput = document.getElementById('makeLogoUrlInput');
+            if (urlInput) {
+                urlInput.addEventListener('input', renderLogoPreview);
+            }
+        });
+    </script>
+}

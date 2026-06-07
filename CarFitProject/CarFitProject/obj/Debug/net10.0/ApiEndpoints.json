@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "CarFitProject.Controllers.WebhooksController",
+    "Method": "Stripe",
+    "RelativePath": "Webhooks/Stripe",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
