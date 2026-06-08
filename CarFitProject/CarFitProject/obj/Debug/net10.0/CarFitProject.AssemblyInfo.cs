@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarFitProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e37ed3cef220af78249137499a05a4f557f9c66a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cb7786f628c77ff8b7dd62a3dc591cf325a7272")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarFitProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarFitProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

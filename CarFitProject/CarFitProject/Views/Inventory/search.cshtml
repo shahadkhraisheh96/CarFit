@@ -21,11 +21,29 @@
             <div class="row g-3 align-items-end">
                 <div class="col-md-3">
                     <label class="form-label small fw-bold text-secondary">@L["Search.Field.Make"]</label>
-                    <input asp-for="Make" class="form-control" placeholder="Toyota, Hyundai..." />
+                    <select asp-for="Make" class="form-select select2">
+                        <option value="">@L["Search.Any"]</option>
+                        @if (ViewBag.Makes != null)
+                        {
+                            foreach (var make in (IEnumerable<string>)ViewBag.Makes)
+                            {
+                                <option value="@make">@make</option>
+                            }
+                        }
+                    </select>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label small fw-bold text-secondary">@L["Search.Field.Model"]</label>
-                    <input asp-for="Model" class="form-control" placeholder="Corolla..." />
+                    <select asp-for="Model" class="form-select select2">
+                        <option value="">@L["Search.Any"]</option>
+                        @if (ViewBag.Models != null)
+                        {
+                            foreach (var carModel in (IEnumerable<string>)ViewBag.Models)
+                            {
+                                <option value="@carModel">@carModel</option>
+                            }
+                        }
+                    </select>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-secondary">@L["Search.Field.YearFrom"]</label>
@@ -37,7 +55,7 @@
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-secondary">@L["Search.Field.Type"]</label>
-                    <select asp-for="Type" class="form-select">
+                    <select asp-for="Type" class="form-select select2">
                         <option value="">@L["Search.Any"]</option>
                         <option value="New">@L["Field.ConditionNew"]</option>
                         <option value="Used">@L["Field.ConditionUsed"]</option>
@@ -53,7 +71,7 @@
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small fw-bold text-secondary">@L["Search.Field.Transmission"]</label>
-                    <select asp-for="Transmission" class="form-select">
+                    <select asp-for="Transmission" class="form-select select2">
                         <option value="">@L["Search.Any"]</option>
                         <option value="Automatic">@L["Field.TransmissionAuto"]</option>
                         <option value="Manual">@L["Field.TransmissionManual"]</option>
@@ -130,4 +148,13 @@
 
 @section Scripts {
     <partial name="_CompareBarScripts" />
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                theme: 'bootstrap-5',
+                width: '100%',
+                minimumResultsForSearch: Infinity
+            });
+        });
+    </script>
 }

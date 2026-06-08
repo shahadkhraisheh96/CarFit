@@ -88,6 +88,10 @@ namespace CarFitProject.Controllers
             ViewBag.SavedCarIds = User.IsInRole("Buyer")
                 ? await _savedCars.GetSavedCarIdsAsync(CurrentUserId!)
                 : new HashSet<int>();
+
+            ViewBag.Makes = await _context.Cars.Select(c => c.Make).Where(m => !string.IsNullOrEmpty(m)).Distinct().OrderBy(m => m).ToListAsync();
+            ViewBag.Models = await _context.Cars.Select(c => c.Model).Where(m => !string.IsNullOrEmpty(m)).Distinct().OrderBy(m => m).ToListAsync();
+
             return View(filters);
         }
 

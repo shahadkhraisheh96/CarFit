@@ -1117,7 +1117,6 @@ C:\Users\shaha\CarFit\CarFitProject\CarFitProject\bin\Debug\net10.0\runtimes\win
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\bin\Debug\net10.0\runtimes\win-x86\native\libwinpthread-1.dll
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
-C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\shaha\OneDrive\Desktop\carfitBackup\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitProject.csproj.AssemblyReference.cache
 C:\Users\shaha\OneDrive\Desktop\carfitBackup\CarFitProject\CarFitProject\obj\Debug\net10.0\rpswa.dswa.cache.json
 C:\Users\shaha\OneDrive\Desktop\carfitBackup\CarFitProject\CarFitProject\obj\Debug\net10.0\CarFitProject.Resources.SharedResource.ar.resources
@@ -1916,3 +1915,4 @@ C:\Users\shaha\OneDrive\Desktop\claudecarfit\CarFitProject\CarFitProject\obj\Deb
 C:\Users\shaha\OneDrive\Desktop\claudecarfit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\compressed\dn83oytc01-{0}-zgza1c412m-zgza1c412m.gz
 C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\compressed\syw0usnqht-{0}-tnr6ukdoxz-tnr6ukdoxz.gz
+C:\Users\shaha\CarFit\CarFitProject\CarFitProject\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
