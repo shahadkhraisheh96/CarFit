@@ -307,7 +307,7 @@
   <data name="Seller.Dashboard.ManageListings" xml:space="preserve"><value>Manage listings</value></data>
 
   <!-- About -->
-  <data name="About.Title" xml:space="preserve"><value>About Our Advisor</value></data>
+  <data name="About.Title" xml:space="preserve"><value>About Our CarFit</value></data>
   <data name="About.Crumb.Home" xml:space="preserve"><value>Home</value></data>
   <data name="About.Crumb.About" xml:space="preserve"><value>About</value></data>
   <data name="About.Badge" xml:space="preserve"><value>CARFIT TECHNOLOGY</value></data>

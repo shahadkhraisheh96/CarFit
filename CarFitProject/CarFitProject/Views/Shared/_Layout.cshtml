@@ -33,6 +33,9 @@
         const initTheme = localStorage.getItem('theme') || 'light';
         if (initTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
         }
     </script>
 

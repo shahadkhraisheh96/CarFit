@@ -54,24 +54,38 @@ namespace CarFitProject.Areas.Admin.Controllers
                 .Select(u => new { u.Id, u.FullName, u.Email })
                 .ToDictionaryAsync(u => u.Id);
 
-            var lifetime = await _context.PaymentTransactions
-                .Where(t => userIds.Contains(t.UserId) && t.Status == "Succeeded")
-                .GroupBy(t => t.UserId)
-                .Select(g => new { UserId = g.Key, Total = g.Sum(t => t.AmountJod) })
-                .ToDictionaryAsync(x => x.UserId, x => x.Total);
-
-            var rows = pageSubs.Select(s => new AdminSubscriptionRow
+            var rows = pageSubs.Select(s =>
             {
-                UserName = users.TryGetValue(s.UserId, out var u) ? (u.FullName ?? u.Email ?? s.UserId) : s.UserId,
-                Email = users.TryGetValue(s.UserId, out var u2) ? u2.Email : null,
-                Role = s.Plan?.TargetRole ?? "",
-                PlanName = s.Plan?.Name ?? "",
-                FeeJod = s.Plan?.AmountJod ?? 0m,
-                Interval = s.Plan?.BillingInterval ?? PlanBillingInterval.OneTime,
-                Status = s.Status,
-                StartDate = s.CurrentPeriodStart ?? s.CreatedAt,
-                NextBilling = s.CurrentPeriodEnd,
-                LifetimePaidJod = lifetime.TryGetValue(s.UserId, out var total) ? total : 0m
+                var endDate = s.CancelledAt ?? DateTime.UtcNow;
+                var days = (endDate - s.CreatedAt).TotalDays;
+                if (days < 0) days = 0;
+                
+                int intervals = 1;
+                if (s.Plan != null && s.Plan.BillingInterval != PlanBillingInterval.OneTime)
+                {
+                    intervals = s.Plan.BillingInterval switch
+                    {
+                        PlanBillingInterval.Month => (int)(days / 30) + 1,
+                        PlanBillingInterval.Year => (int)(days / 365) + 1,
+                        PlanBillingInterval.Week => (int)(days / 7) + 1,
+                        _ => 1
+                    };
+                }
+                var calculatedTotal = (s.Plan?.AmountJod ?? 0m) * intervals;
+
+                return new AdminSubscriptionRow
+                {
+                    UserName = users.TryGetValue(s.UserId, out var u) ? (u.FullName ?? u.Email ?? s.UserId) : s.UserId,
+                    Email = users.TryGetValue(s.UserId, out var u2) ? u2.Email : null,
+                    Role = s.Plan?.TargetRole ?? "",
+                    PlanName = s.Plan?.Name ?? "",
+                    FeeJod = s.Plan?.AmountJod ?? 0m,
+                    Interval = s.Plan?.BillingInterval ?? PlanBillingInterval.OneTime,
+                    Status = s.Status,
+                    StartDate = s.CurrentPeriodStart ?? s.CreatedAt,
+                    NextBilling = s.CurrentPeriodEnd,
+                    LifetimePaidJod = calculatedTotal
+                };
             }).ToList();
 
             var vm = new AdminSubscriptionsViewModel
