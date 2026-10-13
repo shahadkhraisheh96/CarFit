@@ -361,6 +361,8 @@ static async Task SeedGlossaryAsync(WebApplication app)
 {
     using var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<CarFitDbContext>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("CarFitDataSeed");
+    await CarFitDataSeed.SeedAsync(context, app.Environment.ContentRootPath, logger);
     await InspectionGlossarySeed.SeedAsync(context);
     await MechanicSeed.SeedAsync(context);
     await MakeSeed.SeedAsync(context);
