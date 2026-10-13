@@ -7,13 +7,31 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // QuestPDF community license (free for our use). Required before any PDF generation.
 QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var isAzure = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// On Azure, if connection string is missing or pointing to local SQL Server, force SQLite in persistent storage
+if (isAzure && (string.IsNullOrWhiteSpace(connectionString)
+    || connectionString.Contains("shahadkh96", StringComparison.OrdinalIgnoreCase)
+    || connectionString.Contains("localhost", StringComparison.OrdinalIgnoreCase)
+    || connectionString.Contains("127.0.0.1")
+    || connectionString.Contains("(localdb)", StringComparison.OrdinalIgnoreCase)))
+{
+    var homeDir = Environment.GetEnvironmentVariable("HOME") ?? "D:\\home";
+    connectionString = $"Data Source={Path.Combine(homeDir, "carfit.db")}";
+}
+else if (string.IsNullOrWhiteSpace(connectionString))
+{
+    connectionString = "Server=shahadkh96;Database=CarFit;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;";
+}
 
 var useSqlite = connectionString.StartsWith("Data Source", StringComparison.OrdinalIgnoreCase);
 
@@ -157,17 +175,42 @@ foreach (var ttf in new[] { "Cairo-Regular.ttf", "Cairo-Bold.ttf" })
 // For SQLite, auto-create the database and tables on first run.
 if (useSqlite)
 {
-    using var scope = app.Services.CreateScope();
-    var appDb = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    appDb.Database.EnsureCreated();
-    // Create CarFit business tables in the same SQLite file.
-    var carFitDb = scope.ServiceProvider.GetRequiredService<CarFitDbContext>();
-    try { carFitDb.Database.EnsureCreated(); } catch { /* tables may overlap */ }
+    try
+    {
+        using var scope = app.Services.CreateScope();
+        var appDb = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        appDb.Database.EnsureCreated();
+
+        // Create CarFit business tables in the same SQLite file.
+        var carFitDb = scope.ServiceProvider.GetRequiredService<CarFitDbContext>();
+        try
+        {
+            var creator = carFitDb.Database.GetService<IRelationalDatabaseCreator>();
+            creator.CreateTables();
+        }
+        catch
+        {
+            // Tables already exist or partially created
+        }
+    }
+    catch (Exception ex)
+    {
+        var logger = app.Services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Failed to initialize SQLite database.");
+    }
 }
 
-await SeedIdentityAsync(app);
-await SeedGlossaryAsync(app);
-await SeedBillingAsync(app);
+try
+{
+    await SeedIdentityAsync(app);
+    await SeedGlossaryAsync(app);
+    await SeedBillingAsync(app);
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "Database seeding failed; application startup continuing.");
+}
 
 if (app.Environment.IsDevelopment())
 {
