@@ -115,5 +115,36 @@ namespace CarFitProject.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet("/api/db-status")]
+        public async Task<IActionResult> DbStatus()
+        {
+            var carsCount = await _context.Cars.CountAsync();
+            var listingsCount = await _context.CarListings.CountAsync();
+            var makesCount = await _context.Makes.CountAsync();
+            var connStr = _context.Database.GetConnectionString();
+            return Json(new { carsCount, listingsCount, makesCount, connStr });
+        }
+
+        [HttpGet("/api/seed-now")]
+        public async Task<IActionResult> SeedNow()
+        {
+            try
+            {
+                var logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger("ManualSeed");
+                await CarFitDataSeed.SeedAsync(_context, "", logger);
+                return Json(new
+                {
+                    success = true,
+                    carsCount = await _context.Cars.CountAsync(),
+                    listingsCount = await _context.CarListings.CountAsync(),
+                    makesCount = await _context.Makes.CountAsync()
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.ToString() });
+            }
+        }
     }
 }
