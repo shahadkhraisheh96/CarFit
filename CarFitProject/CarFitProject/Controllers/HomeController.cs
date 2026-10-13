@@ -122,8 +122,9 @@ namespace CarFitProject.Controllers
             var carsCount = await _context.Cars.CountAsync();
             var listingsCount = await _context.CarListings.CountAsync();
             var makesCount = await _context.Makes.CountAsync();
+            var sellers = await _context.Sellers.Select(s => new { s.Id, s.Name, s.Email }).ToListAsync();
             var connStr = _context.Database.GetConnectionString();
-            return Json(new { carsCount, listingsCount, makesCount, connStr });
+            return Json(new { carsCount, listingsCount, makesCount, sellers, connStr });
         }
 
         [HttpGet("/api/seed-now")]

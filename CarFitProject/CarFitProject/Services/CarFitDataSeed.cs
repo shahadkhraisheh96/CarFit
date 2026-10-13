@@ -42,8 +42,8 @@ namespace CarFitProject.Services
                 await context.SaveChangesAsync(ct);
 
                 // 2. Sellers
-                var existingSellerEmails = new HashSet<string>(await context.Sellers.Where(s => s.Email != null).Select(s => s.Email!).ToListAsync(ct), StringComparer.OrdinalIgnoreCase);
-                var newSellers = sellers.Where(s => s.Email == null || !existingSellerEmails.Contains(s.Email)).ToList();
+                var existingSellerIds = new HashSet<int>(await context.Sellers.Select(s => s.Id).ToListAsync(ct));
+                var newSellers = sellers.Where(s => !existingSellerIds.Contains(s.Id)).ToList();
                 if (newSellers.Count > 0)
                 {
                     await context.Sellers.AddRangeAsync(newSellers, ct);
