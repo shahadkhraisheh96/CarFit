@@ -12,6 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// CLI tool to export local SQL Server database to SQLite carfit.db
+if (args.Contains("--export-sqlite"))
+{
+    await ExportDataToSqliteAsync(builder.Configuration.GetConnectionString("DefaultConnection") 
+        ?? "Server=localhost;Database=CarFit;Trusted_Connection=True;TrustServerCertificate=True;");
+    return;
+}
+
 // QuestPDF community license (free for our use). Required before any PDF generation.
 QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 
@@ -169,6 +177,29 @@ foreach (var ttf in new[] { "Cairo-Regular.ttf", "Cairo-Bold.ttf" })
     {
         using var fs = File.OpenRead(fontPath);
         QuestPDF.Drawing.FontManager.RegisterFont(fs);
+    }
+}
+
+// On Azure, if a pre-populated carfit.db template was deployed, copy it to persistent storage
+if (isAzure)
+{
+    var targetDb = Path.Combine(Environment.GetEnvironmentVariable("HOME") ?? "D:\\home", "carfit.db");
+    var seedDb = Path.Combine(app.Environment.ContentRootPath, "carfit.db");
+    if (File.Exists(seedDb))
+    {
+        if (!File.Exists(targetDb) || new FileInfo(targetDb).Length < 100000)
+        {
+            try
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(targetDb)!);
+                File.Copy(seedDb, targetDb, overwrite: true);
+            }
+            catch (Exception ex)
+            {
+                var logger = app.Services.GetRequiredService<ILogger<Program>>();
+                logger.LogWarning(ex, "Could not copy pre-populated carfit.db to persistent storage.");
+            }
+        }
     }
 }
 
@@ -344,3 +375,89 @@ static async Task SeedBillingAsync(WebApplication app)
         .CreateLogger("SubscriptionPlanSeed");
     await CarFitProject.Services.Billing.SubscriptionPlanSeed.SeedAsync(context, stripe, logger);
 }
+
+static async Task ExportDataToSqliteAsync(string sqlServerConn)
+{
+    var targetFile = Path.Combine(Directory.GetCurrentDirectory(), "carfit.db");
+    if (File.Exists(targetFile)) File.Delete(targetFile);
+
+    var sqliteConn = $"Data Source={targetFile}";
+    Console.WriteLine($"Exporting from SQL Server to SQLite: {targetFile}...");
+
+    var sqlAppOpt = new DbContextOptionsBuilder<ApplicationDbContext>().UseSqlServer(sqlServerConn).Options;
+    var sqlFitOpt = new DbContextOptionsBuilder<CarFitDbContext>().UseSqlServer(sqlServerConn).Options;
+
+    var litAppOpt = new DbContextOptionsBuilder<ApplicationDbContext>().UseSqlite(sqliteConn).Options;
+    var litFitOpt = new DbContextOptionsBuilder<CarFitDbContext>().UseSqlite(sqliteConn).Options;
+
+    using var srcApp = new ApplicationDbContext(sqlAppOpt);
+    using var srcFit = new CarFitDbContext(sqlFitOpt);
+
+    using var dstApp = new ApplicationDbContext(litAppOpt);
+    using var dstFit = new CarFitDbContext(litFitOpt);
+
+    dstApp.Database.EnsureCreated();
+    var creator = dstFit.Database.GetService<IRelationalDatabaseCreator>();
+    creator.CreateTables();
+
+    // Export Identity users & roles
+    try
+    {
+        var users = await srcApp.Users.AsNoTracking().ToListAsync();
+        var roles = await srcApp.Roles.AsNoTracking().ToListAsync();
+        var userRoles = await srcApp.UserRoles.AsNoTracking().ToListAsync();
+        await dstApp.Users.AddRangeAsync(users);
+        await dstApp.Roles.AddRangeAsync(roles);
+        await dstApp.UserRoles.AddRangeAsync(userRoles);
+        await dstApp.SaveChangesAsync();
+        Console.WriteLine($"Exported {users.Count} users and {roles.Count} roles.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Note on Identity export: {ex.Message}");
+    }
+
+    // Export CarFit entities
+    try
+    {
+        var makes = await srcFit.Makes.AsNoTracking().ToListAsync();
+        dstFit.Makes.AddRange(makes);
+
+        var mechanics = await srcFit.Mechanics.AsNoTracking().ToListAsync();
+        dstFit.Mechanics.AddRange(mechanics);
+
+        var glossaries = await srcFit.InspectionTermsGlossaries.AsNoTracking().ToListAsync();
+        dstFit.InspectionTermsGlossaries.AddRange(glossaries);
+
+        var sellers = await srcFit.Sellers.AsNoTracking().ToListAsync();
+        dstFit.Sellers.AddRange(sellers);
+
+        var cars = await srcFit.Cars.AsNoTracking().ToListAsync();
+        dstFit.Cars.AddRange(cars);
+
+        var listings = await srcFit.CarListings.AsNoTracking().ToListAsync();
+        dstFit.CarListings.AddRange(listings);
+
+        var images = await srcFit.CarImages.AsNoTracking().ToListAsync();
+        dstFit.CarImages.AddRange(images);
+
+        var reports = await srcFit.InspectionReports.AsNoTracking().ToListAsync();
+        dstFit.InspectionReports.AddRange(reports);
+
+        var testimonials = await srcFit.Testimonials.AsNoTracking().ToListAsync();
+        dstFit.Testimonials.AddRange(testimonials);
+
+        var plans = await srcFit.SubscriptionPlans.AsNoTracking().ToListAsync();
+        dstFit.SubscriptionPlans.AddRange(plans);
+
+        await dstFit.SaveChangesAsync();
+        Console.WriteLine($"Exported {cars.Count} cars, {listings.Count} listings, {makes.Count} makes, {sellers.Count} sellers, {images.Count} images.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error exporting CarFit entities: {ex.Message}");
+    }
+
+    Console.WriteLine("Export completed successfully!");
+}
+
