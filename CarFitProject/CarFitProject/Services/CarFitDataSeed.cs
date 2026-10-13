@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,15 +10,10 @@ namespace CarFitProject.Services
 {
     public static class CarFitDataSeed
     {
-        public static async Task SeedAsync(CarFitDbContext context, string contentRootPath, ILogger logger, CancellationToken ct = default)
+        public static async Task<string> SeedAsync(CarFitDbContext context, string contentRootPath, ILogger logger, CancellationToken ct = default)
         {
             try
             {
-                if (await context.Cars.AnyAsync(ct))
-                {
-                    return;
-                }
-
                 logger.LogInformation("Seeding CarFit catalog data directly into database...");
 
                 var makes = new Make[] { new Make { Id = 1, Name = "Chevrolet", LogoUrl = "https://icon2.cleanpng.com/20181206/bfu/kisspng-harbor-chevrolet-general-motors-car-kingdom-chevy-chevrolet-blazer-kopen-pietersen-us-carcenter-5c08f74a5da927.5938964315440914663836.jpg" }, new Make { Id = 2, Name = "GMC", LogoUrl = "https://p7.hiclipart.com/preview/29/116/1022/2018-gmc-acadia-denali-t-shirt-logo-brand-cars-logo-brands.jpg" }, new Make { Id = 3, Name = "Hyundai", LogoUrl = "https://i.pinimg.com/736x/05/23/b5/0523b5a95ced6a11f6e664f3b8974e7d.jpg" }, new Make { Id = 4, Name = "Kia", LogoUrl = "https://bucket.dealervenom.com/2023/05/Kia.png?auto=compress%2Cformat&ixlib=php-3.3.1" }, new Make { Id = 5, Name = "Mercedes-Benz", LogoUrl = "https://1000logos.net/wp-content/uploads/2018/04/Mercedes-Benz-Logo.png" }, new Make { Id = 6, Name = "Mitsubishi", LogoUrl = "https://w7.pngwing.com/pngs/625/189/png-transparent-mitsubishi-motors-logo-car-mitsubishi-angle-text-rectangle-thumbnail.png" }, new Make { Id = 7, Name = "Toyota", LogoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDU2etXFwk7uuuudEaLivX_OmWo9YXb6lfbw&s" }, new Make { Id = 8, Name = "Volkswagen", LogoUrl = "https://icon2.cleanpng.com/20171220/xze/avjb44v76.webp" }, new Make { Id = 9, Name = "BYD", LogoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM7cgJ4R3o8Bi0qpAn2ydI1Ct1rnc795d59A&s" } };
@@ -27,18 +22,69 @@ namespace CarFitProject.Services
                 var listings = new CarListing[] { new CarListing { Id = 25, CarId = 25, SellerId = 8, ListingPrice = 13000.00m, InstallmentOption = true, PaymentMethodAllowed = "cash", Status = ListingStatus.Approved }, new CarListing { Id = 26, CarId = 26, SellerId = 3, ListingPrice = 18500.00m, InstallmentOption = true, PaymentMethodAllowed = "Bank", Status = ListingStatus.Approved }, new CarListing { Id = 28, CarId = 28, SellerId = 3, ListingPrice = 13650.00m, InstallmentOption = false, PaymentMethodAllowed = "cash", Status = ListingStatus.Sold }, new CarListing { Id = 29, CarId = 29, SellerId = 9, ListingPrice = 9000.00m, InstallmentOption = true, PaymentMethodAllowed = "cash", Status = ListingStatus.Approved }, new CarListing { Id = 30, CarId = 30, SellerId = 1, ListingPrice = 9500.00m, InstallmentOption = true, PaymentMethodAllowed = "cash", Status = ListingStatus.Approved }, new CarListing { Id = 31, CarId = 31, SellerId = 4, ListingPrice = 3700.00m, InstallmentOption = false, PaymentMethodAllowed = "cash", Status = ListingStatus.Approved }, new CarListing { Id = 32, CarId = 32, SellerId = 4, ListingPrice = 10800.00m, InstallmentOption = true, PaymentMethodAllowed = "Bank", Status = ListingStatus.Approved } };
                 var images = new CarImage[] { new CarImage { Id = 29, CarId = 25, Url = "/uploads/cars/25/4a26c028014f457f806bc8aa0b3837b6.webp", SortOrder = 0, IsPrimary = false }, new CarImage { Id = 30, CarId = 25, Url = "/uploads/cars/25/64c3e52bd8054540bc83674fcc7911d7.webp", SortOrder = 1, IsPrimary = true }, new CarImage { Id = 31, CarId = 25, Url = "/uploads/cars/25/855161369a434f32971e2d2839d4eb48.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 32, CarId = 26, Url = "/uploads/cars/26/9f1df3ab54b94fff800c0967f9a0a0c3.webp", SortOrder = 0, IsPrimary = false }, new CarImage { Id = 33, CarId = 26, Url = "/uploads/cars/26/08acac9def9d47bcaed388bcd7b110dc.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 34, CarId = 26, Url = "/uploads/cars/26/245387d5b3234ed98f75bf284383aed0.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 35, CarId = 26, Url = "/uploads/cars/26/1faa1452f63f4aacab4a67ef531d9586.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 36, CarId = 26, Url = "/uploads/cars/26/747676e060e64180b4c654d5ac4cc399.webp", SortOrder = 4, IsPrimary = false }, new CarImage { Id = 37, CarId = 26, Url = "/uploads/cars/26/670099acfa854d7a964e2927593fa7ae.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 38, CarId = 26, Url = "/uploads/cars/26/1dd6875fb37e486cb2fc1ff422edaf66.webp", SortOrder = 6, IsPrimary = false }, new CarImage { Id = 39, CarId = 26, Url = "/uploads/cars/26/97c42c71f05f4dc28e36e6ee2588cdd3.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 40, CarId = 26, Url = "/uploads/cars/26/cac6f7cec9a84a63828c0ad7bacec6dd.webp", SortOrder = 8, IsPrimary = true }, new CarImage { Id = 51, CarId = 28, Url = "/uploads/cars/28/bc4a89b94376469e8e9429dd98e2b6db.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 52, CarId = 28, Url = "/uploads/cars/28/3f5032da0f654b359871cf14ebb6ee11.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 53, CarId = 28, Url = "/uploads/cars/28/2b568cd7b220497a9e632b9b3fde8f62.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 54, CarId = 28, Url = "/uploads/cars/28/7a43811962134a69a4fecdf2500bea33.webp", SortOrder = 4, IsPrimary = false }, new CarImage { Id = 55, CarId = 28, Url = "/uploads/cars/28/5ca0a7aef60241bfae08e632d7468f1f.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 56, CarId = 28, Url = "/uploads/cars/28/ffdd2a7c8509453b96a98234b8bcf0c7.webp", SortOrder = 6, IsPrimary = false }, new CarImage { Id = 57, CarId = 28, Url = "/uploads/cars/28/cc30f1ab624f476e9f9f853ea9b7a378.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 58, CarId = 28, Url = "/uploads/cars/28/49863b11e10b4da8bde9cd5cee1ebaf3.webp", SortOrder = 8, IsPrimary = true }, new CarImage { Id = 59, CarId = 28, Url = "/uploads/cars/28/94f73d0fc3884426a4182e9a3662802c.webp", SortOrder = 8, IsPrimary = false }, new CarImage { Id = 68, CarId = 29, Url = "/uploads/cars/29/8cb7fef339a24d4192a9b8800ffa7d9a.webp", SortOrder = 0, IsPrimary = false }, new CarImage { Id = 69, CarId = 29, Url = "/uploads/cars/29/df525fe9824a41ec9e0af82666b9403b.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 70, CarId = 29, Url = "/uploads/cars/29/f1c01cec31cd4ac893c27e8b8ecef75a.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 71, CarId = 29, Url = "/uploads/cars/29/6acd825008794ac598e42361c3bf81d2.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 72, CarId = 29, Url = "/uploads/cars/29/c9710d9250fe4bee940eec5939413723.webp", SortOrder = 4, IsPrimary = true }, new CarImage { Id = 73, CarId = 29, Url = "/uploads/cars/29/b077bb2f319245c3bca6bafd14fcd6ec.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 74, CarId = 29, Url = "/uploads/cars/29/34c7877ac62643dbbc759467cdab9a94.webp", SortOrder = 6, IsPrimary = false }, new CarImage { Id = 75, CarId = 29, Url = "/uploads/cars/29/b3569affc78a45f49523e45104f58989.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 76, CarId = 30, Url = "/uploads/cars/30/4261507856474f3997ed612e5968d2e2.webp", SortOrder = 0, IsPrimary = true }, new CarImage { Id = 77, CarId = 30, Url = "/uploads/cars/30/4faee71706024dbaa6b077fd04861574.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 78, CarId = 30, Url = "/uploads/cars/30/b40455ee2871486f822b48433fc350ea.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 79, CarId = 30, Url = "/uploads/cars/30/8995bdc338c543fb9aa391ec9e40f00d.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 80, CarId = 30, Url = "/uploads/cars/30/0031a770a3b14303bec84202984ddedc.webp", SortOrder = 4, IsPrimary = false }, new CarImage { Id = 81, CarId = 30, Url = "/uploads/cars/30/e779f1e4d98d40b39d45044b59227f1a.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 82, CarId = 30, Url = "/uploads/cars/30/363b39c78afb442f896b47f3b5ab8fca.webp", SortOrder = 6, IsPrimary = false }, new CarImage { Id = 83, CarId = 30, Url = "/uploads/cars/30/987de1022f43475c9cb31ff9a695452f.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 84, CarId = 30, Url = "/uploads/cars/30/6af9fa9805c94c01bf4054d4b1a8efdc.webp", SortOrder = 8, IsPrimary = false }, new CarImage { Id = 85, CarId = 31, Url = "/uploads/cars/31/ea9b12817a2543c6be3f591da4db5cca.webp", SortOrder = 0, IsPrimary = false }, new CarImage { Id = 86, CarId = 31, Url = "/uploads/cars/31/23de787d94e24787b18dcfbbc4466a89.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 87, CarId = 31, Url = "/uploads/cars/31/a7a94b7ca0b54d398832cfbef7d58ea2.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 88, CarId = 31, Url = "/uploads/cars/31/84f639f087c949ef921735f2d0fa60d1.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 89, CarId = 31, Url = "/uploads/cars/31/b54fb202cf724e6f9725ebdc4ff1058e.webp", SortOrder = 4, IsPrimary = false }, new CarImage { Id = 90, CarId = 31, Url = "/uploads/cars/31/4484e2db16ef4b5494a105d2c32dd30e.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 91, CarId = 31, Url = "/uploads/cars/31/710d8de0844146d299da8f4bd9af0117.webp", SortOrder = 6, IsPrimary = true }, new CarImage { Id = 92, CarId = 31, Url = "/uploads/cars/31/0d8cc3ab66ec48e18ccf77b6aa8c26ea.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 93, CarId = 32, Url = "/uploads/cars/32/7ff8509dff6b49ab8fedd60354160518.webp", SortOrder = 0, IsPrimary = false }, new CarImage { Id = 94, CarId = 32, Url = "/uploads/cars/32/5268ba4919c64d6294914dfdf3ce9218.webp", SortOrder = 1, IsPrimary = false }, new CarImage { Id = 95, CarId = 32, Url = "/uploads/cars/32/d60a90c8d61444c8b2c0fe9485c26bb5.webp", SortOrder = 2, IsPrimary = false }, new CarImage { Id = 96, CarId = 32, Url = "/uploads/cars/32/bad09fa1c3da4d62a46cfdc393c9725c.webp", SortOrder = 3, IsPrimary = false }, new CarImage { Id = 97, CarId = 32, Url = "/uploads/cars/32/7d750b4a97bb41919ab1522efe27ca6a.webp", SortOrder = 4, IsPrimary = false }, new CarImage { Id = 98, CarId = 32, Url = "/uploads/cars/32/062fd04194d94d6686d774a450fc6548.webp", SortOrder = 5, IsPrimary = false }, new CarImage { Id = 99, CarId = 32, Url = "/uploads/cars/32/68731a6c4dd54ee8bdc3a9dcfbdea92d.webp", SortOrder = 6, IsPrimary = false }, new CarImage { Id = 100, CarId = 32, Url = "/uploads/cars/32/f5dd9d4af27641bc8a535656536d231b.webp", SortOrder = 7, IsPrimary = false }, new CarImage { Id = 101, CarId = 32, Url = "/uploads/cars/32/dc68315ec7624d0db37a339e420c9139.webp", SortOrder = 8, IsPrimary = false }, new CarImage { Id = 102, CarId = 32, Url = "/uploads/cars/32/60ad06c1cfb54ad096f561ca6f95c3fc.webp", SortOrder = 9, IsPrimary = false }, new CarImage { Id = 103, CarId = 32, Url = "/uploads/cars/32/85edb2136d1a4365af898137cfeff2b7.webp", SortOrder = 10, IsPrimary = false }, new CarImage { Id = 104, CarId = 32, Url = "/uploads/cars/32/c33b43f42f8848999728a9c60fbac0fb.webp", SortOrder = 11, IsPrimary = true } };
 
-                await context.Makes.AddRangeAsync(makes, ct);
-                await context.Sellers.AddRangeAsync(sellers, ct);
-                await context.Cars.AddRangeAsync(cars, ct);
-                await context.CarListings.AddRangeAsync(listings, ct);
-                await context.CarImages.AddRangeAsync(images, ct);
+                // 1. Makes
+                var existingMakeNames = new HashSet<string>(await context.Makes.Select(m => m.Name).ToListAsync(ct), StringComparer.OrdinalIgnoreCase);
+                var newMakes = makes.Where(m => !existingMakeNames.Contains(m.Name)).ToList();
+                if (newMakes.Count > 0)
+                {
+                    await context.Makes.AddRangeAsync(newMakes, ct);
+                    await context.SaveChangesAsync(ct);
+                }
+                var dbMakes = await context.Makes.ToListAsync(ct);
+                foreach (var em in dbMakes)
+                {
+                    var match = makes.FirstOrDefault(m => string.Equals(m.Name, em.Name, StringComparison.OrdinalIgnoreCase));
+                    if (match != null && string.IsNullOrEmpty(em.LogoUrl) && !string.IsNullOrEmpty(match.LogoUrl))
+                    {
+                        em.LogoUrl = match.LogoUrl;
+                    }
+                }
                 await context.SaveChangesAsync(ct);
 
-                logger.LogInformation("Successfully seeded cars, makes, listings, and images!");
+                // 2. Sellers
+                var existingSellerEmails = new HashSet<string>(await context.Sellers.Where(s => s.Email != null).Select(s => s.Email!).ToListAsync(ct), StringComparer.OrdinalIgnoreCase);
+                var newSellers = sellers.Where(s => s.Email == null || !existingSellerEmails.Contains(s.Email)).ToList();
+                if (newSellers.Count > 0)
+                {
+                    await context.Sellers.AddRangeAsync(newSellers, ct);
+                    await context.SaveChangesAsync(ct);
+                }
+
+                // 3. Cars
+                var existingCarIds = new HashSet<int>(await context.Cars.Select(c => c.Id).ToListAsync(ct));
+                var newCars = cars.Where(c => !existingCarIds.Contains(c.Id)).ToList();
+                if (newCars.Count > 0)
+                {
+                    await context.Cars.AddRangeAsync(newCars, ct);
+                    await context.SaveChangesAsync(ct);
+                }
+
+                // 4. Listings
+                var existingListingIds = new HashSet<int>(await context.CarListings.Select(l => l.Id).ToListAsync(ct));
+                var newListings = listings.Where(l => !existingListingIds.Contains(l.Id)).ToList();
+                if (newListings.Count > 0)
+                {
+                    await context.CarListings.AddRangeAsync(newListings, ct);
+                    await context.SaveChangesAsync(ct);
+                }
+
+                // 5. Images
+                var existingImageIds = new HashSet<int>(await context.CarImages.Select(img => img.Id).ToListAsync(ct));
+                var newImages = images.Where(img => !existingImageIds.Contains(img.Id)).ToList();
+                if (newImages.Count > 0)
+                {
+                    await context.CarImages.AddRangeAsync(newImages, ct);
+                    await context.SaveChangesAsync(ct);
+                }
+
+                var msg = $"Seeded: {newCars.Count} cars, {newListings.Count} listings, {newSellers.Count} sellers, {newImages.Count} images.";
+                logger.LogInformation("{Msg}", msg);
+                return msg;
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "Failed to seed catalog data.");
+                throw;
             }
         }
     }

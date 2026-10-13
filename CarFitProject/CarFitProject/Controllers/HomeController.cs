@@ -132,10 +132,11 @@ namespace CarFitProject.Controllers
             try
             {
                 var logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger("ManualSeed");
-                await CarFitDataSeed.SeedAsync(_context, "", logger);
+                var report = await CarFitDataSeed.SeedAsync(_context, "", logger);
                 return Json(new
                 {
                     success = true,
+                    report,
                     carsCount = await _context.Cars.CountAsync(),
                     listingsCount = await _context.CarListings.CountAsync(),
                     makesCount = await _context.Makes.CountAsync()
