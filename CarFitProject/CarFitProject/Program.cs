@@ -223,6 +223,10 @@ if (useSqlite)
         {
             // Tables already exist or partially created
         }
+
+        // Seed cars, listings, makes, sellers immediately!
+        var seedLogger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("CarFitDataSeed");
+        await CarFitDataSeed.SeedAsync(carFitDb, app.Environment.ContentRootPath, seedLogger);
     }
     catch (Exception ex)
     {
@@ -234,13 +238,31 @@ if (useSqlite)
 try
 {
     await SeedIdentityAsync(app);
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogWarning(ex, "SeedIdentityAsync warning.");
+}
+
+try
+{
     await SeedGlossaryAsync(app);
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogWarning(ex, "SeedGlossaryAsync warning.");
+}
+
+try
+{
     await SeedBillingAsync(app);
 }
 catch (Exception ex)
 {
     var logger = app.Services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(ex, "Database seeding failed; application startup continuing.");
+    logger.LogWarning(ex, "SeedBillingAsync warning.");
 }
 
 if (app.Environment.IsDevelopment())
