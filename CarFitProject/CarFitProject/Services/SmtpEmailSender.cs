@@ -25,32 +25,41 @@ namespace CarFitProject.Services
         {
             if (string.IsNullOrWhiteSpace(_settings.Host) || string.IsNullOrWhiteSpace(_settings.From))
             {
-                throw new InvalidOperationException(
-                    "EmailSettings:Host and EmailSettings:From must be configured before SmtpEmailSender can send.");
+                _logger.LogWarning(
+                    "SMTP not configured (EmailSettings:Host or From is empty). Skipped sending email to {Recipient}. Subject: {Subject}",
+                    email, subject);
+                return;
             }
 
-            using var message = new MailMessage
+            try
             {
-                From = new MailAddress(_settings.From),
-                Subject = subject,
-                Body = htmlMessage,
-                IsBodyHtml = true
-            };
-            message.To.Add(email);
+                using var message = new MailMessage
+                {
+                    From = new MailAddress(_settings.From),
+                    Subject = subject,
+                    Body = htmlMessage,
+                    IsBodyHtml = true
+                };
+                message.To.Add(email);
 
-            using var client = new SmtpClient(_settings.Host, _settings.Port)
-            {
-                EnableSsl = _settings.EnableSsl,
-                DeliveryMethod = SmtpDeliveryMethod.Network
-            };
+                using var client = new SmtpClient(_settings.Host, _settings.Port)
+                {
+                    EnableSsl = _settings.EnableSsl,
+                    DeliveryMethod = SmtpDeliveryMethod.Network
+                };
 
-            if (!string.IsNullOrEmpty(_settings.User))
-            {
-                client.Credentials = new NetworkCredential(_settings.User, _settings.Password);
+                if (!string.IsNullOrEmpty(_settings.User))
+                {
+                    client.Credentials = new NetworkCredential(_settings.User, _settings.Password);
+                }
+
+                await client.SendMailAsync(message);
+                _logger.LogInformation("Sent email to {Recipient} via {Host}:{Port}.", email, _settings.Host, _settings.Port);
             }
-
-            await client.SendMailAsync(message);
-            _logger.LogInformation("Sent email to {Recipient} via {Host}:{Port}.", email, _settings.Host, _settings.Port);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send email to {Recipient} via SMTP.", email);
+            }
         }
     }
 }
