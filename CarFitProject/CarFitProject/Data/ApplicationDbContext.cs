@@ -14,10 +14,12 @@ namespace CarFitProject.Data
         {
             base.OnModelCreating(builder);
 
+            var isSqlite = Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite";
+
             builder.Entity<ApplicationUser>(b =>
             {
                 b.Property(u => u.IsActive).HasDefaultValue(true);
-                b.Property(u => u.CreatedAt).HasDefaultValueSql("getutcdate()");
+                b.Property(u => u.CreatedAt).HasDefaultValueSql(isSqlite ? "datetime('now')" : "getutcdate()");
                 b.Property(u => u.SubscriptionTier)
                     .HasMaxLength(20)
                     .HasDefaultValue("Free");

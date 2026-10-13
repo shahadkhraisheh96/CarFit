@@ -15,19 +15,30 @@ QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+var useSqlite = connectionString.StartsWith("Data Source", StringComparison.OrdinalIgnoreCase);
+
 // Trust the dev SQL Server self-signed cert in Development only.
-if (builder.Environment.IsDevelopment()
+if (!useSqlite && builder.Environment.IsDevelopment()
     && !connectionString.Contains("TrustServerCertificate=", StringComparison.OrdinalIgnoreCase))
 {
     if (!connectionString.EndsWith(";")) connectionString += ";";
     connectionString += "TrustServerCertificate=True;";
 }
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-
-builder.Services.AddDbContext<CarFitDbContext>(options =>
-    options.UseSqlServer(connectionString));
+if (useSqlite)
+{
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlite(connectionString));
+    builder.Services.AddDbContext<CarFitDbContext>(options =>
+        options.UseSqlite(connectionString));
+}
+else
+{
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(connectionString));
+    builder.Services.AddDbContext<CarFitDbContext>(options =>
+        options.UseSqlServer(connectionString));
+}
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -141,6 +152,17 @@ foreach (var ttf in new[] { "Cairo-Regular.ttf", "Cairo-Bold.ttf" })
         using var fs = File.OpenRead(fontPath);
         QuestPDF.Drawing.FontManager.RegisterFont(fs);
     }
+}
+
+// For SQLite, auto-create the database and tables on first run.
+if (useSqlite)
+{
+    using var scope = app.Services.CreateScope();
+    var appDb = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    appDb.Database.EnsureCreated();
+    // Create CarFit business tables in the same SQLite file.
+    var carFitDb = scope.ServiceProvider.GetRequiredService<CarFitDbContext>();
+    try { carFitDb.Database.EnsureCreated(); } catch { /* tables may overlap */ }
 }
 
 await SeedIdentityAsync(app);

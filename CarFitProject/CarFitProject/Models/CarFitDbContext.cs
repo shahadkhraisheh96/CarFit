@@ -60,6 +60,9 @@ public partial class CarFitDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        var isSqlite = Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite";
+        var utcNow = isSqlite ? "datetime('now')" : "(getutcdate())";
+        var now = isSqlite ? "datetime('now')" : "(getdate())";
         modelBuilder.Entity<Car>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Cars__3213E83F43C12A3A");
@@ -148,7 +151,7 @@ public partial class CarFitDbContext : DbContext
                 .HasColumnName("payment_method_allowed");
             entity.Property(e => e.SellerId).HasColumnName("seller_id");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getutcdate())")
+                .HasDefaultValueSql(utcNow)
                 .HasColumnName("created_at");
 
             entity.HasOne(d => d.Car).WithMany(p => p.CarListings)
@@ -203,7 +206,7 @@ public partial class CarFitDbContext : DbContext
                 .HasColumnName("content_type");
             entity.Property(e => e.FileSizeBytes).HasColumnName("file_size_bytes");
             entity.Property(e => e.UploadedAtUtc)
-                .HasDefaultValueSql("(getutcdate())")
+                .HasDefaultValueSql(utcNow)
                 .HasColumnName("uploaded_at_utc");
             entity.Property(e => e.UploadedByUserId)
                 .HasMaxLength(450)
@@ -322,7 +325,7 @@ public partial class CarFitDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
+                .HasDefaultValueSql(now)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
             entity.Property(e => e.RecommendedCarIds).HasColumnName("recommended_car_ids");
@@ -343,7 +346,7 @@ public partial class CarFitDbContext : DbContext
                 .HasColumnName("user_id");
             entity.Property(e => e.CarId).HasColumnName("car_id");
             entity.Property(e => e.SavedAt)
-                .HasDefaultValueSql("(getdate())")
+                .HasDefaultValueSql(now)
                 .HasColumnType("datetime")
                 .HasColumnName("saved_at");
 
@@ -451,9 +454,11 @@ public partial class CarFitDbContext : DbContext
 
         modelBuilder.Entity<VwAvailableCarDetail>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToView("vw_AvailableCarDetails");
+            entity.HasNoKey();
+            if (!isSqlite)
+                entity.ToView("vw_AvailableCarDetails");
+            else
+                entity.ToTable("VwAvailableCarDetails");
 
             entity.Property(e => e.BodyCondition)
                 .HasMaxLength(255)
@@ -545,7 +550,7 @@ public partial class CarFitDbContext : DbContext
                 .HasMaxLength(500);
 
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())");
+                .HasDefaultValueSql(now);
 
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
@@ -595,7 +600,7 @@ public partial class CarFitDbContext : DbContext
             // check-before-insert in TestimonialService.
             entity.HasIndex(e => e.UserId, "UX_Testimonials_user_id")
                 .IsUnique()
-                .HasFilter("[user_id] IS NOT NULL");
+                .HasFilter(isSqlite ? "user_id IS NOT NULL" : "[user_id] IS NOT NULL");
 
             // Id is left as the EF default (ValueGeneratedOnAdd) so SQL Server
             // creates it as an IDENTITY column — never assigned by application code.
@@ -616,7 +621,7 @@ public partial class CarFitDbContext : DbContext
                 .HasDefaultValue(false)
                 .HasColumnName("is_approved");
             entity.Property(e => e.CreatedDate)
-                .HasDefaultValueSql("(getdate())")
+                .HasDefaultValueSql(now)
                 .HasColumnType("datetime")
                 .HasColumnName("created_date");
         });
@@ -637,7 +642,7 @@ public partial class CarFitDbContext : DbContext
                 .HasMaxLength(450)
                 .HasColumnName("user_id");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("getutcdate()")
+                .HasDefaultValueSql(isSqlite ? "datetime('now')" : "getutcdate()")
                 .HasColumnName("created_at");
         });
         modelBuilder.Entity<CarImage>(entity =>
@@ -677,12 +682,12 @@ public partial class CarFitDbContext : DbContext
             entity.HasIndex(e => e.Status, "IX_Subscriptions_Status");
             entity.HasIndex(e => e.StripeSubscriptionId, "UX_Subscriptions_StripeSubscriptionId")
                 .IsUnique()
-                .HasFilter("[StripeSubscriptionId] IS NOT NULL");
+                .HasFilter(isSqlite ? "StripeSubscriptionId IS NOT NULL" : "[StripeSubscriptionId] IS NOT NULL");
 
             entity.Property(e => e.UserId).IsRequired().HasMaxLength(450);
             entity.Property(e => e.StripeSubscriptionId).HasMaxLength(255);
             entity.Property(e => e.Status).HasConversion<string>().HasMaxLength(20);
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getutcdate())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql(utcNow);
 
             entity.HasOne(e => e.Plan).WithMany(p => p.Subscriptions)
                 .HasForeignKey(e => e.PlanId)
@@ -698,14 +703,14 @@ public partial class CarFitDbContext : DbContext
             // Idempotency guard: a Stripe charge id can be recorded at most once.
             entity.HasIndex(e => e.StripePaymentIntentId, "UX_PaymentTransactions_StripePaymentIntentId")
                 .IsUnique()
-                .HasFilter("[StripePaymentIntentId] IS NOT NULL");
+                .HasFilter(isSqlite ? "StripePaymentIntentId IS NOT NULL" : "[StripePaymentIntentId] IS NOT NULL");
 
             entity.Property(e => e.UserId).IsRequired().HasMaxLength(450);
             entity.Property(e => e.StripePaymentIntentId).HasMaxLength(255);
             entity.Property(e => e.AmountJod).HasColumnType("decimal(18, 3)");
             entity.Property(e => e.Status).IsRequired().HasMaxLength(20);
             entity.Property(e => e.Type).HasConversion<string>().HasMaxLength(20);
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getutcdate())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql(utcNow);
 
             entity.HasOne(e => e.Subscription).WithMany(s => s.Transactions)
                 .HasForeignKey(e => e.SubscriptionId)
@@ -726,7 +731,7 @@ public partial class CarFitDbContext : DbContext
 
             entity.Property(e => e.BuyerUserId).IsRequired().HasMaxLength(450);
             entity.Property(e => e.SellerUserId).HasMaxLength(450);
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getutcdate())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql(utcNow);
         });
 
         OnModelCreatingPartial(modelBuilder);
